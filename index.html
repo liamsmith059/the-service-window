@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Service Window</title>
+  <meta name="description" content="The glass is chosen for the fat, the salt, the sugar, and the heat.">
+  <meta property="og:title" content="The Service Window">
+  <meta property="og:description" content="The glass is chosen for the fat, the salt, the sugar, and the heat.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/big-mac.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Service Window">
+  <meta name="twitter:description" content="The glass is chosen for the fat, the salt, the sugar, and the heat.">
+  <meta name="twitter:image" content="images/big-mac.webp">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("sw-theme");
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the menu</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="mark" href="#/">
+        <span class="mark-name">The Service Window</span>
+        <span class="mark-kicker">Cellar list</span>
+      </a>
+      <div class="header-actions">
+        <button type="button" class="btn btn-solid" id="surprise">Surprise me</button>
+        <button type="button" class="btn" id="theme-toggle" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <noscript>
+      <p class="noscript">This list needs JavaScript. It runs entirely in the browser. Nothing is sent anywhere.</p>
+    </noscript>
+
+    <div id="view-home">
+      <div class="wrap">
+        <div class="menu-intro">
+          <h1>What are you having.</h1>
+          <p class="lede">The glass is chosen for the fat, the salt, the sugar, and the heat.</p>
+        </div>
+        <div id="chips" class="chips" role="toolbar" aria-label="Filter by restaurant"></div>
+        <div id="grid" class="grid"></div>
+        <section id="about" class="about">
+          <div class="about-layout">
+            <img class="about-photo" src="images/sommelier.webp" width="1024" height="768" alt="Wilhelm Smithers, a fictional chef sommelier: a middle-aged man with a large curled moustache, in a white shirt, burgundy tie, and black waistcoat, a silver tastevin on a ribbon, holding a glass of red wine. Bottle shelves and a restaurant window are behind him.">
+            <div class="about-copy">
+              <h2>About the Sommelier</h2>
+              <p class="about-name">Wilhelm Smithers</p>
+              <p class="about-role">Chef sommelier</p>
+              <p>He grew up inspired by the legendary chef Joel Friesen. The notes were learned in rooms with linen, then applied, unchanged, to paper bags. A dish is tasted for fat, salt, sugar, acid, heat, and bitterness. A wine is asked to answer one of those and to leave the others alone.</p>
+              <p>Nothing on this list was commissioned. The restaurants named here have not approved the pairings. The wines are real, the regions are real, and the reasoning is the reasoning used on a tasting menu, including the times when the correct bottle is the less expensive one.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div id="view-pairing" hidden>
+      <div class="wrap detail-wrap" id="pairing-root"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-age">Please drink responsibly. 19+ in Ontario.</p>
+      <p>The Service Window is an independent list. It is not affiliated with, or endorsed by, any restaurant named here. Names are used only to identify dishes.</p>
+      <a class="footer-link" href="#about">About the sommelier</a>
+    </div>
+  </footer>
+
+  <script src="data/pairings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

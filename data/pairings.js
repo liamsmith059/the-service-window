@@ -1,0 +1,1071 @@
+/* The Service Window — pairing list
+   Add a dish under its house. ids are lowercase and unique within the house.
+   Required: id, name, wine, place, food, why, service, budgetWine, budgetPlace, budget
+   Optional: keys, extra words for the search box.
+*/
+window.CELLAR = {
+  chains: [
+    {
+      id: "aw",
+      name: "A&W",
+      note: "A Canadian counter. The sauce is tangy, the onion rings are sweet from the onion itself, and the root beer is sweeter than any table wine.",
+      items: [
+        {
+          id: "teen-burger",
+          name: "Teen Burger",
+          wine: "Valpolicella Classico",
+          place: "Corvina blend, Veneto",
+          keys: "aw burger beef",
+          food: "A thin beef patty, a sauce that is tangy and slightly sweet, melted cheese, lettuce, and tomato on a soft bun. The salt is even. The sauce is the flavor that has to be answered.",
+          why: "The sauce behaves like a tomato dressing: acid, a little sugar, and fat from the cheese. Valpolicella Classico is a light red of sour cherry and bitter almond, with more acid than tannin. A heavier red would taste dry against the bun. This one can pass through the sauce and still show the beef.",
+          service: "Serve a little cooler than a usual red, near 14°C. If the bottle has been in a warm car, set it on the floor for the length of the line. A paper cup works if you leave the top third empty.",
+          budgetWine: "Bardolino",
+          budgetPlace: "Veneto",
+          budget: "The same family of grapes, in a lighter wine from the other side of the lake. Less depth, the same acid. Chill it the same way."
+        },
+        {
+          id: "mama-burger",
+          name: "Mama Burger",
+          wine: "Tavel",
+          place: "Dry rosé, Southern Rhône",
+          keys: "small burger",
+          food: "The smaller burger in the same family. Beef, a tangy sauce, cheese, and fresh vegetables. There is less meat and more of the bright, pickled edge.",
+          why: "A full red is more wine than this amount of beef requires. Tavel is a dry rosé with some body, made mostly from Grenache, and it has enough structure for a cooked patty without covering the lettuce and tomato. The acid meets the sauce.",
+          service: "Serve at 10°C. Rosé that sits warm tastes flat, and a closed car will warm it. Keep the bottle out of the sun between sips.",
+          budgetWine: "Cabernet Franc rosé",
+          budgetPlace: "Niagara Peninsula",
+          budget: "A local dry rosé. Acid first, a little red fruit, no sweetness. It will be less broad than Tavel and just as useful with the sauce."
+        },
+        {
+          id: "root-beer",
+          name: "Root Beer",
+          wine: "Moscato d'Asti",
+          place: "Piedmont",
+          keys: "soda pop mug",
+          food: "Cold, sweet, and flavored with vanilla and spice. The carbonation is part of the recipe. It is already a finished drink.",
+          why: "A dry wine tasted beside root beer seems thin, because the soda is sweeter than the wine. Moscato d'Asti is lightly sweet, low in alcohol, and gently fizzy, which is as close as wine comes to remaining intact here. The grape and the orange blossom do not imitate the vanilla. They remain present beside it.",
+          service: "Serve colder than the root beer, near 6°C. Alternate sips. Do not pour one into the other.",
+          budgetWine: "Asti",
+          budgetPlace: "Piedmont",
+          budget: "The sweeter sparkling version of the same grape. Less delicacy, enough sugar to stand next to the soda. The instruction is the same: beside it, not in it."
+        },
+        {
+          id: "onion-rings",
+          name: "Onion Rings",
+          wine: "Grüner Veltliner",
+          place: "Federspiel, Wachau",
+          keys: "onion ring fried",
+          food: "Sweet onion inside a batter that fries to a pale crust. Salt, a little pepper, and enough oil that the last rings shine.",
+          why: "Cooked onion brings sweetness and a savory edge; the batter brings fat. Grüner Veltliner at Federspiel weight has white pepper, radish, and a firm acid, which keeps fried onion precise instead of heavy. A sweet wine would pile onto the onion. This stays dry.",
+          service: "Serve at 8°C. The pepper in the wine goes quiet if the bottle is numb with ice, so do not over-chill it. These are eaten quickly; a short pour is enough.",
+          budgetWine: "Grüner Veltliner",
+          budgetPlace: "Liter bottle, Austria",
+          budget: "Often the same grape from a less famous hillside, sold in a liter. More citrus, less stone. The acid still cuts the batter."
+        },
+        {
+          id: "chubby-chicken",
+          name: "Chubby Chicken Burger",
+          wine: "Txakoli",
+          place: "Getariako Txakolina",
+          keys: "chicken burger breaded",
+          food: "A breaded chicken patty, shredded lettuce, and a creamy sauce on a soft bun. The crust is the savory part. The sauce is mild and rich.",
+          why: "Txakoli is a white with a slight spritz, high acid, and a saline finish. Fried breading and a creamy sauce are the fat it is built to clear, and the spritz does some of the work that a larger sparkling wine would do with bubbles. An oaky still white would sit on the sauce. The crust wants something sharper.",
+          service: "Serve at 7°C. Pour it while the slight foam is still there. If the open bottle warms, it goes flat, and the pairing loses the part that was doing the work.",
+          budgetWine: "Vinho Verde",
+          budgetPlace: "Minho",
+          budget: "A simpler Portuguese white with a similar light spritz and a citrus edge. Less salt in the finish, the same refreshment. Drink it just as cold."
+        },
+        {
+          id: "chocolate-shake",
+          name: "Chocolate Milkshake",
+          wine: "Moscatel de Setúbal",
+          place: "Setúbal, Portugal",
+          keys: "shake dessert chocolate",
+          food: "A thick chocolate shake, very cold, with dairy and sugar doing almost all of the work. There is no savory element to lean on.",
+          why: "Cold dairy mutes wine. A dry table wine disappears beside a shake, and a tannic red tastes bitter. Moscatel de Setúbal is fortified, aromatic, and sweet, with orange peel and raisin, and it is concentrated enough to remain a separate flavor. It will not taste like the shake. It has to be darker than the shake.",
+          service: "Pour a small measure, about two ounces, at cellar temperature rather than over ice. Sip it between draws on the straw. Do not stir it in.",
+          budgetWine: "Moscatel",
+          budgetPlace: "Málaga",
+          budget: "Another fortified muscat, usually a little simpler. Same size of pour, and the same decision to keep it out of the cup."
+        }
+      ]
+    },
+    {
+      id: "burger-king",
+      name: "Burger King",
+      note: "The beef is cooked over flame. Char, raw onion, and a slightly sweet bun are the constants.",
+      items: [
+        {
+          id: "whopper",
+          name: "Whopper",
+          wine: "Saint-Joseph",
+          place: "Syrah, Northern Rhône",
+          keys: "flame grilled burger onion",
+          food: "A thick char from an open flame, raw onion, pickle, tomato, mayonnaise, and a bun with a little sweetness. The smoke is not a garnish. It is the main savory note.",
+          why: "Flame-cooked beef with onion wants a red that has pepper and a little smoke of its own, and enough acid that the mayonnaise does not sit. Saint-Joseph is northern Rhône Syrah: dark fruit, black pepper, and tannin that is present without being huge. A very ripe, heavily oaked Shiraz would repeat the sweetness of the bun. This stays savory.",
+          service: "A young bottle is tighter than the burger. Open it and leave it in the cup holder for about twenty minutes while the line moves. That is the decant. A pitcher is unnecessary.",
+          budgetWine: "Cabernet Franc",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Pepper and acid, in a local red, without the Syrah's darker fruit. It handles the char and the pickle. Give it the same twenty minutes open if it tastes tight."
+        },
+        {
+          id: "chicken-fries",
+          name: "Chicken Fries",
+          wine: "Crémant d'Alsace",
+          place: "Traditional method, Alsace",
+          keys: "chicken fry salted",
+          food: "Narrow pieces of seasoned chicken in a salty crust, eaten with the fingers, often with a dipping sauce sweeter than the chicken.",
+          why: "Salt and a thin layer of frying fat are a sound case for sparkling wine. Crémant d'Alsace is made by the traditional method, so it has the acid and the fine bubbles. If the dip is sweet, a brut style still fits better than a sweet sparkler, because the chicken itself is savory. The bubbles reset the salt between pieces.",
+          service: "Serve at 8°C. Pour down the side of the cup so the foam stays in the cup and not on the lid.",
+          budgetWine: "Cava Brut",
+          budgetPlace: "Penedès",
+          budget: "Another traditional-method sparkling wine, drier than many people expect when the label says brut. A little earthier than the Alsace. Same chill, same effect on the crust."
+        },
+        {
+          id: "onion-rings",
+          name: "Onion Rings",
+          wine: "Riesling",
+          place: "Dry, Alsace",
+          keys: "onion ring battered",
+          food: "A thick batter, onion that steams inside it, and salt on the outside. The onion tastes sweet because it is cooked, not because of a glaze.",
+          why: "A dry Alsace Riesling is richer than a light German Kabinett and fully dry, which fits an onion that has turned sweet in the fryer. The acid is still high. It cuts the batter and keeps that sweetness from making the wine seem sour. An off-dry Riesling would add sugar the onion does not need.",
+          service: "Serve at 8°C. The pairing depends on the crust, so drink it while the batter is still crisp.",
+          budgetWine: "Dry Riesling",
+          budgetPlace: "Niagara Peninsula",
+          budget: "A cool-climate dry Riesling with lime and a firm finish. Less body than Alsace, enough acid for the oil. Do not buy an off-dry bottle for this. The residual sugar is not required."
+        },
+        {
+          id: "impossible-whopper",
+          name: "Impossible Whopper",
+          wine: "Pinot Noir",
+          place: "Bourgogne Rouge",
+          keys: "plant burger impossible",
+          food: "A plant patty grilled over flame, with the same mayonnaise, tomato, pickle, and onion as the beef version. The patty is softer and slightly sweeter than beef, and it takes the char on its surface.",
+          why: "There is less fat and less firm protein than in the beef Whopper, so a tannic Syrah tastes woody and dry. A basic Bourgogne Pinot Noir has red fruit, earth, and low tannin. The char still has something to meet, and the pickle supplies acid the wine can match. Choose a lighter bottle, not a heavily oaked one.",
+          service: "Serve near 14°C. If it was warm in the shop, a few minutes in moving air is the correction. No decant.",
+          budgetWine: "Pinot Noir",
+          budgetPlace: "Niagara Peninsula",
+          budget: "A little brighter, and sometimes a little greener. The green note is fine with the pickle and less fine if it turns vegetal. Choose one that smells of cherry first."
+        },
+        {
+          id: "original-chicken",
+          name: "Original Chicken Sandwich",
+          wine: "Pinot Gris",
+          place: "Alsace",
+          keys: "chicken sandwich mayo",
+          food: "A breaded white-meat fillet, mayonnaise, and lettuce. The crust is seasoned and the meat is mild. Most of the richness is in the sauce and the fry.",
+          why: "Alsace Pinot Gris has weight without oak and, in many bottles, a faint sweetness even when it is not labeled as such. That weight meets the mayonnaise. The acid is moderate, so this is not the sharpest match for the crust, but a very tart wine tastes thin against the sauce. Match richness with richness, and keep the wine dry enough to remain a table wine.",
+          service: "Serve at 9°C. Too cold, and the texture of the wine disappears. The texture is why this bottle was chosen. A short pour is enough.",
+          budgetWine: "Pinot Gris",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Usually drier and a little lighter. It still has the pear-skin texture that works with mayonnaise. Do not expect the Alsace spice. Chill it the same way."
+        },
+        {
+          id: "sundae-pie",
+          name: "Hershey's Sundae Pie",
+          wine: "Pedro Ximénez",
+          place: "Jerez",
+          keys: "chocolate pie dessert",
+          food: "A chocolate cream pie with a crumb crust, served cold. The chocolate is milk-sweet. The crust is firm, and salty at the edge.",
+          why: "Tannin and cold chocolate cream are a poor meeting. Pedro Ximénez is a sherry made from grapes dried until they are raisins, then fortified. It is very sweet, with fig, molasses, and a bitter edge that keeps it from tasting like syrup. Beside milk chocolate, that bitterness is what makes it read as wine.",
+          service: "A two-ounce pour at cool room temperature. The pie is cold; the sherry should not be. Take a bite first, then the wine, so the chocolate meets it at its sweetest.",
+          budgetWine: "Moscatel",
+          budgetPlace: "Málaga",
+          budget: "Sweet and fortified, with more orange blossom and less molasses. A little less concentration. Use the same small pour."
+        }
+      ]
+    },
+    {
+      id: "chick-fil-a",
+      name: "Chick-fil-A",
+      note: "The chicken is brined, the pickle is serious, and the bun is buttered. Acid is the useful tool here more often than a red wine.",
+      items: [
+        {
+          id: "chicken-sandwich",
+          name: "Chicken Sandwich",
+          wine: "Vouvray Sec",
+          place: "Chenin Blanc, Loire",
+          keys: "pickle fried chicken",
+          food: "A chicken breast in a salty crust, pickle slices, and a buttered bun. The pickle is not a garnish. It is half of the flavor.",
+          why: "Dry Vouvray is Chenin Blanc with apple, a waxy texture, and high acid. The acid answers the frying and the butter on the bun. A hint of honey in the grape, even when the wine is dry, keeps the pickle from making the wine taste sour. A big red would fight the pickle and lose.",
+          service: "Serve at 9°C. Taste the pickle and the wine in the same bite. Do not finish the pickles first.",
+          budgetWine: "Chenin Blanc",
+          budgetPlace: "Stellenbosch",
+          budget: "South African Chenin is often a little broader. Choose a stainless-steel bottling if the label lets you. Same acid, less honey, the same job."
+        },
+        {
+          id: "waffle-fries",
+          name: "Waffle Fries",
+          wine: "Cava Brut",
+          place: "Traditional method, Penedès",
+          keys: "fries potato salted",
+          food: "Potato cut on a grid and fried so the edges crisp, then salted. There is more surface than on a standard fry, which means more salt and more oil.",
+          why: "Sparkling wine and salted potato are a sound match. The bubbles lift fat, and a brut dosage is low enough that the wine stays dry. Cava is made by the Champagne method, from local grapes, and it has a slightly earthy finish that suits a fried potato better than a very floral sparkler.",
+          service: "Serve at 8°C. Pour once the fries are in the bag, so the wine is still cold when the potato is hot.",
+          budgetWine: "Prosecco Brut",
+          budgetPlace: "Conegliano",
+          budget: "A different method, a little softer, with more pear. Buy brut, not extra dry. Extra dry is the sweeter designation, and these fries do not need sugar. The bubbles still do the useful part."
+        },
+        {
+          id: "nuggets-polynesian",
+          name: "Nuggets with Polynesian Sauce",
+          wine: "Riesling Spätlese",
+          place: "Pfalz",
+          keys: "nugget sweet sour ginger",
+          food: "Fried chicken pieces and a sauce that is sweet, sour, and spiced in the manner of a glaze. The sauce is sweeter than the chicken. It decides the pairing.",
+          why: "A dry wine next to a sweet-sour sauce tastes thin and sharp. Spätlese Riesling carries real residual sugar and, in the Pfalz, a bit more body than a light Mosel, while the acid stays high. The sugar meets the glaze. The acid meets the crust.",
+          service: "Serve at 8°C. Put sauce on the piece, then taste the wine. The pairing is the sauce, not the plain nugget.",
+          budgetWine: "Off-dry Riesling",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Less concentration than a Spätlese, and enough residual sugar to protect the wine from the glaze. If the bottle says dry, choose a different one."
+        },
+        {
+          id: "spicy-deluxe",
+          name: "Spicy Deluxe Sandwich",
+          wine: "Semi-dry Riesling",
+          place: "Finger Lakes",
+          keys: "spicy chicken pepper jack",
+          food: "The chicken sandwich with pepper heat, pickles, and a slice of pepper Jack. The heat is steady rather than extreme. The cheese adds a little fat and a little chili.",
+          why: "Capsaicin makes a dry, tannic wine taste hotter and more bitter. A semi-dry Finger Lakes Riesling has cold-climate acid and enough sugar to settle the heat, without becoming a dessert wine. The pickle's acidity is welcome beside a wine that already has its own. Pepper Jack does not require a red.",
+          service: "Serve at 8°C. Taste the wine after a spicy bite, not before. If the heat builds, a colder sip is more useful than a larger one.",
+          budgetWine: "Semi-dry Riesling",
+          budgetPlace: "Niagara Peninsula",
+          budget: "The same shape of wine, from the nearer lake. Often a touch softer, and fully capable with the heat. Off-dry or semi-dry is the phrase you want on the label."
+        },
+        {
+          id: "chocolate-milkshake",
+          name: "Chocolate Milkshake",
+          wine: "Maury",
+          place: "Fortified Grenache, Roussillon",
+          keys: "shake dessert chocolate",
+          food: "Cold chocolate, milk, and sugar, blended thick. It coats the mouth. The cup itself has very little acidity.",
+          why: "Milk and cold both suppress wine, so the wine has to be sweet and concentrated or it will taste watery and bitter. Maury is Grenache, fortified, and oxidized just enough to taste of cocoa, raisin, and a dry edge. The cocoa is the connection. Keep the pour small so the tannin stays in the background.",
+          service: "Two ounces, cool rather than iced, in a separate cup. Drink them in turns while the shake is still thick.",
+          budgetWine: "Ruby Port",
+          budgetPlace: "Douro",
+          budget: "Sweeter and more directly red-fruited, with less of the cocoa. It is still built for chocolate. Keep the pour small so the alcohol stays in proportion."
+        },
+        {
+          id: "chicken-biscuit",
+          name: "Chicken Biscuit",
+          wine: "Traditional-method sparkling",
+          place: "Prince Edward County",
+          keys: "breakfast biscuit",
+          food: "A salted, buttered biscuit and a piece of fried chicken. The biscuit is rich. The chicken is mild and crisp.",
+          why: "Butter and a soft crumb want a wine with its own bakery note and enough acid to clear it. A traditional-method sparkling from Prince Edward County spends time on its lees, which gives it brioche and a firm finish. That is the same logic as Champagne with fried chicken, applied to a breakfast biscuit. It does not need to be sweet.",
+          service: "Serve at 8°C. Open it steadily. If you are in the car, keep a hand on the cork.",
+          budgetWine: "Cava Brut",
+          budgetPlace: "Penedès",
+          budget: "Less brioche, the same method, the same dryness. It will still cut the butter."
+        }
+      ]
+    },
+    {
+      id: "dominos",
+      name: "Domino's",
+      note: "The sauces lean sweet and the cheese is plentiful. Fruit in the wine is more useful than heavy tannin.",
+      items: [
+        {
+          id: "pepperoni",
+          name: "Hand-Tossed Pepperoni",
+          wine: "Valpolicella Ripasso",
+          place: "Veneto",
+          keys: "pizza pepperoni",
+          food: "A soft crust, a generous amount of cheese, and pepperoni that releases oil and a little chili. Sweeter and heavier than a spare slice.",
+          why: "Ripasso is Valpolicella refermented with the skins of dried grapes, so the fruit is darker and a little richer than a plain Classico, and the body is larger. A very cheesy, oily pepperoni pie can use that fruit. The acid is still what the tomato needs. If the alcohol runs hot, the wine will sit on the cheese. Something near thirteen and a half percent is the useful range.",
+          service: "The cabin of a delivery car is often too warm for red wine. Open the bottle when you order and leave it on the floor until the pizza arrives. Twenty minutes is the right rest.",
+          budgetWine: "Valpolicella Classico",
+          budgetPlace: "Veneto",
+          budget: "The lighter wine from the same place: sour cherry, less dried fruit, lower alcohol. The better choice if the pie is not especially oily. Less waiting, same temperature."
+        },
+        {
+          id: "cheesy-bread",
+          name: "Stuffed Cheesy Bread",
+          wine: "Gavi",
+          place: "Cortese, Piedmont",
+          keys: "garlic bread cheese",
+          food: "Bread filled with cheese, brushed with garlic butter, and baked until the edges brown. Salt, dairy fat, and toasted garlic.",
+          why: "This is a large amount of cheese and butter, and it needs acid more than it needs a red. Gavi, made from Cortese, tastes of lemon, white flower, and bitter almond. The almond lines up with garlic. A sweet wine would make the bread heavier. A tannic red tastes metallic against this much cheese.",
+          service: "Serve at 9°C. Eat an end piece, where the garlic is darkest, with the first sip. That is where the almond note is easiest to follow.",
+          budgetWine: "Vermentino",
+          budgetPlace: "Sardinia",
+          budget: "A coastal white with a similar bitter edge and a little more herb. Slightly less precise, still the right shape. Do not chill it until it is numb, or the garlic match goes quiet."
+        },
+        {
+          id: "bbq-chicken",
+          name: "Memphis BBQ Chicken",
+          wine: "Malbec",
+          place: "Luján de Cuyo, Mendoza",
+          keys: "barbecue pizza chicken",
+          food: "Chicken, a barbecue sauce that is sweet and smoky, onion, and a layer of cheese. The sauce is sweeter than tomato sauce. That sweetness is what the wine has to meet.",
+          why: "Sweet barbecue makes a dry, tannic wine taste stern. Malbec from Luján de Cuyo has plum, a little cocoa, and softer tannin than Cabernet. The fruit meets the sauce. Prefer a bottle with some freshness. A very jammy, heavily oaked Malbec doubles the sweetness instead of balancing it.",
+          service: "Serve near 16°C. One slice, then a sip. If the sugar builds up, the wine will seem less fresh than it is.",
+          budgetWine: "Malbec",
+          budgetPlace: "Mendoza",
+          budget: "A broader bottling from the same province. Fruit is still what you want. Heavy oak will repeat the sauce."
+        },
+        {
+          id: "philly",
+          name: "Philly Cheese Steak",
+          wine: "Bordeaux Supérieur",
+          place: "Usually Merlot in the majority",
+          keys: "steak onion pepper pizza",
+          food: "Sliced steak, cooked onion and pepper, and melted cheese over a tomato-sauced pie. The beef is in small pieces. The cheese and the onion are what you taste.",
+          why: "A grand Cabernet is more tannin than these small pieces of steak can use, and tannin plus melted cheese turns dry. A modest Bordeaux Supérieur is often Merlot in the majority, with plum, mild tannin, and enough acid for the tomato. The onion's sweetness is covered by the fruit. A plain bottle is the correct level.",
+          service: "Serve near 16°C. No decant. If it tastes tight, ten minutes in the open bottle is enough, and the pizza will still be hot.",
+          budgetWine: "Merlot",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Softer tannin, a little more red cherry, and sometimes a touch of green that fits the peppers. A local bottle does this cleanly."
+        },
+        {
+          id: "lava-cake",
+          name: "Chocolate Lava Cake",
+          wine: "Late Bottled Vintage Port",
+          place: "Douro",
+          keys: "dessert chocolate cake",
+          food: "A small warm cake with a liquid chocolate center. The outside is baked. The middle is hot and sweet.",
+          why: "Hot sugar and chocolate make a dry red taste harsh. Late Bottled Vintage Port is sweet, dark, and bottled ready to drink, with blackberry and a little cocoa. Vintage port would want decanting and years. This cake is ready when it arrives, and this port is ready with it. The wine should be sweeter than a dry red and less sweet than the molten center.",
+          service: "A two-ounce pour, slightly cool. Break the cake so the center runs, then taste the wine. Keep the sip small. The center is hot, and the port is strong.",
+          budgetWine: "Ruby Port",
+          budgetPlace: "Douro",
+          budget: "Younger, fruitier, and less expensive. A little simpler, still sweet enough for the center. Same size of pour."
+        },
+        {
+          id: "hot-wings",
+          name: "Hot Buffalo Wings",
+          wine: "Semi-dry Riesling",
+          place: "Finger Lakes",
+          keys: "wings buffalo spicy vinegar",
+          food: "Chicken wings in a sauce of cayenne and vinegar, with butter carrying the heat. The salt is high. A cool dressing on the side changes the bite if you use it.",
+          why: "Vinegar and chili punish tannin, and they make a fully dry wine taste thin. A semi-dry Riesling has sugar to calm the heat and acid to meet the vinegar. That is the standard answer to this sauce because it is accurate. The Finger Lakes version is sharp enough that it does not taste candied. Use the dressing sparingly if you want the wine to remain the cooler element.",
+          service: "Serve at 8°C. Wait one breath after a spicy piece, then taste. The sugar has a job to do, and it needs the heat to be present.",
+          budgetWine: "Semi-dry Riesling",
+          budgetPlace: "Niagara Peninsula",
+          budget: "The regional equivalent. A little rounder, still off-dry, still acidic. A fully dry bottle is the wrong tool for this sauce."
+        }
+      ]
+    },
+    {
+      id: "kfc",
+      name: "KFC",
+      note: "Pepper, salt, and a crust. The wine has to be sharp enough to clear them.",
+      items: [
+        {
+          id: "original-recipe",
+          name: "Original Recipe Chicken",
+          wine: "Champagne Brut",
+          place: "Côte des Blancs",
+          keys: "fried chicken bucket",
+          food: "Chicken fried under a salted crust of pepper and herbs. The skin is the dish. Under it, the meat is rich, especially on the thigh.",
+          why: "Fried chicken and Champagne meet because the chemistries agree. Brut Champagne has high acid, fine bubbles, and a little brioche from the lees. The bubbles and the acid clear the crust. The dosage is low, so the wine stays dry against pepper and salt. A Côte des Blancs, made mostly from Chardonnay, is the cleaner shape: less red fruit, more cut.",
+          service: "Serve at 8°C. If you are choosing one piece for the glass, choose a thigh. Pour before the skin cools.",
+          budgetWine: "Crémant de Bourgogne",
+          budgetPlace: "Burgundy",
+          budget: "Traditional method, Chardonnay often in the blend, less age and less depth. The bubbles and the acid are the part that does the work, and they are here. Same temperature."
+        },
+        {
+          id: "tenders",
+          name: "Extra Crispy Tenders",
+          wine: "Riesling",
+          place: "Dry, Clare Valley",
+          keys: "crispy chicken tenders",
+          food: "Strips of chicken in a thicker, darker crust. More seasoning, more salt, and more time in the oil. The surface is what is being paired.",
+          why: "Clare Valley Riesling is fully dry, with lime and a hard line of acid. A thicker crust carries more salt and more fat, and this wine cuts both without adding sugar. Sweetness is not required, because the seasoning is savory rather than hot. An off-dry Riesling would taste out of place on a piece this peppery.",
+          service: "Serve at 8°C. If the bottle was in an ice bucket, five minutes out of it lets the lime show. Do not let it warm past that.",
+          budgetWine: "Dry Riesling",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Lime and green apple, a little less stern. Still dry. It will handle the crust."
+        },
+        {
+          id: "mashed",
+          name: "Mashed Potatoes with Gravy",
+          wine: "Pinot Noir",
+          place: "Willamette Valley",
+          keys: "gravy mashed potato",
+          food: "Soft potato, butter, and a peppered gravy. There is no crust and no char. The flavor is salt, black pepper, and the browned bits in the sauce.",
+          why: "Gravy is rich in umami, and high tannin tastes bitter against it. Willamette Pinot Noir has red fruit, earth, and low tannin. The earth meets the pepper and the browned gravy. The acid keeps the butter from coating the palate. A bigger red turns the potatoes metallic.",
+          service: "Serve near 14°C, a touch cooler than you might at a table. The car is warm and the gravy is hot. No decant.",
+          budgetWine: "Pinot Noir",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Brighter fruit, and sometimes a stemmy note that suits black pepper. Less earth, the same low tannin. Leave the heaviest bottle on the shelf."
+        },
+        {
+          id: "mac-and-cheese",
+          name: "Mac & Cheese",
+          wine: "Mâcon-Villages",
+          place: "Chardonnay, Burgundy",
+          keys: "macaroni cheese pasta",
+          food: "Pasta in a cheese sauce, held hot, salted, and mild. The dairy fat is the dish. There is little acid on the plate.",
+          why: "A red wine's tannin binds to milk protein and tastes dry or metallic. A white with some texture is the correction. Mâcon-Villages is Chardonnay, some of it passed through a barrel, with apple, lemon, and a little cream. A little barrel suits the sauce. A vanilla-heavy wine makes the bowl taste of wood. The acid is what keeps the glass from becoming a second cream.",
+          service: "Serve at 10°C. Too cold, and the texture goes away. The texture is the reason for this wine. A small cup beside the bowl.",
+          budgetWine: "Chardonnay",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Look for one that has seen a barrel and still tastes of acid. It should not be sweet, and it should not be only vanilla. The local bottles that fit are often the sensible purchase."
+        },
+        {
+          id: "coleslaw",
+          name: "Coleslaw",
+          wine: "Grüner Veltliner",
+          place: "Kamptal",
+          keys: "cabbage slaw side",
+          food: "Cabbage, carrot, a little onion, vinegar, and sugar, bound with a creamy dressing. It is a side, and it is sharper than the fried chicken beside it.",
+          why: "Cabbage and Grüner Veltliner are an old match. The wine's white pepper and radish echo the raw vegetable, and the acid meets the vinegar. This slaw is also a little sweet, so the wine should be dry. A sweet wine on a sweet slaw goes dull. Here the side, not the chicken, should decide the glass.",
+          service: "Serve at 8°C. Taste a bite of slaw on its own with the wine, so the pepper is clear. The chicken can follow. The wine can take both.",
+          budgetWine: "Grüner Veltliner",
+          budgetPlace: "Weinviertel",
+          budget: "A lighter, peppery bottle from the larger region, often in a liter. Less concentration, the same pepper and acid. For a side dish, that is sufficient."
+        },
+        {
+          id: "poutine",
+          name: "Poutine",
+          wine: "Cabernet Franc",
+          place: "Niagara Peninsula",
+          keys: "fries gravy cheese curds",
+          food: "Fries, fresh cheese curds, and a brown gravy with black pepper. The curds are mild and salty. The gravy carries the savor. The fries carry both.",
+          why: "Cabernet Franc from Niagara has pepper of its own, red fruit, and acid that can get through gravy. The tannin is moderate. A high-tannin red tastes bitter on the gravy and dry on the curds. Served at 14°C, the wine stays refreshing on the fries instead of becoming another hot sauce.",
+          service: "Serve at 14°C. Eat it while the curds are still partly firm. Once everything is one temperature, the wine has less texture to answer.",
+          budgetWine: "Cabernet Franc",
+          budgetPlace: "Saumur",
+          budget: "The Loire version of the same grape, often a little leafier. That herbal note is welcome with peppered gravy. The same slight chill."
+        }
+      ]
+    },
+    {
+      id: "mcdonalds",
+      name: "McDonald's",
+      note: "The griddle is fast, the salt is consistent, and several of the sauces are sweeter than they look.",
+      items: [
+        {
+          id: "big-mac",
+          name: "Big Mac",
+          wine: "Off-dry Riesling",
+          place: "Kabinett, Mosel",
+          keys: "special sauce sesame burger",
+          food: "Three thin patties with a browned edge, a sesame bun with a little sweetness, and a sauce of pickle, mustard, and sugar. The cheese is mild. Salt holds it together.",
+          why: "The sauce is sweeter than a savory dish usually is, and it will make a fully dry wine taste sharp. A Mosel Kabinett with a little residual sugar, not a trocken, has lime, slate, and almost no weight. The sugar meets the sauce. The acid clears the fat from three patties before the next bite. Tannin would taste bitter on the pickle.",
+          service: "Serve at 8°C. A paper cup works if you leave room at the top. If the bottle is warm from the seat, ten minutes in the line brings it down.",
+          budgetWine: "Off-dry Riesling",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Less slate and, often, a little more ripe fruit. The acid is comparable and the sugar is in the same range. Chill it the same way. It answers the sauce."
+        },
+        {
+          id: "quarter-pounder",
+          name: "Quarter Pounder with Cheese",
+          wine: "Morgon",
+          place: "Gamay, Beaujolais",
+          keys: "cheeseburger beef",
+          food: "A thicker beef patty, onion, pickle, ketchup, mustard, and cheese. More meat than the smaller burgers, and a plain browned flavor.",
+          why: "Ketchup is sweet and acidic, which is hard on tannic wine. Morgon is a cru Beaujolais: Gamay with more structure than a basic bottle, and still far less tannin than Cabernet. The fruit is dark cherry. It can take the extra beef, and the acid can take the ketchup. Keep the pickle in the bite. The vinegar helps the wine.",
+          service: "A light chill, near 14°C, keeps it in proportion in a warm car. No decant. A paper cup is a practical glass for it.",
+          budgetWine: "Beaujolais-Villages",
+          budgetPlace: "Gamay, Beaujolais",
+          budget: "The same grape, one step lighter. Less dark fruit, the same low tannin, and it still handles ketchup."
+        },
+        {
+          id: "mcchicken",
+          name: "McChicken",
+          wine: "Crémant de Loire",
+          place: "Traditional method, Loire",
+          keys: "chicken sandwich mayo",
+          food: "A thin breaded chicken patty, shredded lettuce, and a mayonnaise that is slightly sweet. The crust is even and salty. The bun is soft.",
+          why: "There is more sauce and crust than chicken. A Crémant de Loire is largely sparkling Chenin Blanc: apple, high acid, and bubbles. The bubbles are for the salt and the crust. The small honey note in Chenin is for the sweet mayonnaise. A still white works. The sparkling wine works better, because the crust repeats and the bubbles interrupt it.",
+          service: "Serve at 8°C. Open it when the sandwich is in hand, so the wine is still cold.",
+          budgetWine: "Cava Brut",
+          budgetPlace: "Penedès",
+          budget: "Drier, a little earthier, the same method. It handles the crust as well and the sweet mayonnaise a little less completely. Still the right kind of wine."
+        },
+        {
+          id: "filet-o-fish",
+          name: "Filet-O-Fish",
+          wine: "Muscadet Sèvre-et-Maine",
+          place: "Sur lie, Loire",
+          keys: "fish sandwich tartar cheese",
+          food: "A breaded white-fish patty, a slice of cheese, and tartar sauce on a steamed bun. The sauce is the richest part: mayonnaise, pickle, and a little sweetness.",
+          why: "Fried white fish and a creamy, acidic sauce are ordinary work for Muscadet. The grape is Melon de Bourgogne, aged on its lees, which gives a saline note and a little weight without oak. The salt in the wine meets the salt in the cheese and the fish. Acid cuts the tartar sauce. A red has no useful role with this much white fish and pickle.",
+          service: "Serve at 8°C. Let the sauce and the fish be what you taste with the wine. The bun is mild. Drink it before the crust softens.",
+          budgetWine: "Pinot Grigio",
+          budgetPlace: "Alto Adige",
+          budget: "Cleaner and less saline, with pear and a firm finish. Not the same wine, and still the right weight and acid for tartar sauce. Choose a dry one."
+        },
+        {
+          id: "mcnuggets",
+          name: "Chicken McNuggets with Sweet-and-Sour",
+          wine: "Gewürztraminer",
+          place: "Alsace",
+          keys: "nuggets sweet and sour",
+          food: "Small pieces of breaded chicken and a sauce of apricot-colored sweetness, vinegar, and warm spice. Without the sauce the nuggets are mild. With it, the sauce leads.",
+          why: "Sweet-and-sour sauce makes a dry wine taste pinched. Alsace Gewürztraminer has lychee, rose, and ginger, and enough richness to meet a sweet sauce. It is lower in acid than Riesling. That is a real limit: the vinegar in the sauce has to supply some of the cut. The perfume is the reason to choose it over a plain off-dry white.",
+          service: "Serve at 9°C. Dip, then sip. A nugget with no sauce is a drier dish and would rather have a sparkling wine.",
+          budgetWine: "Gewürztraminer",
+          budgetPlace: "Monterey County",
+          budget: "More lychee, sometimes a little less structure. Still aromatic, and still rich enough for the sauce."
+        },
+        {
+          id: "egg-mcmuffin",
+          name: "Egg McMuffin",
+          wine: "Franciacorta Brut",
+          place: "Traditional method, Lombardy",
+          keys: "breakfast egg muffin bacon",
+          food: "A toasted English muffin, a fried egg, cheese, and Canadian bacon. Butter on the muffin. The yolk is the rich part. The bacon is salt and a little smoke.",
+          why: "Eggs are difficult with still wine. The yolk can make a wine taste flat and faintly sulfurous. Sparkling wine is the usual solution: acid and bubbles move through the richness instead of resting in it. Franciacorta is a traditional-method wine, mostly Chardonnay, with citrus and a little toast. The toast belongs with a buttered muffin. The bacon does not need a red.",
+          service: "Serve at 8°C. A small glass is enough at breakfast. If there is coffee, finish the wine first or finish the coffee first. Together they cancel.",
+          budgetWine: "Cava Brut",
+          budgetPlace: "Penedès",
+          budget: "The same method and a similar dryness, for less money. Less toast, enough acid for the yolk. The rule about coffee still applies."
+        }
+      ]
+    },
+    {
+      id: "pizza-pizza",
+      name: "Pizza Pizza",
+      note: "Usually a slice rather than a plated pie. Tomato, cheese, and enough oil to ask for acid.",
+      items: [
+        {
+          id: "pepperoni",
+          name: "Pepperoni Slice",
+          wine: "Barbera d'Alba",
+          place: "Piedmont",
+          keys: "pizza pepperoni",
+          food: "Tomato sauce, melted cheese, and pepperoni that has crisped at the edge and left a little oil. The chili heat is mild. The salt is not.",
+          why: "Pepperoni brings fat, salt, and a little heat. Tomato brings acid and sugar. Barbera has high acid, low tannin, and red cherry, which is the useful profile: the acid matches the tomato, and the low tannin does not turn metallic on the cheese. A tannic red would. The oil from the pepperoni is why the acid needs to be this high.",
+          service: "Do not chill it, and do not leave it on a warm dashboard. Open it when you order. By the time the slice is ready, the bottle has had the few minutes of air Barbera needs.",
+          budgetWine: "Barbera d'Asti",
+          budgetPlace: "Piedmont",
+          budget: "The same grape, generally a little brighter. Same acid, a touch less dark fruit. It is not a lesser idea, only a lighter wine."
+        },
+        {
+          id: "hawaiian",
+          name: "Hawaiian Slice",
+          wine: "Vouvray Demi-Sec",
+          place: "Chenin Blanc, Loire",
+          keys: "pineapple ham pizza",
+          food: "Ham, pineapple, tomato sauce, and cheese. The pineapple is sweet and sharp. The ham is salty. The cheese is mild and fatty.",
+          why: "The pineapple decides the glass. A dry red tastes bitter beside that much sugar, which is a fact about sweetness. Demi-sec Vouvray has honey and acid in useful amounts, and Chenin is a good partner for pork. The tomato's acidity keeps the wine from reading as a dessert pour. Brut would be too dry. A fully sweet wine would be too much.",
+          service: "Serve at 8°C. Taste the wine with a bite that includes pineapple. A bite of only crust and cheese will make this glass seem sweeter than it is, because the test is incomplete.",
+          budgetWine: "Off-dry Riesling",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Less honey, more citrus, a similar amount of sugar. It handles the pineapple by the same method. Serve it just as cold."
+        },
+        {
+          id: "cheese",
+          name: "Cheese Slice",
+          wine: "Chianti Classico",
+          place: "Sangiovese, Tuscany",
+          keys: "plain cheese pizza",
+          food: "Tomato sauce and melted cheese, with oregano in the sauce and a browned spot or two on top. Simple, salty, and sharper than it looks, because of the tomato.",
+          why: "Tomato acid, a little fat, and herbs are the case Sangiovese handles well. Chianti Classico has sour cherry, a drying finish, and more acid than tannin. The acid is what you want. A more tannic, heavily oaked Tuscan bottle grips the cheese and tastes bare. A Classico, not a long-aged riserva, is the right weight.",
+          service: "Serve near 16°C. If the bottle is warm from the car, the fruit will feel stewed next to the tomato. A few minutes on the floor, out of the bag, is the correction.",
+          budgetWine: "Chianti",
+          budgetPlace: "Tuscany",
+          budget: "A simpler Sangiovese from the wider denomination. Less detail, the same acid, and still the right idea for tomato and cheese."
+        },
+        {
+          id: "canadian",
+          name: "Canadian Slice",
+          wine: "Pinot Noir",
+          place: "Niagara Peninsula",
+          keys: "pepperoni mushroom pizza",
+          food: "Pepperoni and mushroom, the Canadian combination, with tomato and cheese underneath. The mushroom is earthy. The pepperoni is salt and oil.",
+          why: "Mushroom wants a little earth and not much tannin. Niagara Pinot Noir has red cherry, a light body, and, in a good bottle, a damp herbal note that sits with cooked mushroom. The pepperoni still needs acid, which Pinot has, and it punishes heavy tannin, which this wine does not carry. The local part is convenient. The mushroom is the reason.",
+          service: "Serve near 14°C. Take one bite in which the mushroom is the larger piece. Otherwise the wine will seem to have been chosen only for the meat.",
+          budgetWine: "Beaujolais-Villages",
+          budgetPlace: "Gamay, Beaujolais",
+          budget: "Gamay instead of Pinot. Similar weight, less earth, bright acidity. It handles the pepperoni easily and the mushroom well enough. A correct substitute."
+        },
+        {
+          id: "honey-garlic-wings",
+          name: "Honey Garlic Wings",
+          wine: "Pinot Gris",
+          place: "Alsace",
+          keys: "wings honey garlic",
+          food: "Wings in a sauce of honey, garlic, and soy. Sweet, salty, and sticky, with fried skin underneath. The garlic is cooked, so it is rounded rather than sharp.",
+          why: "Honey in the sauce means a dry, thin white will taste sour. Alsace Pinot Gris has body and often a small amount of residual sugar, plus pear and a little smoke that can sit next to cooked garlic. There is little chili heat here. The wine is chosen for sugar and body against the glaze. Its acid is moderate, and the salt in the soy does some of the refreshing.",
+          service: "Serve at 9°C. The glaze clings. A sip between bites keeps it from stacking. You will want a napkin.",
+          budgetWine: "Pinot Gris",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Drier and lighter in most bottles. Still the right grape beside garlic and a glaze, provided the wine is not austere. If it tastes only of water and pear skin, the honey will overwhelm it."
+        },
+        {
+          id: "garlic-bread",
+          name: "Garlic Cheese Bread",
+          wine: "Soave Classico",
+          place: "Garganega, Veneto",
+          keys: "garlic bread cheese",
+          food: "Bread with garlic butter and a layer of cheese, heated until the butter soaks the crumb. Salt, toasted garlic, and mild dairy.",
+          why: "A good Soave Classico, made from Garganega, tastes of lemon and bitter almond, with a little weight. The almond is the garlic's counterpart. The acid cuts the butter. There is no tomato and no char here, so a red has nothing to do. A very oaky white would add a vanilla the garlic does not need.",
+          service: "Serve at 9°C. Eat it while it is hot. Once the butter firms, the dish is duller, and this wine will not correct that.",
+          budgetWine: "Lugana",
+          budgetPlace: "Lake Garda",
+          budget: "A dry white from the south shore of the lake, citrusy, with a similar bitter note. Usually a friendly price. The same chill."
+        }
+      ]
+    },
+    {
+      id: "popeyes",
+      name: "Popeyes",
+      note: "Cayenne, pickle, and a crust that stays loud. Where the heat is real, the wine may need a little sugar.",
+      items: [
+        {
+          id: "spicy-chicken",
+          name: "Spicy Chicken Sandwich",
+          wine: "Gewürztraminer",
+          place: "Alsace",
+          keys: "spicy cayenne chicken",
+          food: "A thick crust with real cayenne heat, pickles, and a soft bun. The heat sits in the breading and builds. The pickle is cold and sharp against it.",
+          why: "Cayenne makes tannic and fully dry wines taste harsher. Gewürztraminer brings some richness, often a little sugar, and a perfume of lychee and rose that sits easily with a slightly sweet bun. It is lower in acid than Riesling. That is a real limit, and the pickle has to supply some of the freshness. The wine is here for the heat.",
+          service: "Serve at 9°C. If the heat runs ahead of the wine, take a colder sip. Do not switch to a bigger red. Tannin will make the heat worse.",
+          budgetWine: "Gewürztraminer",
+          budgetPlace: "Niagara Peninsula",
+          budget: "A local bottle of the same grape. Less heady, sometimes drier. It still has the perfume. Fully dry, it is less comforting on the cayenne, and still a better idea than a red."
+        },
+        {
+          id: "classic-chicken",
+          name: "Classic Chicken Sandwich",
+          wine: "Chablis",
+          place: "Chardonnay, Burgundy",
+          keys: "chicken sandwich pickle",
+          food: "The same style of crust without the cayenne, with pickles and a soft bun. Cleaner, saltier, and more about the chicken and the pickle.",
+          why: "Without the heat, sugar in the wine is no longer required. A village Chablis is unoaked Chardonnay with high acid and a stony, lemony finish. It cuts the crust and matches the pickle without adding vanilla or weight. If the bun is very sweet, the wine will seem strict. That is acceptable. The pickle and the wine are in agreement.",
+          service: "Serve at 9°C. Too cold, and Chablis tastes of very little. Give it five minutes if it came from a very cold fridge, then drink it while the sandwich is intact.",
+          budgetWine: "Unoaked Chardonnay",
+          budgetPlace: "Niagara Peninsula",
+          budget: "The same idea: no barrel, high acid, lemon rather than butter. Less stony, still correct with pickle and a fried crust. A buttery, oaked Chardonnay is the substitution that gets in the way."
+        },
+        {
+          id: "biscuit",
+          name: "Biscuit",
+          wine: "Bourgogne Blanc",
+          place: "Chardonnay, Burgundy",
+          keys: "butter biscuit bread",
+          food: "A soft, layered biscuit, salted, with butter in the dough and often more butter on it. Mild, rich, and a little alkaline from the baking.",
+          why: "This is a bread course. A very sharp white tastes mean against warm butter. A Bourgogne Blanc that has seen a barrel has apple, a little cream, and enough acid to keep the butter from coating the tongue. Match the fat with a wine that has texture, then let the acid finish the bite. A still wine lets the biscuit stay quiet, which suits it.",
+          service: "Serve at 10°C. The biscuit should be warm. If it has cooled, the wine will seem oakier than it is, because the butter has firmed.",
+          budgetWine: "Mâcon-Villages",
+          budgetPlace: "Chardonnay, Burgundy",
+          budget: "A simpler white Burgundy, often with less barrel. A little leaner, still the right family. Warm biscuit, cool wine."
+        },
+        {
+          id: "cajun-fries",
+          name: "Cajun Fries",
+          wine: "Albariño",
+          place: "Rías Baixas",
+          keys: "fries seasoned paprika",
+          food: "Fries with paprika, salt, and a light heat. More seasoning than potato, until you reach the center. The edge is crisp.",
+          why: "Albariño from Rías Baixas is dry and saline, with citrus and a firm finish. These fries are mostly salt, and the wine is a salt match as well as an acid match. A good bottle has a slight bitterness that stands up to paprika. A sweet wine would taste odd on a savory seasoning.",
+          service: "Serve at 8°C. Fries cool quickly. The pairing is better while they are hot and the wine is cold.",
+          budgetWine: "Pinot Gris",
+          budgetPlace: "Niagara Peninsula",
+          budget: "Less saline, more pear, still dry. It refreshes the fat. A cheaper Albariño, if you find one, is the closer substitute."
+        },
+        {
+          id: "mac-and-cheese",
+          name: "Mac & Cheese",
+          wine: "Chenin Blanc",
+          place: "Swartland",
+          keys: "macaroni cheese baked",
+          food: "A baked cheese sauce with a little pepper, richer and more savory than a plain mac. The top may be browned. The inside is cream and salt.",
+          why: "Cheese sauce wants acid and a little texture, and it does not want tannin. Dry Swartland Chenin has pear, a faint honey note even when the wine is dry, and a grip that does not come from oak. That grip is useful against a thick sauce. The honeyed hint, kept small, keeps the wine from tasting sour on the browned cheese. A heavily oaked Chardonnay would be too much wood.",
+          service: "Serve at 10°C. Take a bite with both the crisp top and the soft center. The wine was chosen for the two together.",
+          budgetWine: "Chenin Blanc",
+          budgetPlace: "Western Cape",
+          budget: "A simpler bottle of the same grape, often brighter and less textured. The acid remains, which is the necessary part. Keep it dry."
+        },
+        {
+          id: "tenders",
+          name: "Chicken Tenders",
+          wine: "Crémant de Bourgogne",
+          place: "Traditional method, Burgundy",
+          keys: "tenders fried chicken",
+          food: "Strips of chicken in a seasoned crust, milder than the spicy sandwich and with no bun and no pickle. Salt, pepper, and frying.",
+          why: "A plain fried piece is a decision about bubbles and acid. Crémant de Bourgogne supplies both, in a dry wine that is usually Chardonnay and Pinot Noir. There is no sweet sauce to manage, so brut is correct. The mousse clears the palate between pieces, which matters because the seasoning repeats.",
+          service: "Serve at 8°C. If the dipping sauce is sweet, this glass is less exact, and an off-dry Riesling becomes the better tool. For the tenders alone, stay with the sparkling wine.",
+          budgetWine: "Picpoul de Pinet",
+          budgetPlace: "Languedoc",
+          budget: "A still coastal white, very dry and very lemony. You lose the bubbles and keep the acid. A fair saving when the crust is the main thing."
+        }
+      ]
+    },
+    {
+      id: "subway",
+      name: "Subway",
+      note: "Bread and cold cuts, or a hot sandwich from the same counter. Treat it as a deli.",
+      items: [
+        {
+          id: "italian-bmt",
+          name: "Italian B.M.T.",
+          wine: "Lambrusco di Sorbara",
+          place: "Dry, Emilia-Romagna",
+          keys: "salami ham pepperoni sub",
+          food: "Salami, pepperoni, and ham, with cheese, on soft bread, plus whatever sharp vegetables are added. The meat is cold, salty, and spiced. It is a deli sandwich.",
+          why: "Dry Lambrusco is the ordinary wine for this kind of cured meat where the meat is from. The Sorbara version is pale, high in acid, slightly fizzy, and savory rather than sweet. Served cold, the bubbles and the acid cut the fat of the salami, and the bitter finish works with the spice. Sweet Lambrusco, which is common, tastes like soda on this meat. The label should say secco, or dry.",
+          service: "Serve at 8°C. Onion and pickled pepper make the wine more precise, because they add the acid the sandwich needs. Include them.",
+          budgetWine: "Lambrusco Grasparossa",
+          budgetPlace: "Dry, Emilia-Romagna",
+          budget: "Darker and a little fuller, from the same region, still dry and still served cold. More fruit, a little less lift. The word dry is the whole selection."
+        },
+        {
+          id: "turkey",
+          name: "Turkey Breast",
+          wine: "Pinot Grigio",
+          place: "Alto Adige",
+          keys: "turkey sub sandwich",
+          food: "Sliced turkey, a mild cheese, and a soft roll, usually with lettuce and a creamy sauce. The meat is lean. There is little browning or smoke. The sauce supplies most of the fat.",
+          why: "Lean meat needs a light wine. A red with tannin tastes bare, because there is not enough fat to soften it. Alto Adige Pinot Grigio is dry, with pear, apple skin, and a clean finish. It is here to refresh a mild sandwich, not to match a strong flavor. If the sauce is mayonnaise, that is the richest thing on the bread, and the wine's acid is for it.",
+          service: "Serve at 8°C. A heavier bottle has little in the sandwich to meet. Stay with the light white.",
+          budgetWine: "Pinot Grigio",
+          budgetPlace: "Niagara Peninsula",
+          budget: "A local dry one. A little softer, still pale, still right. If it tastes sweet, it is the wrong bottle. Turkey will make that sweetness sticky."
+        },
+        {
+          id: "meatball",
+          name: "Meatball Marinara",
+          wine: "Montepulciano d'Abruzzo",
+          place: "Abruzzo",
+          keys: "meatball sub tomato",
+          food: "Meatballs in tomato sauce, with melted cheese, on a long roll that soaks up the sauce. Heartier than a slice of pizza, and wetter. The sauce is the dish.",
+          why: "Tomato sauce wants acid in the wine, and meatballs can take a little more body than a plain cheese slice. Montepulciano d'Abruzzo is dark-fruited, low in tannin, and acidic enough for cooked tomato. A fine, tannic wine would dry out on the cheese and taste stern on the sauce. This is the correct weight, and it does not need to be an expensive bottle.",
+          service: "Serve near 16°C. A cup is a practical glass. Keep the bottle off to the side of the sandwich and pour before your hands are covered in sauce.",
+          budgetWine: "Sangiovese",
+          budgetPlace: "Emilia-Romagna",
+          budget: "Brighter and sharper, more cherry, less dark fruit. Even more comfortable with the tomato, and a little lighter against the size of the meatball."
+        },
+        {
+          id: "sweet-onion-chicken",
+          name: "Sweet Onion Chicken Teriyaki",
+          wine: "Riesling Kabinett",
+          place: "Nahe",
+          keys: "teriyaki chicken sweet",
+          food: "Chicken in a sweet teriyaki glaze, with a sweet-onion sauce that is accurately named. The bread is soft. There is salt, and the sugar leads.",
+          why: "This is a sweet dish that contains chicken. A dry wine will taste sour and thin. Nahe Kabinett Riesling, the kind with residual sugar rather than a trocken, has ripe citrus and a cool acid. The sugar meets the glaze. The acid keeps the wine from becoming a second sauce.",
+          service: "Serve at 8°C. Taste the onion sauce and the wine together. Without the sauce, you have a different pairing.",
+          budgetWine: "Semi-dry Riesling",
+          budgetPlace: "Finger Lakes",
+          budget: "A slightly leaner version of the same idea. Less floral, enough sugar, high acid. Dry is not the goal. Read the back label."
+        },
+        {
+          id: "steak-and-cheese",
+          name: "Steak & Cheese",
+          wine: "Bordeaux Supérieur",
+          place: "Usually Merlot in the majority",
+          keys: "cheese steak sub",
+          food: "Thin pieces of steak, cooked onion, pepper, and melted cheese on a roll. The beef is mild, because it is thin and steamed by the cheese. The onion is the sweetness.",
+          why: "Thin steak and a large amount of cheese do not support a tannic Cabernet. A modest Bordeaux Supérieur, often Merlot in the majority, has plum, soft tannin, and enough acid to finish a rich bite. The onion's sweetness is met by the fruit. The pepper here is mild, so a peppery grape is unnecessary. A classified growth would be out of proportion to the amount of beef.",
+          service: "Serve near 16°C. No decant. If the bottle is warmer than the sandwich, cool it first. Warm Merlot tastes jammy next to melted cheese.",
+          budgetWine: "Merlot",
+          budgetPlace: "Okanagan Valley",
+          budget: "A Canadian bottle, often a little fuller in fruit. The same low tannin. It will handle the cheese. A wine that tastes mostly of oak is the one to leave."
+        },
+        {
+          id: "cookie",
+          name: "Chocolate Chip Cookie",
+          wine: "Banyuls",
+          place: "Fortified Grenache, Roussillon",
+          keys: "cookie dessert chocolate",
+          food: "A warm cookie, soft in the center, with melted chocolate and a salty, buttery edge. Sweet, and richer while it is warm.",
+          why: "Warm chocolate and butter make a dry wine taste bitter. Banyuls is Grenache, fortified, sweet without being syrup, with cocoa, raspberry, and a little tannin. In its region it is the classic wine for chocolate. A cookie falls under that logic, because the chocolate is the flavor that matters. Salt on the cookie makes the wine taste sweeter, so the pour stays small.",
+          service: "A two-ounce pour, slightly cool. Taste it while the cookie is warm. A cold cookie and a warm fortified wine meet less exactly.",
+          budgetWine: "Late Bottled Vintage Port",
+          budgetPlace: "Douro",
+          budget: "Darker and more directly of blackberry, a little sweeter in impression. Also correct with chocolate. The same small pour, while the cookie is warm."
+        }
+      ]
+    },
+    {
+      id: "taco-bell",
+      name: "Taco Bell",
+      note: "Salt, dairy, and crunch, with heat that is usually milder than the reputation. The shell matters as much as the filling.",
+      items: [
+        {
+          id: "crunchwrap",
+          name: "Crunchwrap Supreme",
+          wine: "Lambrusco Grasparossa",
+          place: "Dry, Castelvetro",
+          keys: "beef tostada quesadilla",
+          food: "Seasoned beef, nacho cheese, sour cream, lettuce, and tomato, folded in a grilled tortilla around a crisp tostada. Salt, mild spice, dairy, and a crunchy layer.",
+          why: "The tostada and the grilled tortilla bring fat and surface. The beef is seasoned. Dry Lambrusco Grasparossa is darker than other Lambrusco, slightly fizzy, low in tannin, and high in acid. Served cold, it behaves like a light red with bubbles, which is what cuts the cheese and the crust. Sweet Lambrusco would turn the nacho cheese into dessert. Dry is required.",
+          service: "Serve at 8°C. Eat it as built, so the crunch and the sour cream arrive together. The wine is for that contrast.",
+          budgetWine: "Beaujolais-Villages",
+          budgetPlace: "Gamay, Beaujolais",
+          budget: "Still, rather than fizzy, with the same low tannin and a bright cherry fruit. You lose the bubbles and keep the refreshment. A slight chill helps."
+        },
+        {
+          id: "doritos-locos",
+          name: "Doritos Locos Taco",
+          wine: "Champagne Brut Rosé",
+          place: "Champagne",
+          keys: "taco doritos cheese shell",
+          food: "A taco shell made from a seasoned chip, filled with beef, lettuce, and cheese. The shell is salty, dry, and strongly flavored with cheese powder and chili. It dominates the filling.",
+          why: "Cheese powder and salt are a great deal of surface flavor. A brut rosé Champagne has the acid and the bubbles, plus red fruit from Pinot, which gives it more presence against the seasoning than a very pale blanc de blancs. It is still dry. The bubbles reset a shell that would otherwise taste the same on the third bite as on the first.",
+          service: "Serve at 8°C. Take one sip with a bite of shell alone, so it is clear what the wine is answering. Then eat the taco as it was assembled.",
+          budgetWine: "Cava Brut Rosé",
+          budgetPlace: "Penedès",
+          budget: "Traditional method, dry, a little red fruit, and less age. It will not have the depth. It will have the bubbles and the red-fruit flavor, which are the useful parts."
+        },
+        {
+          id: "chalupa",
+          name: "Chalupa Supreme",
+          wine: "Verdejo",
+          place: "Rueda",
+          keys: "fried shell taco",
+          food: "A fried, puffy shell with beef, sour cream, lettuce, tomato, and cheese. The shell is richer than a crisp taco and tastes of the fryer. The filling is cool.",
+          why: "Verdejo has lime, a fennel-like herb note, and a bitter finish. The herb note sits with the fresh toppings, and the bitterness stands up to a fried shell better than a soft, neutral white would. Acid cuts the sour cream. The spice is mild and there is not much sweetness, so the wine should be dry.",
+          service: "Serve at 8°C. The shell softens as it sits. Earlier is better, because the wine was chosen to cut a crisp texture.",
+          budgetWine: "Sauvignon Blanc",
+          budgetPlace: "Niagara Peninsula",
+          budget: "More direct herb and gooseberry, less bitter on the finish. It still matches the lettuce and the fry. Choose a dry one and serve it just as cold."
+        },
+        {
+          id: "mexican-pizza",
+          name: "Mexican Pizza",
+          wine: "Etna Rosso",
+          place: "Nerello Mascalese, Sicily",
+          keys: "tostada pizza beef",
+          food: "Two crisp tortillas layered with beef, tomato sauce, and melted cheese. The edge is toasted. The center is sauced and rich. Pizza in structure, tostada in texture.",
+          why: "Nerello Mascalese from Etna is pale, acidic, and lightly tannic, closer to Pinot Noir than to a heavy red. The tomato needs the acid. The cheese needs the tannin to stay low. The toasted tortilla has a slight bitterness, and the wine's faint smoky edge can meet it without covering the sauce. A big red makes the tortilla taste dry.",
+          service: "Serve near 14°C. Ten minutes open is plenty of air. Keep the edge crisp if you can. That texture is part of the match.",
+          budgetWine: "Montepulciano d'Abruzzo",
+          budgetPlace: "Abruzzo",
+          budget: "Darker and simpler, with enough acid for the tomato and a rounder body. Less exact with the toasted tortilla, still right for the sauce and the beef."
+        },
+        {
+          id: "quesadilla",
+          name: "Cheese Quesadilla",
+          wine: "Vouvray Sec",
+          place: "Chenin Blanc, Loire",
+          keys: "cheese tortilla",
+          food: "A grilled tortilla filled with melted cheese. The outside is browned. The inside is dairy fat and salt.",
+          why: "Melted cheese is a problem of fat and protein. Tannin grips it and tastes metallic. Dry Vouvray has the acid to cut cheese and a waxy texture of apple and honey that does not taste thin against it. There is no sweet sauce here, so the wine should be sec, not demi-sec. The browned tortilla adds a slight bitterness that Chenin handles well.",
+          service: "Serve at 9°C. Take a piece with both the browned outside and the cheese. The wine is for the two together.",
+          budgetWine: "Chenin Blanc",
+          budgetPlace: "Swartland",
+          budget: "A dry South African Chenin, a little broader, sometimes with more pear. Same acid, less honey. It will still cut the cheese. Avoid a sweet bottle."
+        },
+        {
+          id: "cinnamon-twists",
+          name: "Cinnamon Twists",
+          wine: "Brachetto d'Acqui",
+          place: "Piedmont",
+          keys: "cinnamon sugar dessert",
+          food: "Fried pastry coated in cinnamon sugar. No chocolate and no filling, only sweet spice and a crisp surface. As they cool, the sweetness hardens.",
+          why: "Cinnamon sugar is a dessert, and a dry wine tastes sour on it. Brachetto d'Acqui is lightly sweet, low in alcohol, red, and gently fizzy, with strawberry and a little rose. The bubbles and the low alcohol keep it from sitting heavily on a small fried sweet. A tannic red would be unpleasant. A very sticky wine would be more sugar than these need.",
+          service: "Serve at 7°C. They are best while the sugar is still loose on the surface. A small glass is the right amount for a sleeve.",
+          budgetWine: "Moscato d'Asti",
+          budgetPlace: "Piedmont",
+          budget: "White instead of red, grapey instead of strawberry, with the same low alcohol and the same light sweetness. Equally sensible, and often easier to find. The same chill."
+        },
+        {
+          id: "nacho-fries",
+          name: "Nacho Fries",
+          wine: "Manzanilla",
+          place: "Sanlúcar de Barrameda",
+          keys: "fries seasoned sherry",
+          food: "Fries covered in a salty seasoning of chili and cheese powder. The potato carries it. The seasoning is the flavor.",
+          why: "Manzanilla is a biologically aged sherry from the coast, and it tastes of salt, chamomile, and a clean bitterness. Salt with salt is the logic, the same one that puts this wine next to potato chips in the bars where it is from. The bitterness stands up to the seasoning. A fruity table wine tastes weak here. Buy a fresh bottle. A tired one tastes flat, and these fries will show it.",
+          service: "Serve at 7°C. A small pour, refilled, stays colder than a full cup left sitting. Eat the fries while they are hot.",
+          budgetWine: "Fino",
+          budgetPlace: "Jerez",
+          budget: "The same style of sherry from inland Jerez. A little less salty, a little broader. The same chill and the same size of pour. Freshness matters more than age. Buy the youngest bottle you can."
+        }
+      ]
+    },
+    {
+      id: "tim-hortons",
+      name: "Tim Hortons",
+      note: "Coffee is the house drink, which limits what a wine can do in the same sip. The baking is where the list has more to say.",
+      items: [
+        {
+          id: "double-double",
+          name: "Double-Double",
+          wine: "Amontillado",
+          place: "Jerez",
+          keys: "coffee cream sugar double double",
+          food: "Coffee with two creams and two sugars. Bitter, milky, and sweetened, and hot. It is a finished drink.",
+          why: "Coffee flattens wine. Tannin, perfume, and fruit all lose to it, and milk makes the loss worse. No glass pairs with a Double-Double in the same sip. Amontillado is a dry sherry with walnut, salt, and a clean oxidative note, in the same family of flavors as coffee bitterness. It works after the cup, as a small second drink.",
+          service: "Finish the coffee. Then pour two ounces of Amontillado at cool room temperature. If you taste them together, the wine will seem to have no flavor. The wine is intact. The order is wrong.",
+          budgetWine: "Amontillado",
+          budgetPlace: "A younger bottling, Jerez",
+          budget: "Less time in barrel, less length, the same walnut and the same dryness. Do not buy a cream sherry for this. Sweet sherry after a sweetened coffee is too much sugar. The wine should be dry."
+        },
+        {
+          id: "boston-cream",
+          name: "Boston Cream",
+          wine: "Tawny Port",
+          place: "10 Year, Douro",
+          keys: "donut custard chocolate",
+          food: "A yeast donut filled with custard and topped with a chocolate glaze. Fried dough, cold custard, and a sweetness closer to milk chocolate than to dark.",
+          why: "Ten-year tawny has been aged in wood until it tastes of walnut, caramel, and dried fruit, and it is sweet without the purple thickness of a young port. Custard and milk chocolate are closer to caramel than to bitter cocoa, so tawny fits better than ruby. The alcohol is high and the donut is rich. Both are reasons for a small pour.",
+          service: "A two-ounce pour, slightly cool. The donut can be at room temperature. Alternate rather than dipping. The wine should stay in its own glass.",
+          budgetWine: "Australian Tawny",
+          budgetPlace: "South Australia",
+          budget: "A similar idea, often a little sweeter and simpler. Walnut and caramel, less length. The same size of pour. It will still meet the custard."
+        },
+        {
+          id: "honey-cruller",
+          name: "Honey Cruller",
+          wine: "Late Harvest Riesling",
+          place: "Niagara Peninsula",
+          keys: "donut honey glazed",
+          food: "A ridged, fried ring with honey in the dough and a light glaze. Sweet, with a floral honey rather than a candy glaze, and a little salt from the fryer on the ridges.",
+          why: "Honey is the flavor, so the wine should share it rather than fight it with tannin or total dryness. A late-harvest Riesling from Niagara has apricot, honey, and a strong acid that keeps it from tasting flat. The acid matters because the donut is fried. A wine that is only sweet would sit on the glaze. This one matches it and still clears a little of the oil.",
+          service: "Serve at 8°C. A small glass. Taste it with a ridged piece, where there is glaze and also some of the bare fried dough.",
+          budgetWine: "Coteaux du Layon",
+          budgetPlace: "Chenin Blanc, Loire",
+          budget: "A late-harvest Chenin with honey and chamomile, from a region where this style is an ordinary dessert wine. Often a fair price. The same chill and the same small pour."
+        },
+        {
+          id: "chili",
+          name: "Chili",
+          wine: "Côtes du Rhône",
+          place: "Grenache and Syrah",
+          keys: "beef chili beans",
+          food: "A mild beef chili, slightly sweet, with beans and a gentle spice. Thick and salty. The heat does not linger.",
+          why: "A mild, slightly sweet chili has tomato and a little chili pepper, and it does not have the fat or the heat for a tannic red. Côtes du Rhône is blended to be fruity, peppery, and moderate in tannin. The pepper meets the spice. The fruit meets the sweetness. The acid meets the tomato. A bigger Syrah tastes dry on the beans.",
+          service: "Serve near 15°C. The chili is hot, and the wine should be cooler than the bowl, or both will seem heavy. A cup beside the bowl is the setup.",
+          budgetWine: "Garnacha",
+          budgetPlace: "Navarra",
+          budget: "Juicier and simpler, with less pepper. It handles the tomato and the mild sweetness. You lose some of the spice match and keep the refreshment. A slight chill still helps."
+        },
+        {
+          id: "sausage-breakfast",
+          name: "Sausage Breakfast Sandwich",
+          wine: "Crémant de Loire",
+          place: "Traditional method, Loire",
+          keys: "egg sausage muffin breakfast",
+          food: "A sausage patty, egg, and cheese on a toasted English muffin or a biscuit. Grease from the sausage, richness from the yolk, and a soft crumb.",
+          why: "Egg and still wine are an uneasy match. The yolk can make wine taste flat. Sausage fat wants acid. Sparkling wine answers both. Crémant de Loire, largely Chenin Blanc, has apple, a little honeysuckle, and a dry finish. The apple is bright against salt and grease. No sweetness is required. The cheese is mild enough to stay in the background.",
+          service: "Serve at 8°C. If there is coffee as well, drink the wine with the sandwich and the coffee after. Coffee will erase the wine if they share a sip.",
+          budgetWine: "Cava Brut",
+          budgetPlace: "Penedès",
+          budget: "A little earthier, and usually less expensive. The same method, the same dryness, the same ability with egg yolk. The rule about coffee does not change."
+        },
+        {
+          id: "iced-capp",
+          name: "Iced Capp",
+          wine: "Cream Sherry",
+          place: "Jerez",
+          keys: "iced coffee cappuccino sweet",
+          food: "A blended iced coffee, very sweet, with cream and ice. Thick, cold, and sugary. The coffee flavor is milder than a hot cup, because of the dairy and the sugar.",
+          why: "Cold dairy and blended ice mute wine more thoroughly than almost anything else on this list. A dry wine tastes bitter and thin. Cream sherry is sweet, nutty, and dark, with enough concentration to remain noticeable as a separate sip. It will not transform the Iced Capp, and it should not be blended into it. Alternating is the only order that gives the wine a chance.",
+          service: "A two-ounce pour, cool, not iced. Leave the Iced Capp in its cup. Taste the sherry between sips, while the coffee is still sweet and the ice has not watered it down.",
+          budgetWine: "Moscatel",
+          budgetPlace: "Valencia",
+          budget: "A simpler sweet fortified wine, more orange flower than walnut. Less like coffee, still sweet enough to survive beside the cup. The same small pour. Still not mixed in."
+        },
+        {
+          id: "timbits",
+          name: "Timbits",
+          wine: "Champagne Demi-Sec",
+          place: "Champagne",
+          keys: "donut holes assorted glazed",
+          food: "Small fried rounds of dough in a mix of glazes: honey, chocolate, and sugar. Some pieces are much sweeter than others. All of them carry fry oil.",
+          why: "A brut Champagne tastes sour against glaze. Demi-sec is the style with enough dosage, often between thirty-two and fifty grams of sugar per liter, to sit next to pastry. The bubbles and the acid still clear fried dough. A chocolate piece will make the wine seem drier. A honey piece will make it seem exactly sweet. That variation is in the box, not in the bottle.",
+          service: "Serve at 8°C. A small glass for the sleeve. Start with a plain glazed piece, so you can taste the dosage as it was made, and then move to the chocolate.",
+          budgetWine: "Moscato d'Asti",
+          budgetPlace: "Piedmont",
+          budget: "Lower in alcohol, grapier, gently fizzy, and sweet. Less able to cut the fry oil, and more immediately suited to the glaze. A sensible glass when you do not want to open a full bottle of demi-sec."
+        }
+      ]
+    },
+    {
+      id: "wendys",
+      name: "Wendy's",
+      note: "The beef is squared off, some of the burgers carry a serious amount of bacon, and the fries are salted like they mean it.",
+      items: [
+        {
+          id: "daves-single",
+          name: "Dave's Single",
+          wine: "Barbera d'Asti",
+          place: "Piedmont",
+          keys: "cheeseburger dave single",
+          food: "A beef patty, cheese, onion, pickle, ketchup, and mustard. The beef is plain and browned. Ketchup and pickle are the sweet, acidic edge.",
+          why: "The sugar and vinegar in ketchup make tannic wines taste dry. Barbera d'Asti has sour cherry, high acid, and very little tannin, so it can take this set of condiments and still show the beef. It is a light-to-medium red. The patty does not need anything grander. A slight chill makes it fit a fast burger.",
+          service: "Serve near 14°C. Keep the pickle in the bite you taste with the wine. Without it, the wine will seem a touch fruitier than the match wants.",
+          budgetWine: "Dolcetto d'Alba",
+          budgetPlace: "Piedmont",
+          budget: "Darker in color, a little bitter in a useful way, and still low in tannin. A touch less acid than Barbera, and still far more useful here than a Cabernet. The same light chill."
+        },
+        {
+          id: "baconator",
+          name: "Baconator",
+          wine: "Zinfandel",
+          place: "Dry Creek Valley",
+          keys: "bacon double burger",
+          food: "Two beef patties, a large amount of bacon, and cheese. Smoke, salt, and fat, with very little vegetable matter to lighten it. The bacon is the main flavor.",
+          why: "Bacon smoke and fat can handle a riper red. Dry Creek Zinfandel has blackberry, black pepper, and a richness that meets the smoke, with enough acid in a good bottle to finish. Alcohol is the risk. A very high-alcohol bottle tastes hot on the bacon and makes the cheese seem heavier. Prefer one that stays under about fifteen percent. The fruit should taste like fruit, not like jam and oak.",
+          service: "Open it ten or fifteen minutes ahead. A warm car pushes the alcohol forward. Keep the bottle low and out of the sun, and serve near 16°C.",
+          budgetWine: "Primitivo",
+          budgetPlace: "Puglia",
+          budget: "The same grape, grown where it started, often juicier and less expensive. More direct fruit, less American oak. It still meets the bacon. The same caution about high alcohol applies."
+        },
+        {
+          id: "spicy-chicken",
+          name: "Spicy Chicken Sandwich",
+          wine: "Riesling Spätlese",
+          place: "Mosel",
+          keys: "spicy chicken hot",
+          food: "A breaded chicken fillet with heat in the sauce or the breading, lettuce, and a soft bun. The heat is noticeable. The bun is slightly sweet. Fat comes from the fry.",
+          why: "Heat, plus a little sweetness in the bun, is what a Spätlese is for. Mosel Spätlese has more residual sugar and more concentration than a Kabinett, and it keeps a bright acid. The sugar lowers the perception of heat. The acid cuts the crust. A dry wine would taste thin and would make the spice seem sharper. This should still finish clean. It is not a dessert wine.",
+          service: "Serve at 8°C. Taste the wine immediately after a spicy bite, not after a plain piece of lettuce. The sugar has to meet the heat.",
+          budgetWine: "Semi-dry Riesling",
+          budgetPlace: "Finger Lakes",
+          budget: "Less lush, more citrus, and enough sugar to be fair to the heat. The same temperature."
+        },
+        {
+          id: "frosty",
+          name: "Chocolate Frosty",
+          wine: "Rutherglen Muscat",
+          place: "Victoria, Australia",
+          keys: "milkshake chocolate dessert",
+          food: "A dense, cold chocolate drink, closer to soft-serve than to milk. Very sweet, low in acid, and thick enough to mute whatever follows it.",
+          why: "Rutherglen Muscat is a fortified wine of dark raisin, cocoa, and a sweetness that is high even among dessert wines. It is one of the few wines concentrated enough that cold chocolate does not erase it. Tannin is not the point, and it would turn bitter with the dairy. A small sip of the wine adds bitterness and depth. The Frosty remains the larger sweetness.",
+          service: "Two ounces, at cool room temperature, in its own cup. Do not blend them. Drink the Frosty while it is still cold and thick.",
+          budgetWine: "Ruby Port",
+          budgetPlace: "Douro",
+          budget: "Fruitier and a little less dark, with enough sweetness for chocolate. Less cocoa, more blackberry. The same small, separate pour."
+        },
+        {
+          id: "chili",
+          name: "Chili",
+          wine: "Garnacha",
+          place: "Campo de Borja",
+          keys: "beef chili beans",
+          food: "A thick beef chili with beans, a mild heat, and a tomato base. Salt, and a little sweetness. Cheese on top, if you add it, brings more fat.",
+          why: "Garnacha from Campo de Borja is ripe in fruit and modest in tannin, with raspberry and a warm finish. Mild chili has a sweetness that makes an austere, tannic wine taste hard. This one meets the sweetness with fruit and still has enough acid for the tomato. If cheese is added, the low tannin matters even more. A rounder red suits a hearty bowl.",
+          service: "Serve near 15°C. Hot chili and a warm red is too much weight. If the bottle rode in the front seat, a short wait with the cap off is the correction.",
+          budgetWine: "Garnacha",
+          budgetPlace: "Calatayud",
+          budget: "Often a little wilder and a little less expensive, with darker fruit. The same grape, the same low tannin. A slight chill is still part of the service."
+        },
+        {
+          id: "fries",
+          name: "Natural-Cut Fries",
+          wine: "Champagne Brut",
+          place: "Non-vintage, Champagne",
+          keys: "fries sea salt potato",
+          food: "Fries with the skin on, salted, crisp at the outside and soft within. The salt is obvious. There is no sauce unless you add one.",
+          why: "Salted fries are fat and salt, and brut Champagne is the precise tool: high acid, bubbles, and a low dosage so the wine stays dry. A non-vintage blend, with some reserve wine in it, has enough depth for the skin-on potato. Ketchup changes the pairing. The sugar in the ketchup makes this brut taste sharper. With ketchup, an off-dry Riesling is the more accurate glass. Without it, stay with Champagne.",
+          service: "Serve at 8°C. Eat the fries hot. The contrast with the cold wine is why the salt tastes clean rather than heavy.",
+          budgetWine: "Crémant de Bourgogne",
+          budgetPlace: "Burgundy",
+          budget: "The same method, less complexity, a friendlier price. Dry, bubbly, and acidic enough for the salt. The note about ketchup still applies."
+        }
+      ]
+    }
+  ]
+};
+
+/* The grid shows only this menu, in this order.
+   Other dishes stay in chains above and are not listed.
+   Drop a 4:3 WebP at `image` and the card uses it. */
+window.CELLAR.menu = [
+  { chain: "mcdonalds", id: "big-mac", image: "images/big-mac.webp" },
+  { chain: "mcdonalds", id: "filet-o-fish", image: "images/filet-o-fish.webp" },
+  { chain: "burger-king", id: "whopper", image: "images/whopper.webp" },
+  { chain: "tim-hortons", id: "double-double", image: "images/double-double.webp" },
+  { chain: "wendys", id: "baconator", image: "images/baconator.webp" },
+  { chain: "kfc", id: "original-recipe", image: "images/kfc-original.webp" },
+  { chain: "taco-bell", id: "crunchwrap", image: "images/crunchwrap.webp" },
+  { chain: "popeyes", id: "classic-chicken", image: "images/popeyes-sandwich.webp" },
+  { chain: "pizza-pizza", id: "pepperoni", image: "images/pepperoni-slice.webp" },
+  { chain: "aw", id: "teen-burger", image: "images/teen-burger.webp" }
+];
