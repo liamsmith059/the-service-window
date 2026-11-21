@@ -1,27 +1,31 @@
 (function () {
-  var cards = Array.prototype.slice.call(document.querySelectorAll(".found-card"));
   var dialog = document.getElementById("lightbox");
-  if (!cards.length || !dialog) return;
+  if (!dialog) return;
 
   var img = document.getElementById("lightbox-img");
   var title = document.getElementById("lightbox-title");
   var bio = document.getElementById("lightbox-bio");
+  var active = [];
   var index = 0;
   var opener = null;
 
   function show(next) {
-    index = (next + cards.length) % cards.length;
-    var card = cards[index];
+    if (!active.length) return;
+    index = (next + active.length) % active.length;
+    var card = active[index];
     var source = card.querySelector("img");
-    var plate = card.querySelector(".found-plate");
+    var plate = card.querySelector(".found-plate, .brass-plate");
     var note = card.querySelector(".found-bio");
     img.src = source.getAttribute("src");
     img.alt = source.alt;
+    img.setAttribute("width", source.getAttribute("width") || "1152");
+    img.setAttribute("height", source.getAttribute("height") || "864");
     title.textContent = plate.textContent;
     bio.textContent = note.textContent;
   }
 
-  function open(next, from) {
+  function open(cards, next, from) {
+    active = cards;
     opener = from;
     show(next);
     if (!dialog.open) dialog.showModal();
@@ -29,9 +33,15 @@
     if (close) close.focus();
   }
 
-  cards.forEach(function (card, i) {
-    card.addEventListener("click", function () { open(i, card); });
-  });
+  function bind(selector) {
+    var cards = Array.prototype.slice.call(document.querySelectorAll(selector));
+    cards.forEach(function (card, i) {
+      card.addEventListener("click", function () { open(cards, i, card); });
+    });
+  }
+
+  bind(".found-grid .found-card");
+  bind(".group-card");
 
   dialog.querySelector(".lightbox-close").addEventListener("click", function () {
     dialog.close();
