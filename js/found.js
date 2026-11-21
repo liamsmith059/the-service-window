@@ -24,10 +24,17 @@
     bio.textContent = note.textContent;
   }
 
+  function lockPage(on) {
+    document.documentElement.classList.toggle("lightbox-open", on);
+    var header = document.querySelector(".site-header");
+    if (header) header.inert = !!on;
+  }
+
   function open(cards, next, from) {
     active = cards;
     opener = from;
     show(next);
+    lockPage(true);
     if (!dialog.open) dialog.showModal();
     var close = dialog.querySelector(".lightbox-close");
     if (close) close.focus();
@@ -56,6 +63,7 @@
     if (event.target === dialog) dialog.close();
   });
   dialog.addEventListener("close", function () {
+    lockPage(false);
     if (opener) opener.focus();
   });
   dialog.addEventListener("keydown", function (event) {

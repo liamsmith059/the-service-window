@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="https://wilhelmsmithers.ca/">
+  <title>Misplaced · Wilhelm Smithers</title>
+  <meta name="description" content="This page has been misplaced. The estate is looking into it.">
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="Misplaced · Wilhelm Smithers">
+  <meta property="og:description" content="This page has been misplaced. The estate is looking into it.">
+  <meta property="og:image" content="https://wilhelmsmithers.ca/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://wilhelmsmithers.ca/images/og.jpg">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("sw-theme");
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the note</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="header-lead">
+        <div class="explore" id="explore">
+          <button class="explore-btn" id="explore-btn" type="button" aria-expanded="false" aria-controls="explore-panel" aria-haspopup="true">
+            <svg class="explore-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h8"/></svg>
+            <span class="explore-label">Explore</span>
+          </button>
+          <nav class="explore-panel" id="explore-panel" aria-label="Explore" hidden>
+            <ul class="explore-list">
+              <li><a class="explore-item" href="./"><span class="mi-kicker">Home</span><span class="mi-label">Wilhelm Smithers</span></a></li>
+              <li><a class="explore-item" href="menu/"><span class="mi-label">The Service Window</span></a></li>
+              <li><a class="explore-item" href="library/"><span class="mi-label">The Library</span></a></li>
+              <li><a class="explore-item" href="https://liamsmith059.github.io/study-lab/" rel="noopener"><span class="mi-label">Study Lab <span class="ext" aria-hidden="true">↗</span></span></a></li>
+            </ul>
+          </nav>
+        </div>
+        <a class="mark" href="./"><span class="mark-name">Wilhelm Smithers</span></a>
+        <nav class="desk-nav" aria-label="Pages">
+          <a href="./">Home</a>
+          <a href="menu/">The Service Window</a>
+          <a href="library/">The Library</a>
+          <a href="https://liamsmith059.github.io/study-lab/" rel="noopener">Study Lab <span class="ext" aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="btn" id="theme-toggle" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+  </header>
+  <main id="content">
+    <div class="wrap missing">
+      <h1>This page has been misplaced.</h1>
+      <p>The estate is looking into it.</p>
+      <p class="missing-links">
+        <a href="./">Home</a>
+        <a href="menu/">The Service Window</a>
+        <a href="library/">The Library</a>
+      </p>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-age">Please drink responsibly. 19+ in Ontario.</p>
+      <div class="footer-links">
+        <a class="footer-link" href="./">About the sommelier</a>
+        <a class="footer-link" href="menu/">The menu</a>
+        <a class="footer-link" href="library/">The library</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/nav.js"></script>
+  <script>
+    (function () {
+      var themeBtn = document.getElementById("theme-toggle");
+      function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        var dark = theme === "dark";
+        themeBtn.textContent = dark ? "Light" : "Dark";
+        themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", dark ? "#111111" : "#ffffff");
+      }
+      applyTheme(document.documentElement.getAttribute("data-theme") || "light");
+      themeBtn.addEventListener("click", function () {
+        var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        applyTheme(next);
+        try { localStorage.setItem("sw-theme", next); } catch (err) { /* storage may be blocked */ }
+      });
+    })();
+  </script>
+</body>
+</html>

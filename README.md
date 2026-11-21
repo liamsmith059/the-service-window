@@ -34,4 +34,4 @@ Required fields: `id`, `name`, `wine`, `place`, `food`, `why`, `service`, `budge
 
 ## Type
 
-Fraunces, Source Serif 4, and Outfit are included under the SIL Open Font License. See `fonts/OFL.txt` and `fonts/NOTICE.txt`.
+Source Serif 4 and Outfit are included under the SIL Open Font License. See `fonts/OFL.txt` and `fonts/NOTICE.txt`.
