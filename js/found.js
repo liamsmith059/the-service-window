@@ -49,6 +49,7 @@
 
   bind(".found-grid .found-card");
   bind(".group-card");
+  bind(".relic-card");
 
   dialog.querySelector(".lightbox-close").addEventListener("click", function () {
     dialog.close();

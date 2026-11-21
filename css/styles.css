@@ -1317,6 +1317,58 @@ html.lightbox-open .site-header {
   margin: 0 auto;
   padding: clamp(2.5rem, 6vw, 4.5rem) 0 1rem;
 }
+.library-lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.85fr);
+  gap: 1.5rem 2.75rem;
+  align-items: center;
+}
+.relic-card {
+  appearance: none;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.4rem 0.2rem 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+.relic-tilt {
+  display: block;
+  transform: rotate(-1.5deg);
+  filter: drop-shadow(0 16px 18px rgba(40, 28, 12, 0.32));
+}
+.relic-frame {
+  display: block;
+  padding: 11px 12px 13px 11px;
+  background-image:
+    linear-gradient(122deg, rgba(255, 232, 190, 0.35), transparent 24%, rgba(30, 18, 8, 0.4) 46%, transparent 62%, rgba(255, 220, 160, 0.22)),
+    linear-gradient(160deg, #8d7044, #4e3b24 34%, #c6a56e 52%, #3a2c1a 78%, #7a5c34);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 236, 200, 0.4),
+    inset 0 -5px 8px rgba(24, 14, 6, 0.45),
+    0 0 0 1px #1a140e;
+}
+.relic-mat {
+  display: block;
+  padding: 0.65rem;
+  background:
+    radial-gradient(120% 80% at 50% 0%, #4a433c, #1a1714 70%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.45);
+}
+:root[data-theme="dark"] .relic-mat {
+  background: radial-gradient(120% 80% at 50% 0%, #3a342e, #100e0c 72%);
+}
+.relic-mat img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.relic-card .brass-plate { margin-top: 0.95rem; }
+
 .library-intro h1 {
   font-family: var(--serif);
   font-weight: 500;
@@ -1451,6 +1503,7 @@ html.lightbox-open .site-header {
   .found-grid { gap: 1.15rem 0.75rem; }
   .found-plate { font-size: 0.78rem; }
   .library { width: min(68rem, calc(100% - 1.5rem)); }
+  .library-lead { grid-template-columns: 1fr; gap: 1.35rem; }
   .book-card { grid-template-columns: 1fr; gap: 1.1rem; }
   .book-cover { width: min(11rem, 52vw); }
   .library-intro p,

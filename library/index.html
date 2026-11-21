@@ -91,8 +91,23 @@
   <main id="content">
     <article class="library">
       <header class="library-intro">
-        <h1>The Library</h1>
-        <p>A partial record of the volumes Mr. Smithers has read in full. His reviews were written over many years in the margins of cocktail napkins, airport lounge receipts and, on one occasion, a parking ticket he was contesting. They have been recovered where possible and transcribed without correction. The collection is small. Mr. Smithers prefers to read things properly.</p>
+        <div class="library-lead">
+          <div>
+            <h1>The Library</h1>
+            <p>A partial record of the volumes Mr. Smithers has read in full. His reviews were written over many years in the margins of cocktail napkins, airport lounge receipts and, on one occasion, a parking ticket he was contesting. They have been recovered where possible and transcribed without correction. The collection is small. Mr. Smithers prefers to read things properly.</p>
+          </div>
+          <button type="button" class="relic-card">
+            <span class="relic-tilt">
+              <span class="relic-frame">
+                <span class="relic-mat">
+                  <img src="../images/library-everest.webp" srcset="../images/library-everest-480.webp 480w, ../images/library-everest-800.webp 800w, ../images/library-everest.webp 1152w" sizes="(max-width: 800px) 88vw, 28rem" width="1152" height="864" loading="lazy" decoding="async" alt="A torn, yellowed photograph of Wilhelm Smithers reading the Oxford English Dictionary in a wingback armchair on a snowy summit, with climbers in oxygen gear behind him and a glass of red wine on a side table.">
+                </span>
+              </span>
+            </span>
+            <span class="brass-plate">Recovered from a beach in Cornwall, 2009. How it got there is unclear. So is how he got there.</span>
+            <span class="found-bio">Recovered from a beach in Cornwall, 2009. How it got there is unclear. So is how he got there.</span>
+          </button>
+        </div>
       </header>
 
       <ol class="library-list">
@@ -143,7 +158,28 @@
     </div>
   </footer>
 
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox-panel">
+      <div class="lightbox-bar">
+        <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photograph"><span aria-hidden="true">←</span></button>
+        <button type="button" class="lightbox-close">Close</button>
+        <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photograph"><span aria-hidden="true">→</span></button>
+      </div>
+      <figure class="lightbox-figure">
+        <div class="portrait-frame">
+          <div class="portrait-mat">
+            <img id="lightbox-img" alt="" width="1152" height="864">
+          </div>
+        </div>
+        <figcaption aria-live="polite">
+          <h3 id="lightbox-title"></h3>
+          <p id="lightbox-bio"></p>
+        </figcaption>
+      </figure>
+    </div>
+  </dialog>
   <script src="../js/nav.js"></script>
+  <script src="../js/found.js"></script>
   <script>
     (function () {
       var themeBtn = document.getElementById("theme-toggle");
