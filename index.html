@@ -63,6 +63,11 @@
                 </a>
               </li>
               <li>
+                <a class="explore-item" href="library/">
+                  <span class="mi-label">The Library</span>
+                </a>
+              </li>
+              <li>
                 <a class="explore-item" href="https://liamsmith059.github.io/study-lab/">
                   <span class="mi-label">Study Lab</span>
                 </a>
@@ -176,7 +181,69 @@
 
         <a class="back tribute-return" href="menu/">Back to the menu</a>
       </div>
+
+      <section class="recovered" aria-labelledby="recovered-title">
+        <h2 id="recovered-title">Recovered Photographs</h2>
+        <p class="recovered-intro">The following photographs have surfaced over the decades in estate sales, classified archives, a Cairo flea market and, on one occasion, the glovebox of a 1987 Buick. The Smithers estate neither confirms nor denies their authenticity. Mr. Smithers, when shown them, said only: "That was a good year," regardless of which one.</p>
+        <div class="found-grid">
+          <button type="button" class="found-card">
+            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/wtc.webp" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers seated on a steel beam high above Lower Manhattan in 1971, raising a glass of red wine beside an unsecured decanter, while construction workers eat sandwiches and the Twin Towers rise behind them."></span></span>
+            <span class="found-plate">Lower Manhattan, 1971</span>
+            <span class="found-bio">Recovered from the Port Authority archives. Mr. Smithers was not employed on the project. He was, by his own account, "consulting on the view." Workers recall he declined a ham sandwich on the grounds that it would "flatten the Pinot." The decanter was never secured to the beam. Neither was he.</span>
+          </button>
+          <button type="button" class="found-card">
+            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/pyramids.webp" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers kneeling on a stone block being hauled toward the Great Pyramid, holding a glass of red wine and a raised scroll, while workers pull ropes and a pharaoh watches."></span></span>
+            <span class="found-plate">Giza, c. 2560 BC</span>
+            <span class="found-bio">Found in a Cairo flea market, priced at four dollars. Egyptologists have long debated how the Great Pyramid was built. The answer, it appears, is "with direction." The scroll is believed to be the original blueprint. On closer inspection it is a wine list.</span>
+          </button>
+          <button type="button" class="found-card">
+            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/area51.webp" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers reclining on a mechanic's creeper in an Area 51 hangar, holding a glass of red wine and a wrench, while a small alien offers a corkscrew beside an opened flying saucer."></span></span>
+            <span class="found-plate">Nevada, Date Classified</span>
+            <span class="found-bio">Declassified in error, then reclassified, then lost in a FOIA request. Mr. Smithers was brought in after eleven months of no progress. He identified the problem within the hour: the craft was running on a "thin, overextracted Merlot." The alien, Gary, still sends a card every Christmas.</span>
+          </button>
+          <button type="button" class="found-card">
+            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/moon.webp" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers on the Sea of Tranquility in a tweed suit and a clear bubble helmet, holding a glass of red wine beside a startled astronaut, an American flag, the lunar module, and a decanter on a small table."></span></span>
+            <span class="found-plate">Sea of Tranquility, July 20, 1969</span>
+            <span class="found-bio">NASA has never released this frame. Mission transcripts contain a four-minute gap that officials attribute to "interference." Audio specialists describe the interference as "the sound of a cork." Mr. Smithers maintains he was "just passing through."</span>
+          </button>
+          <button type="button" class="found-card">
+            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/declaration.webp" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers pouring red wine from a decanter in a Philadelphia assembly room in 1776, pointing at the Declaration while Benjamin Franklin and the other delegates look on."></span></span>
+            <span class="found-plate">Philadelphia, July 1776</span>
+            <span class="found-bio">Formerly in the private collection of a Delaware dentist. Historians note the Declaration was approved on the 2nd and signed on the 4th. The intervening two days are now understood to have been a tasting. Franklin's edit to "life, liberty and the pursuit of happiness" originally read "and a decent Bordeaux." It was struck at Mr. Smithers' suggestion. He felt it "went without saying."</span>
+          </button>
+          <button type="button" class="found-card">
+            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/kittyhawk.webp" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers lying on the wing of the Wright Flyer at Kitty Hawk in 1903, holding a glass of red wine that has not spilled, while Orville and Wilbur Wright run beneath the aircraft."></span></span>
+            <span class="found-plate">Kitty Hawk, December 17, 1903</span>
+            <span class="found-bio">The first powered flight lasted twelve seconds. The glass did not spill. Orville later wrote in his diary: "We are not sure who that was, or how he got on." Wilbur's entry for the same day is a single word: "Show-off."</span>
+          </button>
+        </div>
+      </section>
     </article>
+
+    <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+      <div class="lightbox-panel">
+        <div class="lightbox-bar">
+          <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photograph">
+            <span aria-hidden="true">←</span>
+          </button>
+          <button type="button" class="lightbox-close">Close</button>
+          <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photograph">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <figure class="lightbox-figure">
+          <div class="portrait-frame">
+            <div class="portrait-mat">
+              <img id="lightbox-img" alt="" width="1152" height="864">
+            </div>
+          </div>
+          <figcaption aria-live="polite">
+            <h3 id="lightbox-title"></h3>
+            <p id="lightbox-bio"></p>
+          </figcaption>
+        </figure>
+      </div>
+    </dialog>
   </main>
 
   <footer class="site-footer">
@@ -191,6 +258,7 @@
   </footer>
 
   <script src="js/nav.js"></script>
+  <script src="js/found.js"></script>
   <script>
     (function () {
       var themeBtn = document.getElementById("theme-toggle");
