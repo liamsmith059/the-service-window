@@ -86,8 +86,17 @@
     return menu.filter(function (entry) { return entry.chain.id === filterId; });
   }
 
+  var assetBase = document.documentElement.getAttribute("data-asset-base") || "";
+
+  function asset(path) {
+    if (!path) return "";
+    if (/^(?:[a-z]+:)?\/\//i.test(path) || path.charAt(0) === "/") return path;
+    return assetBase + path;
+  }
+
   function mountPhoto(frame, src, alt, eager) {
     if (!src) return;
+    src = asset(src);
     var img = document.createElement("img");
     img.alt = alt;
     img.decoding = "async";
@@ -349,16 +358,6 @@
   });
 
   surpriseBtn.addEventListener("click", surprise);
-
-  document.querySelector(".mark").addEventListener("click", function (event) {
-    var hash = location.hash;
-    if (hash === "" || hash === "#" || hash === "#/") {
-      event.preventDefault();
-      filterId = "all";
-      render();
-      window.scrollTo(0, 0);
-    }
-  });
 
   window.addEventListener("hashchange", function () {
     render();

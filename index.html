@@ -3,18 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Service Window</title>
-  <meta name="description" content="The glass is chosen for the fat, the salt, the sugar, and the heat.">
-  <meta property="og:title" content="The Service Window">
-  <meta property="og:description" content="The glass is chosen for the fat, the salt, the sugar, and the heat.">
+  <title>Wilhelm Smithers</title>
+  <meta name="description" content="Wilhelm Smithers, Chef Sommelier. Des Moines · Milton · The World.">
+  <link rel="canonical" href="https://wilhelmsmithers.ca/">
+  <meta property="og:title" content="Wilhelm Smithers">
+  <meta property="og:description" content="Wilhelm Smithers, Chef Sommelier. Des Moines · Milton · The World.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/big-mac.webp">
+  <meta property="og:url" content="https://wilhelmsmithers.ca/">
+  <meta property="og:image" content="https://wilhelmsmithers.ca/images/wilhelm-portrait.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Service Window">
-  <meta name="twitter:description" content="The glass is chosen for the fat, the salt, the sugar, and the heat.">
-  <meta name="twitter:image" content="images/big-mac.webp">
+  <meta name="twitter:title" content="Wilhelm Smithers">
+  <meta name="twitter:description" content="Wilhelm Smithers, Chef Sommelier. Des Moines · Milton · The World.">
+  <meta name="twitter:image" content="https://wilhelmsmithers.ca/images/wilhelm-portrait.webp">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var hash = location.hash || "";
+      if (!hash || hash === "#" || hash === "#content") return;
+      location.replace("menu/" + hash);
+    })();
+  </script>
   <script>
     (function () {
       try {
@@ -31,62 +40,132 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a class="skip" href="#content">Skip to the menu</a>
+  <a class="skip" href="#content">Skip to the biography</a>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="mark" href="#/">
-        <span class="mark-name">The Service Window</span>
-        <span class="mark-kicker">Cellar list</span>
-      </a>
+      <div class="header-lead">
+        <div class="explore" id="explore">
+          <button class="explore-btn" id="explore-btn" type="button" aria-expanded="false" aria-controls="explore-panel" aria-haspopup="true">
+            <svg class="explore-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h8"/></svg>
+            <span class="explore-label">Explore</span>
+          </button>
+          <nav class="explore-panel" id="explore-panel" aria-label="Explore" hidden>
+            <ul class="explore-list">
+              <li>
+                <a class="explore-item" href="./" aria-current="page">
+                  <span class="mi-kicker">Home</span>
+                  <span class="mi-label">Wilhelm Smithers</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="menu/">
+                  <span class="mi-label">The Service Window</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="https://liamsmith059.github.io/study-lab/">
+                  <span class="mi-label">Study Lab</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <a class="mark" href="./">
+          <span class="mark-name">Wilhelm Smithers</span>
+        </a>
+      </div>
       <div class="header-actions">
-        <button type="button" class="btn btn-solid" id="surprise">Surprise me</button>
         <button type="button" class="btn" id="theme-toggle" aria-pressed="false">Dark</button>
       </div>
     </div>
   </header>
 
   <main id="content">
-    <noscript>
-      <p class="noscript">This list needs JavaScript. It runs entirely in the browser. Nothing is sent anywhere.</p>
-    </noscript>
-
-    <div id="view-home">
-      <div class="wrap">
-        <div class="menu-intro">
-          <h1>What are you having.</h1>
-          <p class="lede">The glass is chosen for the fat, the salt, the sugar, and the heat.</p>
-        </div>
-        <div id="chips" class="chips" role="toolbar" aria-label="Filter by restaurant"></div>
-        <div id="grid" class="grid"></div>
-        <section id="about" class="about">
-          <div class="about-layout">
-            <img class="about-photo" src="images/sommelier.webp" width="1152" height="864" alt="Wilhelm Smithers, Chef Sommelier, considering a glass of red.">
-            <div class="about-copy">
-              <h2>About the Sommelier</h2>
-              <p class="about-name">Wilhelm Smithers</p>
-              <p class="about-role">Chef sommelier</p>
-              <p>Wilhelm Smithers came to wine the way some men come to religion: late, quietly, and because of Joel Friesen. Little is known of Friesen. He is said to have cooked for three summers in a kitchen with no name, somewhere between Lyon and the sea, and to have left each one without notice. No photograph of him is confirmed. What survives are the recipes, copied by hand and passed between cooks who do not discuss where they got them, and a handful of pairings so exact that cellar masters still argue over how he arrived at them. Smithers encountered one of those pairings at nineteen. He has spent every year since trying to understand it. He does not say which one it was.</p>
-              <p>The Service Window exists to give every meal the attention usually reserved for a tasting menu. The wines are real, the regions are real, and the reasoning is the same reasoning a sommelier would use on any plate: fat, salt, sugar, acid, heat. Only the plates have changed. Order what you like. We will tell you what to pour.</p>
+    <article class="tribute">
+      <header class="tribute-hero">
+        <figure class="portrait">
+          <div class="portrait-frame">
+            <div class="portrait-mat">
+              <img src="images/wilhelm-portrait.webp" width="900" height="1200" alt="Oil portrait of Wilhelm Smithers, an older man with grey hair, a moustache, and gold-rimmed glasses, smiling in a brown tweed jacket and burgundy striped tie. A globe and a row of books sit behind him.">
             </div>
           </div>
-        </section>
-      </div>
-    </div>
+          <figcaption class="portrait-plate">Wilhelm Smithers, in oils. Photographed during a rare moment of approval.</figcaption>
+        </figure>
+        <div class="tribute-identity">
+          <h1 class="tribute-name">Wilhelm Smithers</h1>
+          <p class="tribute-role">Chef Sommelier</p>
+          <p class="tribute-honours">Des Moines · Milton · The World</p>
+        </div>
+      </header>
 
-    <div id="view-pairing" hidden>
-      <div class="wrap detail-wrap" id="pairing-root"></div>
-    </div>
+      <div class="tribute-body">
+        <section class="tribute-section">
+          <h2>Des Moines</h2>
+          <p class="opening">Wilhelm Smithers was born in Des Moines, Iowa, during a thunderstorm that his mother would later describe, without elaboration, as "well-structured." He was a quiet child. At four he refused a juice box on the grounds that it was "closed," and at seven he was asked to leave a church potluck after ranking the casseroles aloud, in order, with notes. Neighbours remember a boy who sniffed his milk for a long time before drinking it and who once described a Hy-Vee rotisserie chicken as "confident, but hiding something." No one in the family drank wine. No one has been able to explain where he got the vocabulary.</p>
+        </section>
+
+        <section class="tribute-section">
+          <h2>The Milton Years</h2>
+          <p>At twenty-two, for reasons he has never discussed, Smithers moved to Ontario and took a position at the courthouse in Milton. He stayed for nineteen years. Colleagues recall a meticulous, courteous man who arrived at 7:40 every morning, organized the photocopier toner by vintage, and kept a single Bordeaux glass in his desk drawer that he never once filled. He is still credited with ending a three-day dispute over a fence line by tasting the soil from both properties and identifying, correctly, which side had once been an apple orchard. The judge thanked him and asked him not to do it again. During this period Smithers first encountered the work of Joel Friesen, in the form of a single handwritten pairing tucked inside a returned library book. He did not sleep that night. He handed in his resignation eleven years later, which friends describe as "very fast, for Wilhelm."</p>
+        </section>
+
+        <section class="tribute-section">
+          <h2>The Turn</h2>
+          <p>Smithers left Milton with one suitcase, the Bordeaux glass, and a list of every drive-thru between Mississauga and Lyon that he intended to visit, which included several that do not exist. He trained in Burgundy under a cellar master who refused to speak to him for the first fourteen months and on the fifteenth said only, "Fine." He completed the Court of Master Sommeliers examination in an afternoon and has reportedly never collected the pin, explaining that he "already knew." He has since been barred from two Michelin-starred restaurants in Paris for sending back the water.</p>
+        </section>
+
+        <section class="tribute-section">
+          <h2>Renown</h2>
+          <p>Today Smithers is regarded, mostly by himself and a small but intense group of admirers, as one of the most important palates of his generation. He has decanted a Pinot Noir for the full duration of a Tim Hortons drive-thru line during a snowstorm and called it "the correct amount of time." He once paired a single chicken nugget with a 1961 Château Latour and wept, briefly, but declined to say which of the two had moved him. He has been offered the position of head sommelier at four of the world's great restaurants and has turned all of them down, citing "the menu." He still visits the Milton courthouse every spring. He sits in the gallery, observes a morning session, and leaves without speaking. Staff say the coffee tastes different for a week afterward.</p>
+        </section>
+
+        <section class="tribute-section">
+          <h2>Personal Life</h2>
+          <p>Smithers lives alone with a tortoise named Cabernet, who is older than he is and whom he describes as "his only honest critic." He does not own a television. He owns eleven identical tweed jackets. He has never eaten a french fry without first holding it to the light. When an interviewer asked what he would want for his final meal, he paused for a long time and said, "A Filet-O-Fish, and a Muscadet, and no questions." The interview ended there.</p>
+        </section>
+
+        <a class="back tribute-return" href="menu/">Back to the menu</a>
+      </div>
+    </article>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <p class="footer-age">Please drink responsibly. 19+ in Ontario.</p>
       <p>The Service Window is an independent list. It is not affiliated with, or endorsed by, any restaurant named here. Names are used only to identify dishes.</p>
-      <a class="footer-link" href="sommelier.html">About the sommelier</a>
+      <div class="footer-links">
+        <a class="footer-link" href="./">About the sommelier</a>
+        <a class="footer-link" href="menu/">The menu</a>
+      </div>
     </div>
   </footer>
 
-  <script src="data/pairings.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    (function () {
+      var themeBtn = document.getElementById("theme-toggle");
+      function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        var dark = theme === "dark";
+        themeBtn.textContent = dark ? "Light" : "Dark";
+        themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", dark ? "#111111" : "#ffffff");
+      }
+      applyTheme(document.documentElement.getAttribute("data-theme") || "light");
+      themeBtn.addEventListener("click", function () {
+        var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        applyTheme(next);
+        try { localStorage.setItem("sw-theme", next); } catch (err) { /* storage may be blocked */ }
+      });
+      var saved = null;
+      try { saved = localStorage.getItem("sw-theme"); } catch (err) { saved = null; }
+      if (saved !== "light" && saved !== "dark" && window.matchMedia) {
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (event) {
+          applyTheme(event.matches ? "dark" : "light");
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
