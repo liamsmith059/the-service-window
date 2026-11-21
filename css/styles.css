@@ -698,12 +698,33 @@ a { color: inherit; }
 }
 
 .tribute-body {
-  max-width: 42rem;
-  margin: clamp(2.5rem, 6vw, 4.5rem) auto 0.5rem;
+  max-width: none;
+  margin: clamp(2.75rem, 6vw, 4.75rem) 0 0.5rem;
   padding-bottom: 1rem;
 }
 
-.tribute-section + .tribute-section { margin-top: 3.15rem; }
+.tribute-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.35rem 2.75rem;
+  align-items: start;
+}
+
+.tribute-section h2 { grid-column: 1 / -1; margin-bottom: 0.35rem; }
+
+.chapter { margin: 0; min-width: 0; }
+
+.chapter-plate {
+  font-size: 0.92rem;
+  padding: 0.6rem 0.8rem 0.7rem;
+  margin-top: 0.7rem;
+}
+
+.chapter-copy { min-width: 0; }
+
+.tribute-section:nth-child(even) .chapter { order: 2; }
+
+.tribute-section + .tribute-section { margin-top: 4.25rem; }
 
 .tribute-section + .tribute-section h2 {
   padding-top: 0.15rem;
@@ -732,6 +753,8 @@ a { color: inherit; }
   font-size: 1.08rem;
   line-height: 1.7;
 }
+
+.tribute-section .chapter-copy p { margin-top: 0; }
 
 .tribute-section p.opening::first-letter {
   font-family: var(--serif);
@@ -766,6 +789,12 @@ a { color: inherit; }
   .portrait { width: min(100%, 26rem); }
   .tribute-identity { width: min(100%, 26rem); }
   .tribute-name { font-size: clamp(2.85rem, 12vw, 4rem); }
+  .tribute-section {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  .tribute-section:nth-child(even) .chapter { order: 0; }
+  .tribute-section .chapter-copy p { margin-top: 0.35rem; }
 }
 
 @media (max-width: 680px) {
