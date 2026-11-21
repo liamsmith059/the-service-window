@@ -1021,10 +1021,32 @@ a { color: inherit; }
   cursor: pointer;
 }
 
-.found-frame { padding: 2px; box-shadow: 0 12px 28px rgba(23, 23, 23, 0.1); }
-:root[data-theme="dark"] .found-frame { box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4); }
-.found-mat { padding: 0.4rem; }
-.found-frame img { aspect-ratio: 4 / 3; object-fit: cover; }
+.found-frame {
+  display: block;
+  padding: 0;
+  background: none;
+  border: 1px solid #6e5340;
+  box-shadow: none;
+  line-height: 0;
+}
+:root[data-theme="dark"] .found-frame {
+  border-color: #c6a56a;
+  box-shadow: none;
+}
+.found-mat {
+  display: block;
+  padding: 0;
+  background: none;
+  line-height: 0;
+}
+.found-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: fill;
+  vertical-align: top;
+}
 
 .found-plate {
   display: block;
