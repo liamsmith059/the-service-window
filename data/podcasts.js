@@ -11,9 +11,8 @@
  *   3. Add the show URL to sitemap.xml.
  * The hub lists every show in this array automatically.
  *
- * The Joe Rogan Experience cover is the official Apple Podcasts artwork:
- * https://podcasts.apple.com/us/podcast/the-joe-rogan-experience/id360084272
- * https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/d8/97/bf/d897bfdd-73ea-6a4e-5c3e-02ab30707f2b/mza_8607972238001778397.jpg/2000x2000bb.jpg
+ * The Joe Rogan Experience mark was supplied by Liam (25 November 2026):
+ * a circular logo with white outlined lettering on a transparent field.
  */
 window.PODCASTS = [
   {
@@ -23,8 +22,8 @@ window.PODCASTS = [
     "art": "joe-rogan-experience",
     "artWidth": 400,
     "artHeight": 400,
-    "artAlt": "Official cover art for The Joe Rogan Experience.",
-    "artSource": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/d8/97/bf/d897bfdd-73ea-6a4e-5c3e-02ab30707f2b/mza_8607972238001778397.jpg/2000x2000bb.jpg",
+    "artAlt": "The Joe Rogan Experience logo.",
+    "artSource": "Supplied by Liam, 25 November 2026.",
     "episodes": [
       {
         "title": "#1459 - Tom O’Neill",

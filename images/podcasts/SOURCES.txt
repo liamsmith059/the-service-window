@@ -1,4 +1,6 @@
-The Joe Rogan Experience official podcast cover art
-Source page: https://podcasts.apple.com/us/podcast/the-joe-rogan-experience/id360084272
-Artwork URL (2000x2000bb): https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/d8/97/bf/d897bfdd-73ea-6a4e-5c3e-02ab30707f2b/mza_8607972238001778397.jpg/2000x2000bb.jpg
-Downloaded 2026-11-25. Converted to square WebP at 400px and 200px.
+The Joe Rogan Experience logo on the Podcasts hub and show page
+was supplied by Liam on 25 November 2026 (circular mark with white
+outlined lettering on a transparent field). It replaces the earlier
+official Apple Podcasts cover art. Converted to square WebP at 400px
+and 200px, keeping transparency, with a dark disc behind the lettering
+so the type stays legible on a light page.

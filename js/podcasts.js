@@ -99,50 +99,24 @@
     var show = findShow(slug);
     if (show) renderShowHeader(show);
 
-    var search = document.getElementById("podcast-search");
     var countEl = document.getElementById("podcast-count");
-    var emptyEl = document.getElementById("podcast-empty");
     var episodes = show && Array.isArray(show.episodes) ? show.episodes : [];
 
-    function matches(episode, query) {
-      if (!query) return true;
-      var hay = ((episode.title || "") + " " + (episode.note || "")).toLowerCase();
-      return hay.indexOf(query) !== -1;
+    list.innerHTML = episodes.map(function (episode) {
+      var note = episode.note
+        ? '<p class="episode-note">' + esc(episode.note) + "</p>"
+        : "";
+      return (
+        '<li class="episode-card">' +
+        '<h2 class="episode-title">' + esc(episode.title) + "</h2>" +
+        note +
+        "</li>"
+      );
+    }).join("");
+
+    if (countEl) {
+      countEl.textContent = episodes.length + " " + noun(episodes.length);
     }
-
-    function render() {
-      var query = search ? search.value.trim().toLowerCase() : "";
-      var visible = episodes.filter(function (episode) {
-        return matches(episode, query);
-      });
-
-      list.innerHTML = visible.map(function (episode) {
-        var note = episode.note
-          ? '<p class="episode-note">' + esc(episode.note) + "</p>"
-          : "";
-        return (
-          '<li class="episode-card">' +
-          '<h2 class="episode-title">' + esc(episode.title) + "</h2>" +
-          note +
-          "</li>"
-        );
-      }).join("");
-
-      if (countEl) {
-        if (query) {
-          countEl.textContent = visible.length + " of " + episodes.length + " " + noun(episodes.length);
-        } else {
-          countEl.textContent = episodes.length + " " + noun(episodes.length);
-        }
-      }
-      if (emptyEl) {
-        if (visible.length) emptyEl.setAttribute("hidden", "");
-        else emptyEl.removeAttribute("hidden");
-      }
-    }
-
-    if (search) search.addEventListener("input", render);
-    render();
   }
 
   renderHub();
