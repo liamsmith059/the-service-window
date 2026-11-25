@@ -41,10 +41,11 @@
       }
     })();
   </script>
+  <link rel="preload" as="image" href="images/wilhelm-hero-1920.webp" imagesrcset="images/wilhelm-hero-1280.webp 1280w, images/wilhelm-hero-1920.webp 1920w, images/wilhelm-hero.webp 2560w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <a class="skip" href="#content">Skip to the biography</a>
+<body class="has-hero">
+  <a class="skip" href="#des-moines">Skip to the biography</a>
   <header class="site-header">
     <div class="wrap header-inner">
       <div class="header-lead">
@@ -129,18 +130,34 @@
   <main id="content">
     <article class="tribute">
       <header class="tribute-hero">
-        <figure class="portrait">
-          <div class="portrait-frame">
-            <div class="portrait-mat">
-              <img src="images/wilhelm-portrait.webp" width="900" height="1200" alt="Oil portrait of Wilhelm Smithers, an older man with grey hair, a moustache, and gold-rimmed glasses, smiling in a brown tweed jacket and burgundy striped tie. A globe and a row of books sit behind him.">
+        <div class="hero-media">
+          <img
+            class="hero-img"
+            src="images/wilhelm-hero-1920.webp"
+            srcset="images/wilhelm-hero-1280.webp 1280w, images/wilhelm-hero-1920.webp 1920w, images/wilhelm-hero.webp 2560w"
+            sizes="100vw"
+            width="2560"
+            height="1440"
+            decoding="async"
+            fetchpriority="high"
+            alt="Oil portrait of Wilhelm Smithers seated in a tufted leather armchair inside a dimly lit study, wearing a brown tweed jacket, cream shirt, and burgundy striped tie, resting his chin on his hand beside a crimson velvet drape, a brass globe, and antique mahogany bookshelves."
+          >
+        </div>
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-overlay">
+          <div class="wrap hero-inner">
+            <div class="tribute-identity">
+              <h1 class="tribute-name">Wilhelm Smithers</h1>
+              <p class="tribute-role">Chef Sommelier</p>
+              <p class="tribute-honours">Des Moines · Milton · The World</p>
             </div>
+            <a class="hero-scroll" href="#des-moines" aria-label="Begin the biography">
+              <span class="hero-scroll-label">Begin</span>
+              <svg class="hero-scroll-chevron" viewBox="0 0 18 10" width="18" height="10" aria-hidden="true" focusable="false">
+                <path d="M1.5 1.75 9 8.25l7.5-6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
-          <figcaption class="portrait-plate">Wilhelm Smithers, in oils. Photographed during a rare moment of approval.</figcaption>
-        </figure>
-        <div class="tribute-identity">
-          <h1 class="tribute-name">Wilhelm Smithers</h1>
-          <p class="tribute-role">Chef Sommelier</p>
-          <p class="tribute-honours">Des Moines · Milton · The World</p>
         </div>
       </header>
 
