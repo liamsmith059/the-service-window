@@ -179,9 +179,21 @@ a { color: inherit; }
 .mark {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   text-decoration: none;
   min-width: 0;
+}
+.mark-home {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 2.25rem;
+  padding: 0.35rem 0.1rem 0.35rem 0.15rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
 }
 .mark-name {
   font-family: var(--sans);
@@ -199,29 +211,29 @@ a { color: inherit; }
   text-transform: uppercase;
   color: var(--muted);
 }
-.mark-btn {
+.mark-caret-btn {
   appearance: none;
   -webkit-appearance: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.42rem;
-  margin: 0;
-  padding: 0.35rem 0.15rem;
+  justify-content: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0 0 -0.15rem;
+  padding: 0;
   border: 0;
   background: transparent;
   color: inherit;
-  font: inherit;
   cursor: pointer;
-  min-width: 0;
-  min-height: 2.25rem;
-  white-space: nowrap;
   border-radius: 4px;
 }
-.mark-btn:focus-visible {
+.mark-home:focus-visible,
+.mark-caret-btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
-.mark-btn:hover .mark-name,
+.mark-home:hover .mark-name,
 .explore.is-open .mark-name {
   color: var(--accent-text);
 }
@@ -231,7 +243,7 @@ a { color: inherit; }
   opacity: 0.8;
   transition: transform 180ms ease, opacity 180ms ease;
 }
-.mark-btn:hover .mark-caret,
+.mark-caret-btn:hover .mark-caret,
 .explore.is-open .mark-caret {
   opacity: 1;
 }
@@ -2230,7 +2242,7 @@ body.has-hero .site-header:not(.is-scrolled) .mark-caret {
   opacity: 0.92;
 }
 
-body.has-hero .site-header:not(.is-scrolled) .mark-btn:hover .mark-name,
+body.has-hero .site-header:not(.is-scrolled) .mark-home:hover .mark-name,
 body.has-hero .site-header:not(.is-scrolled) .explore.is-open .mark-name {
   color: #e2c58a;
 }

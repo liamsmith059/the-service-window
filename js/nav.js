@@ -108,6 +108,7 @@
       panel.hidden = false;
       wrap.classList.add("is-open");
       btn.setAttribute("aria-expanded", "true");
+      btn.setAttribute("aria-label", "Close menu");
     }
 
     function hide(returnFocus) {
@@ -119,14 +120,13 @@
       panel.hidden = true;
       wrap.classList.remove("is-open");
       btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-label", "Open menu");
       if (touchItem) {
         touchItem.classList.remove("is-hl");
         touchItem = null;
       }
       if (returnFocus) btn.focus();
     }
-
-    exploreHide = hide;
 
     btn.addEventListener("click", function () {
       if (open && !pinned) {
