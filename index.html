@@ -41,7 +41,7 @@
       }
     })();
   </script>
-  <link rel="preload" as="image" href="images/wilhelm-hero-1920.webp" imagesrcset="images/wilhelm-hero-1280.webp 1280w, images/wilhelm-hero-1920.webp 1920w, images/wilhelm-hero.webp 2560w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="images/wilhelm-hero-poster.webp" fetchpriority="high">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="has-hero">
@@ -131,17 +131,73 @@
     <article class="tribute">
       <header class="tribute-hero">
         <div class="hero-media">
+          <video
+            class="hero-video"
+            id="hero-video"
+            autoplay
+            muted
+            playsinline
+            preload="metadata"
+            poster="images/wilhelm-hero-poster.webp"
+            width="1280"
+            height="720"
+            aria-label="Animated oil portrait of Wilhelm Smithers seated in a leather wingback chair, picking up a glass of red wine, swirling and examining it in the light, smelling the aroma, taking a slow sip, and setting it down before returning his hand to his chin."
+          >
+            <source src="images/wilhelm-hero.webm" type="video/webm">
+            <source src="images/wilhelm-hero.mp4" type="video/mp4">
+            <img
+              class="hero-img"
+              src="images/wilhelm-hero-poster.webp"
+              width="1280"
+              height="720"
+              decoding="async"
+              fetchpriority="high"
+              alt="Oil portrait of Wilhelm Smithers seated in a tufted leather armchair inside a dimly lit study, wearing a brown tweed jacket, cream shirt, and burgundy striped tie, resting his chin on his hand beside a crimson velvet drape, a brass globe, and antique mahogany bookshelves."
+            >
+          </video>
           <img
-            class="hero-img"
-            src="images/wilhelm-hero-1920.webp"
-            srcset="images/wilhelm-hero-1280.webp 1280w, images/wilhelm-hero-1920.webp 1920w, images/wilhelm-hero.webp 2560w"
-            sizes="100vw"
-            width="2560"
-            height="1440"
+            class="hero-img hero-still"
+            src="images/wilhelm-hero-poster.webp"
+            width="1280"
+            height="720"
             decoding="async"
             fetchpriority="high"
             alt="Oil portrait of Wilhelm Smithers seated in a tufted leather armchair inside a dimly lit study, wearing a brown tweed jacket, cream shirt, and burgundy striped tie, resting his chin on his hand beside a crimson velvet drape, a brass globe, and antique mahogany bookshelves."
           >
+          <script>
+            (function () {
+              var video = document.getElementById("hero-video");
+              if (!video) return;
+              var media = video.closest(".hero-media") || video.parentElement;
+              function restOnStill() {
+                if (!media || media.classList.contains("is-ended")) return;
+                media.classList.add("is-ended");
+                video.pause();
+              }
+              video.addEventListener("ended", restOnStill);
+              video.addEventListener("timeupdate", function () {
+                if (video.duration && isFinite(video.duration) && video.currentTime >= video.duration - 0.12) {
+                  restOnStill();
+                }
+              });
+              if (!window.matchMedia) return;
+              var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+              function syncMotion() {
+                if (mq.matches) {
+                  video.removeAttribute("autoplay");
+                  video.pause();
+                } else if (video.paused && media && !media.classList.contains("is-ended")) {
+                  video.play().catch(function () {});
+                }
+              }
+              if (mq.matches) {
+                video.removeAttribute("autoplay");
+                video.setAttribute("preload", "none");
+                video.pause();
+              }
+              if (mq.addEventListener) mq.addEventListener("change", syncMotion);
+            })();
+          </script>
         </div>
         <div class="hero-scrim" aria-hidden="true"></div>
         <div class="hero-overlay">
