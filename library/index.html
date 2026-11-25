@@ -127,8 +127,20 @@
         <p>A partial record of the volumes Mr. Smithers has read in full. His reviews were written over many years in the margins of cocktail napkins, airport lounge receipts and, on one occasion, a parking ticket he was contesting. They have been recovered where possible and transcribed without correction. The collection is small. Mr. Smithers prefers to read things properly.</p>
       </header>
 
-      <ol class="library-list">
-        <li class="book-card">
+            <div class="library-toolbar">
+        <div class="library-sort" id="library-sort" role="toolbar" aria-label="Sort books">
+          <span class="library-sort-label">Sort</span>
+          <button type="button" class="chip" data-sort="catalogue" aria-pressed="true">Catalogue</button>
+          <button type="button" class="chip" data-sort="rating" aria-pressed="false">Highest rated</button>
+          <button type="button" class="chip" data-sort="title" aria-pressed="false">Title</button>
+          <button type="button" class="chip" data-sort="author" aria-pressed="false">Author</button>
+          <button type="button" class="chip" data-sort="year" aria-pressed="false">Year</button>
+        </div>
+        <p class="library-count" id="library-count">37 volumes · catalogue order</p>
+      </div>
+
+      <ol class="library-list" id="library-list">
+        <li class="book-card" data-index="0" data-rating="4" data-title="holy bible" data-author="various" data-year="0">
           <div class="book-cover">
             <img src="../images/covers/bible.webp" srcset="../images/covers/bible-240.webp 240w, ../images/covers/bible.webp 458w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="458" height="668" alt="Cover of a dark blue leather-bound Holy Bible with gilt lettering." decoding="async">
           </div>
@@ -149,7 +161,7 @@
             </dl>
           </div>
         </li>
-        <li class="book-card">
+        <li class="book-card" data-index="1" data-rating="4" data-title="merriam-webster dictionary" data-author="merriam-webster" data-year="2022">
           <div class="book-cover">
             <img src="../images/covers/merriam-webster.webp" srcset="../images/covers/merriam-webster-240.webp 240w, ../images/covers/merriam-webster.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="786" alt="Cover of The Merriam-Webster Dictionary, Revised Edition, in red and cream." decoding="async" loading="lazy">
           </div>
@@ -170,7 +182,7 @@
             </dl>
           </div>
         </li>
-        <li class="book-card">
+        <li class="book-card" data-index="2" data-rating="4" data-title="12 rules for life" data-author="peterson, jordan b." data-year="2018">
           <div class="book-cover">
             <img src="../images/covers/12-rules.webp" srcset="../images/covers/12-rules-240.webp 240w, ../images/covers/12-rules.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="736" alt="Cover of 12 Rules for Life by Jordan B. Peterson, cream with a boxed title and a penguin mark." decoding="async" loading="lazy">
           </div>
@@ -191,15 +203,15 @@
             </dl>
           </div>
         </li>
-        <li class="book-card">
+        <li class="book-card" data-index="3" data-rating="5" data-title="stand" data-author="king, stephen" data-year="1978">
           <div class="book-cover">
             <img src="../images/covers/the-stand.webp" srcset="../images/covers/the-stand-240.webp 240w, ../images/covers/the-stand.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="750" alt="Cover of The Stand by Stephen King, a white-robed figure dueling a dark creature in a desert." decoding="async" loading="lazy">
           </div>
           <div class="book-copy">
             <h2 class="book-title">The Stand</h2>
             <p class="book-author">Stephen King, 1978</p>
-            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
-            <p class="book-review">This is the most ambitious novel I have read, and I do not usually read novels. A plague, imagined with unpleasant plausibility, empties the country; the survivors, drawn together by dreams, divide between two settlements, and what follows is a long account of ordinary people trying to rebuild a world, and of the other sort of people who have no interest in doing so. The early chapters, in which the illness moves from house to house, are the strongest in the book: patient, specific, and difficult to shake. King is good with a large cast. I believed in more of them than I expected to, and I was sorry to leave a few. The middle stretch, the journey west and the founding of the new community, is richer in character than in incident, and some of it could have been firmer. The ending is decisive, but it asks a miracle to do work that the story had, until then, been doing for itself, and I was not entirely persuaded. I began it during a recess in Milton and did not finish it until the sitting was long over. Four stars. I made an exception of my usual habits, and I am glad I did.</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">This is the most ambitious novel I have read, and I do not usually read novels. A plague, imagined with unpleasant plausibility, empties the country; the survivors, drawn together by dreams, divide between two settlements, and what follows is a long account of ordinary people trying to rebuild a world, and of the other sort of people who have no interest in doing so. The early chapters, in which the illness moves from house to house, are the strongest in the book: patient, specific, and difficult to shake. King is good with a large cast. I believed in more of them than I expected to, and I was sorry to leave a few. The middle stretch, the journey west and the founding of the new community, is richer in character than in incident, and some of it could have been firmer. The ending is decisive, but it asks a miracle to do work that the story had, until then, been doing for itself, and I was not entirely persuaded. I began it during a recess in Milton and did not finish it until the sitting was long over. Five stars. I made an exception of my usual habits, and I am glad I did.</p>
             <dl class="book-meta">
               <div>
                 <dt>Read</dt>
@@ -212,15 +224,15 @@
             </dl>
           </div>
         </li>
-        <li class="book-card">
+        <li class="book-card" data-index="4" data-rating="5" data-title="behave" data-author="sapolsky, robert" data-year="2017">
           <div class="book-cover">
             <img src="../images/covers/behave.webp" srcset="../images/covers/behave-240.webp 240w, ../images/covers/behave.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="729" alt="Cover of Behave by Robert Sapolsky, a dotted human figure on a white field." decoding="async" loading="lazy">
           </div>
           <div class="book-copy">
             <h2 class="book-title">Behave</h2>
             <p class="book-author">Robert Sapolsky, 2017</p>
-            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
-            <p class="book-review">Sapolsky's subject is why people do what they do, and his method is to work backwards from the moment of an action: first the nervous system, then the hormones of the preceding hours, then childhood, genes, culture, and finally the long pressure of evolution. It is a clarifying way to organize a vast literature, and he is an unusually good guide to it, exact where he needs to be and willing to say when a finding is less settled than it looks. The book is also very long, and it is honest about complication. By the time one reaches the later chapters, the idea of a single cause, or a simple judgment, has been steadily taken apart, which is the point, and which I found both impressive and, in a courtroom sense, not as immediately useful as I had hoped. I had thought I might cite it. I will not be citing it. The writing, though, is a pleasure: humane, funny in the proper places, and never contemptuous of the reader. Four stars. I have started it once more, from the beginning, at a more reasonable speed.</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Sapolsky's subject is why people do what they do, and his method is to work backwards from the moment of an action: first the nervous system, then the hormones of the preceding hours, then childhood, genes, culture, and finally the long pressure of evolution. It is a clarifying way to organize a vast literature, and he is an unusually good guide to it, exact where he needs to be and willing to say when a finding is less settled than it looks. The book is also very long, and it is honest about complication. By the time one reaches the later chapters, the idea of a single cause, or a simple judgment, has been steadily taken apart, which is the point, and which I found both impressive and, in a courtroom sense, not as immediately useful as I had hoped. I had thought I might cite it. I will not be citing it. The writing, though, is a pleasure: humane, funny in the proper places, and never contemptuous of the reader. Five stars. I have started it once more, from the beginning, at a more reasonable speed.</p>
             <dl class="book-meta">
               <div>
                 <dt>Read</dt>
@@ -233,15 +245,15 @@
             </dl>
           </div>
         </li>
-        <li class="book-card">
+        <li class="book-card" data-index="5" data-rating="4.5" data-title="protocols: an operating manual for the human body" data-author="huberman, andrew d." data-year="2026">
           <div class="book-cover">
             <img src="../images/covers/protocols.webp" srcset="../images/covers/protocols-240.webp 240w, ../images/covers/protocols.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="728" alt="Cover of Protocols by Andrew D. Huberman, blue lettering with an orange circle on a cream field." decoding="async" loading="lazy">
           </div>
           <div class="book-copy">
             <h2 class="book-title">Protocols: An Operating Manual for the Human Body</h2>
             <p class="book-author">Andrew D. Huberman, 2026</p>
-            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
-            <p class="book-review">The premise is that the body can be improved, or at least better maintained, by a set of repeatable practices, and the book lays these out in detail: light, sleep, movement, food, stress, attention. Huberman writes as a scientist addressing a general reader, and the most convincing sections are the ones on circadian light and on sleep, where the advice is clear and the reasoning is easy to follow. Much of the rest is practical and, if followed with some discretion, probably beneficial. The difficulty is the tone of certainty that comes with the word "protocol," which can make a useful habit sound more conclusive than the underlying evidence. The book is also long, and a shorter work might have served the same purpose. I have taken to opening the east window at dawn, which I think has helped, though I still prefer to do it with a glass of something red, which is not, I have gathered, in the manual. Four stars. A serious and usable book, provided one is willing to adapt the instructions.</p>
+            <p class="book-stars" aria-label="4.5 out of 5 stars"><span aria-hidden="true">★★★★<span class="star-half">★</span></span></p>
+            <p class="book-review">The premise is that the body can be improved, or at least better maintained, by a set of repeatable practices, and the book lays these out in detail: light, sleep, movement, food, stress, attention. Huberman writes as a scientist addressing a general reader, and the most convincing sections are the ones on circadian light and on sleep, where the advice is clear and the reasoning is easy to follow. Much of the rest is practical and, if followed with some discretion, probably beneficial. The difficulty is the tone of certainty that comes with the word "protocol," which can make a useful habit sound more conclusive than the underlying evidence. The book is also long, and a shorter work might have served the same purpose. I have taken to opening the east window at dawn, which I think has helped, though I still prefer to do it with a glass of something red, which is not, I have gathered, in the manual. Four and a half stars. A serious and usable book, provided one is willing to adapt the instructions.</p>
             <dl class="book-meta">
               <div>
                 <dt>Read</dt>
@@ -254,7 +266,7 @@
             </dl>
           </div>
         </li>
-        <li class="book-card">
+        <li class="book-card" data-index="6" data-rating="3" data-title="48 laws of power" data-author="greene, robert" data-year="1998">
           <div class="book-cover">
             <img src="../images/covers/48-laws.webp" srcset="../images/covers/48-laws-240.webp 240w, ../images/covers/48-laws.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="683" alt="Cover of The 48 Laws of Power by Robert Greene, a gold 48 and a blue panel on an orange field." decoding="async" loading="lazy">
           </div>
@@ -271,6 +283,639 @@
               <div>
                 <dt>Recovered from</dt>
                 <dd>A napkin, from the bar across from the courthouse.</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="7" data-rating="5" data-title="elon musk" data-author="isaacson, walter" data-year="2023">
+          <div class="book-cover">
+            <img src="../images/covers/elon-musk.webp" srcset="../images/covers/elon-musk-240.webp 240w, ../images/covers/elon-musk.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="733" alt="Cover of Elon Musk by Walter Isaacson." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Elon Musk</h2>
+            <p class="book-author">Walter Isaacson, 2023</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Isaacson follows Musk across rockets, electric cars, and late-night crises with an eye for both the engineering stubbornness and the temperament that drives it. The best chapters are the ones on SpaceX and Tesla factory floors, where an impossible deadline turns into a physical object through sheer refusal to accept standard excuses. Five stars. One finishes the book admiring the nerve, while quietly relieved not to sit across from him in a Monday morning meeting.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Hardcover, 688 pages; logged September 2026.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="8" data-rating="5" data-title="joyland" data-author="king, stephen" data-year="2013">
+          <div class="book-cover">
+            <img src="../images/covers/joyland.webp" srcset="../images/covers/joyland-240.webp 240w, ../images/covers/joyland.webp 297w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="297" height="475" alt="Cover of Joyland by Stephen King." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Joyland</h2>
+            <p class="book-author">Stephen King, 2013</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Set in 1973 at a small North Carolina amusement park, this is King working in a quieter, sharper register: part coming-of-age story, part ghost mystery, and unusually tender about first heartbreak and brief summers. It moves cleanly without the sprawl of his longer novels, and the park’s carnival jargon gives every page a lived-in warmth. Five stars. I have never trusted a Ferris wheel, and this did nothing to change my mind, though I was sorry when the season closed.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 285 pages; logged September 2026.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="9" data-rating="5" data-title="mind hunter" data-author="douglas, john e." data-year="1995">
+          <div class="book-cover">
+            <img src="../images/covers/mind-hunter.webp" width="230" height="359" alt="Cover of Mind Hunter by John E. Douglas and Mark Olshaker." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Mind Hunter</h2>
+            <p class="book-author">John E. Douglas and Mark Olshaker, 1995</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Douglas’s account of building the FBI’s Behavioral Science Unit from prison interviews and crime-scene patterns is gripping because it stays grounded in method rather than melodrama. Watching the early profilers argue their way past skeptical local detectives and rigid bureaucracy makes the investigative breakthroughs feel genuinely earned. Five stars. It is brisk, sobering work, and not the sort of volume one leaves open beside a nightcap.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 397 pages; logged September 2026.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="10" data-rating="5" data-title="salems lot" data-author="king, stephen" data-year="1975">
+          <div class="book-cover">
+            <img src="../images/covers/salems-lot.webp" srcset="../images/covers/salems-lot-240.webp 240w, ../images/covers/salems-lot.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="786" alt="Cover of ’Salem’s Lot by Stephen King." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">’Salem’s Lot</h2>
+            <p class="book-author">Stephen King, 1975</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">King drops an old-world vampire into a quiet Maine town and takes his time letting the reader meet the shopkeepers, teachers, and gossips before the lights begin to go out. What makes the novel endure is less the horror set pieces than how convincingly an entire community talks itself out of noticing what is happening next door. Five stars. A masterclass in small-town dread, and a useful reminder never to buy an old house at the top of a hill without inspecting the cellar.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 483 pages; logged September 2026.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="11" data-rating="5" data-title="how to win friends and influence people" data-author="carnegie, dale" data-year="1936">
+          <div class="book-cover">
+            <img src="../images/covers/how-to-win-friends.webp" srcset="../images/covers/how-to-win-friends-240.webp 240w, ../images/covers/how-to-win-friends.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="749" alt="Cover of How to Win Friends &amp; Influence People by Dale Carnegie." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">How to Win Friends &amp; Influence People</h2>
+            <p class="book-author">Dale Carnegie, 1936</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Published in 1936 and still disarmingly practical, Carnegie’s advice comes down to a simple courtesy most people forget in a hurry: listen properly, remember a person’s name, and speak to what matters to them rather than trying to score points. Nothing in it is clever for its own sake, which is precisely why nearly a century of slicker manuals have failed to replace it. Five stars. Even a man who prefers his own counsel can benefit from pretending, now and again, to enjoy other people’s.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 288 pages; logged July 2023.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="12" data-rating="5" data-title="11/22/63" data-author="king, stephen" data-year="2011">
+          <div class="book-cover">
+            <img src="../images/covers/11-22-63.webp" srcset="../images/covers/11-22-63-240.webp 240w, ../images/covers/11-22-63.webp 313w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="313" height="475" alt="Cover of 11/22/63 by Stephen King." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">11/22/63</h2>
+            <p class="book-author">Stephen King, 2011</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">An English teacher steps through a portal in a Maine diner to prevent the assassination of John F. Kennedy, only to discover that the past pushes back and that 1958 has its own stubborn gravity. King’s eye for period detail, diner coffee, and ordinary small-town decency turns an eight-hundred-page premise into a deeply moving story about love and consequence. Five stars. If time travel ever becomes available, I would use it strictly for pre-phylloxera Burgundy, though King makes a persuasive case against meddling.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Hardcover, 849 pages; logged May 2023.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="13" data-rating="5" data-title="hacking of the american mind" data-author="lustig, robert h." data-year="2017">
+          <div class="book-cover">
+            <img src="../images/covers/hacking-of-the-american-mind.webp" srcset="../images/covers/hacking-of-the-american-mind-240.webp 240w, ../images/covers/hacking-of-the-american-mind.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="720" alt="Cover of The Hacking of the American Mind by Robert H. Lustig." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The Hacking of the American Mind</h2>
+            <p class="book-author">Robert H. Lustig, 2017</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Lustig draws a sharp line between fleeting dopamine pleasure and steadier serotonin contentment, arguing that modern food, screens, and marketing are engineered to keep us confusing the two. One recognizes oneself in plenty of the habits he describes, and it is hard not to admit falling victim to a good deal of it, yet simply seeing the machinery clearly makes a drastic difference. Five stars. A bracing book, though I still reserve the right to order a double cheeseburger when the occasion demands it.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Hardcover, 352 pages; logged March 2021.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger, annotated at the time.</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="14" data-rating="5" data-title="rest refocus recharge" data-author="wells, greg" data-year="2020">
+          <div class="book-cover">
+            <img src="../images/covers/rest-refocus-recharge.webp" srcset="../images/covers/rest-refocus-recharge-240.webp 240w, ../images/covers/rest-refocus-recharge.webp 271w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="271" height="400" alt="Cover of Rest, Refocus, Recharge by Greg Wells." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Rest, Refocus, Recharge</h2>
+            <p class="book-author">Greg Wells, 2020</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Wells builds his case for sleep, recovery, and sharper daily focus around concrete one-percent adjustments rather than empty motivational slogans. Critics who complain of humble-bragging miss the point: using his own routines alongside other real examples makes the habits tangible instead of lecturing from a stage about things we already know and ignore. Five stars. Clear, actionable takeaways throughout, even if one prefers to interpret “recharge” as an unhurried evening pour.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full, twice. Kindle Edition, 246 pages; logged March 2021.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger, annotated at the time.</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="15" data-rating="5" data-title="buzzed" data-author="kuhn, cynthia m." data-year="1998">
+          <div class="book-cover">
+            <img src="../images/covers/buzzed.webp" srcset="../images/covers/buzzed-240.webp 240w, ../images/covers/buzzed.webp 264w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="264" height="400" alt="Cover of Buzzed by Cynthia M. Kuhn and colleagues." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Buzzed</h2>
+            <p class="book-author">Cynthia M. Kuhn, Scott Swartzwelder, and Wilkie Wilson, 1998</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">A clear, level-headed summary of the medical literature on substances from caffeine and alcohol to prescription stimulants and harder drugs, written without moralizing or scare tactics. Its one real omission is a proper reference list at the back, as several of the cited studies are intriguing enough that a curious reader wants to track them down directly. Five stars. As a sommelier, I read the alcohol chapters with professional interest and only minor defensiveness.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 400 pages; logged March 2021.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger, annotated at the time.</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="16" data-rating="5" data-title="sapiens" data-author="harari, yuval noah" data-year="2011">
+          <div class="book-cover">
+            <img src="../images/covers/sapiens.webp" srcset="../images/covers/sapiens-240.webp 240w, ../images/covers/sapiens.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="730" alt="Cover of Sapiens by Yuval Noah Harari." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Sapiens</h2>
+            <p class="book-author">Yuval Noah Harari, 2011</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Harari compresses seventy thousand years of human history into a swift, provocative narrative organized around shared fictions—money, laws, empires, and institutions—that allow strangers to cooperate at scale. Specialists may quibble with his sweeping generalizations, yet the book’s gift for reframing familiar history makes almost every chapter feel fresh. Five stars. It puts one’s minor afternoon inconveniences in sobering perspective, though it has yet to cure me of having opinions about bad service.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 512 pages; logged March 2021.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="17" data-rating="5" data-title="way of the superior man" data-author="deida, david" data-year="1997">
+          <div class="book-cover">
+            <img src="../images/covers/way-of-the-superior-man.webp" srcset="../images/covers/way-of-the-superior-man-240.webp 240w, ../images/covers/way-of-the-superior-man.webp 261w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="261" height="400" alt="Cover of The Way of the Superior Man by David Deida." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The Way of the Superior Man</h2>
+            <p class="book-author">David Deida, 1997</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Deida writes in short, direct chapters about living with clear purpose, emotional steadiness, and full attention in both work and intimacy rather than waiting for life to settle down first. Its language is unapologetically bold and occasionally theatrical, yet beneath the phrasing sits a surprisingly practical insistence on presence and responsibility. Five stars. Not every maxim belongs at the dinner table, but the core challenge—to stop hedging—is hard to argue with.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 202 pages; logged October 2017.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="18" data-rating="5" data-title="new encyclopedia of modern bodybuilding" data-author="schwarzenegger, arnold" data-year="1985">
+          <div class="book-cover">
+            <img src="../images/covers/modern-bodybuilding.webp" srcset="../images/covers/modern-bodybuilding-240.webp 240w, ../images/covers/modern-bodybuilding.webp 308w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="308" height="400" alt="Cover of The New Encyclopedia of Modern Bodybuilding by Arnold Schwarzenegger and Bill Dobbins." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The New Encyclopedia of Modern Bodybuilding</h2>
+            <p class="book-author">Arnold Schwarzenegger and Bill Dobbins, 1985</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">At more than eight hundred pages, this is part training manual, part anatomical reference, and part monument to an era when nobody apologized for wanting to look like a bronze statue. The chapters on splits, form, nutrition, and stage preparation are thorough and plainly earned under heavy iron rather than invented in a marketing department. Five stars. Simply lifting the volume off the coffee table counts as a respectable warm-up.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 832 pages; logged October 2017.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="19" data-rating="5" data-title="happiness equation" data-author="pasricha, neil" data-year="2015">
+          <div class="book-cover">
+            <img src="../images/covers/the-happiness-equation.webp" srcset="../images/covers/the-happiness-equation-240.webp 240w, ../images/covers/the-happiness-equation.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="720" alt="Cover of The Happiness Equation by Neil Pasricha." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The Happiness Equation</h2>
+            <p class="book-author">Neil Pasricha, 2015</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Pasricha organizes his argument around nine plain-spoken secrets that invert the usual formula: happiness comes before success, not after it, and protecting one’s time matters more than chasing another rung. It is warm, light on its feet, and full of simple mental models that stick longer than denser psychology texts. Five stars. Any book advising a man to want less and slow down deserves a fair hearing, preferably over something slow-braised.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Hardcover, 320 pages; logged October 2017.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="20" data-rating="5" data-title="compound effect" data-author="hardy, darren" data-year="2010">
+          <div class="book-cover">
+            <img src="../images/covers/the-compound-effect.webp" srcset="../images/covers/the-compound-effect-240.webp 240w, ../images/covers/the-compound-effect.webp 318w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="318" height="438" alt="Cover of The Compound Effect by Darren Hardy." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The Compound Effect</h2>
+            <p class="book-author">Darren Hardy, 2010</p>
+            <p class="book-stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></p>
+            <p class="book-review">Hardy’s thesis is old-fashioned in the best sense: small, unglamorous decisions repeated daily compound over months and years into results that look sudden only to onlookers. There are no tricks or shortcuts promised here, just accountability, tracking, and patience with steady momentum. Five stars. It is short enough to finish in an evening, though applying it unfortunately takes rather longer.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Kindle Edition, 162 pages; logged October 2017.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="21" data-rating="4" data-title="technological republic" data-author="karp, alexander c." data-year="2025">
+          <div class="book-cover">
+            <img src="../images/covers/the-technological-republic.webp" srcset="../images/covers/the-technological-republic-240.webp 240w, ../images/covers/the-technological-republic.webp 338w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="338" height="500" alt="Cover of The Technological Republic by Alexander C. Karp and Nicholas W. Zamiska." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The Technological Republic</h2>
+            <p class="book-author">Alexander C. Karp and Nicholas W. Zamiska, 2025</p>
+            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
+            <p class="book-review">Karp and Zamiska argue that Western technology lost its nerve when top engineering talent drifted from civic and national purpose toward consumer apps and advertising clicks. The critique of software culture’s timidity is sharp and persuasive, though the book occasionally gestures toward big historical ideals where sharper, more concrete remedies would have been welcome. Four stars. A serious polemic, and a rare Silicon Valley manifesto willing to sound as though it has read something older than last quarter’s memos.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Hardcover, 320 pages; logged September 2026.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="22" data-rating="4" data-title="zero to one" data-author="thiel, peter" data-year="2014">
+          <div class="book-cover">
+            <img src="../images/covers/zero-to-one.webp" srcset="../images/covers/zero-to-one-240.webp 240w, ../images/covers/zero-to-one.webp 316w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="316" height="475" alt="Cover of Zero to One by Peter Thiel and Blake Masters." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Zero to One</h2>
+            <p class="book-author">Peter Thiel and Blake Masters, 2014</p>
+            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
+            <p class="book-review">Drawn from Stanford lecture notes, Thiel’s slim book argues that lasting companies create genuinely new value—going from zero to one—rather than copying existing rivals into thin-margin competition. It is crisp, contrarian, and refreshingly impatient with startup clichés, even if a few of its grander pronouncements sound smoother in a lecture hall than in the wild. Four stars. An invigorating read, though my own small business remains unapologetically in the business of pouring wine, which has been around since Mesopotamia.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Hardcover, 195 pages; logged September 2026.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="23" data-rating="4" data-title="on writing" data-author="king, stephen" data-year="2000">
+          <div class="book-cover">
+            <img src="../images/covers/on-writing.webp" srcset="../images/covers/on-writing-240.webp 240w, ../images/covers/on-writing.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="779" alt="Cover of On Writing by Stephen King." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">On Writing</h2>
+            <p class="book-author">Stephen King, 2000</p>
+            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
+            <p class="book-review">Half blue-collar memoir of King’s early years and half no-nonsense manual on prose, rhythm, and daily output, this is among the most candid books ever written about working at a desk. The autobiographical chapters have more warmth and bite than the craft checklist, and his famous hostility toward adverbs borders on personal vendetta, yet nearly every page rings true. Four stars. I still use the occasional adverb when the roast warrants it, but I have the decency to feel slightly guilty.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 320 pages; logged September 2026.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="24" data-rating="4" data-title="gunslinger" data-author="king, stephen" data-year="1982">
+          <div class="book-cover">
+            <img src="../images/covers/the-gunslinger.webp" srcset="../images/covers/the-gunslinger-240.webp 240w, ../images/covers/the-gunslinger.webp 314w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="314" height="475" alt="Cover of The Gunslinger by Stephen King." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The Gunslinger</h2>
+            <p class="book-author">Stephen King, 1982</p>
+            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
+            <p class="book-review">Lean, austere, and strangely hypnotic, the opening volume of The Dark Tower follows Roland Deschain across an endless desert in pursuit of the man in black. Enjoyable from the first line, though its stitched-together origins show in places and it withholds far more answers than it gives. Four stars. A brisk, sun-bleached detour into myth, and a reminder that walking across a desert is best observed from a comfortable chair.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>August 2024. Paperback, 231 pages.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger, annotated at the time.</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="25" data-rating="4" data-title="atomic habits" data-author="clear, james" data-year="2018">
+          <div class="book-cover">
+            <img src="../images/covers/atomic-habits.webp" srcset="../images/covers/atomic-habits-240.webp 240w, ../images/covers/atomic-habits.webp 311w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="311" height="471" alt="Cover of Atomic Habits by James Clear." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Atomic Habits</h2>
+            <p class="book-author">James Clear, 2018</p>
+            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
+            <p class="book-review">Clear strips habit formation down to cues, friction, environment design, and identity—making the case that reliable systems matter far more than lofty goals. It is lucid, cleanly organized, and immediately usable, even if a fair share of its insights are common sense given respectable charts and four-step names. Four stars. I placed a clean decanter where I can see it and moved the corkscrew closer; the system works remarkably well.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Kindle Edition, 319 pages; logged April 2023.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="26" data-rating="4" data-title="power of now" data-author="tolle, eckhart" data-year="2004">
+          <div class="book-cover">
+            <img src="../images/covers/the-power-of-now.webp" srcset="../images/covers/the-power-of-now-240.webp 240w, ../images/covers/the-power-of-now.webp 257w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="257" height="400" alt="Cover of The Power of Now by Eckhart Tolle." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The Power of Now</h2>
+            <p class="book-author">Eckhart Tolle, 2004</p>
+            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
+            <p class="book-review">Tolle’s central observation—that most human misery comes from living in anxious anticipation or stale regret rather than the present moment—is stated clearly and returns with real calm throughout the book. The question-and-answer format grows repetitive in the middle chapters, and some of the mystical vocabulary will test a skeptical reader, yet the core practice of watching one’s own noisy thoughts remains genuinely useful. Four stars. I tried sitting in pure stillness before dinner service; it lasted eleven minutes before someone asked about the Pinot Noir.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 229 pages; logged March 2021.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="27" data-rating="4" data-title="you are awesome" data-author="pasricha, neil" data-year="2019">
+          <div class="book-cover">
+            <img src="../images/covers/you-are-awesome.webp" srcset="../images/covers/you-are-awesome-240.webp 240w, ../images/covers/you-are-awesome.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="728" alt="Cover of You Are Awesome by Neil Pasricha." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">You Are Awesome</h2>
+            <p class="book-author">Neil Pasricha, 2019</p>
+            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
+            <p class="book-review">Pasricha’s follow-up gathers nine practical strategies for absorbing failure, reframing setbacks, and keeping one’s footing when plans go sideways. The advice is grounded and genuinely encouraging, though the exuberant title and upbeat packaging ask a reader of dry temperament to look past the cover. Four stars. Beneath the cheerfulness lies sensible counsel on resilience, best absorbed quietly without telling anyone what the title says.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Hardcover, 288 pages; logged March 2021.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="28" data-rating="4" data-title="peak" data-author="bubbs, marc" data-year="2019">
+          <!-- Cover swap: place peak.webp (480w) and peak-240.webp (240w) in ../images/covers/ and replace this placeholder with an <img>. -->
+          <div class="book-cover book-cover-placeholder" data-cover-src="../images/covers/peak.webp" style="--cover-bg: #273b36; --cover-bg-deep: #13201d;" role="img" aria-label="Placeholder cloth-bound cover for Peak by Marc Bubbs.">
+            <span class="book-placeholder-title">Peak</span>
+            <span class="book-placeholder-rule" aria-hidden="true"></span>
+            <span class="book-placeholder-author">Marc Bubbs</span>
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Peak</h2>
+            <p class="book-author">Marc Bubbs, 2019</p>
+            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
+            <p class="book-review">A solid general guide to athletic performance covering sleep, conditioning, recovery, and nutrition in plain, usable language. Its balance is slightly uneven—the gut microbiome receives an awful lot of ink while post-workout nutrition could easily have gone deeper—yet as an all-round reference it serves well. Four stars. Useful even for those of us whose primary cardiovascular exercise consists of climbing the cellar stairs twice before dinner.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Kindle Edition, 363 pages; logged March 2021.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger, annotated at the time.</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="29" data-rating="4" data-title="how to talk to anyone" data-author="lowndes, leil" data-year="1998">
+          <div class="book-cover">
+            <img src="../images/covers/how-to-talk-to-anyone.webp" srcset="../images/covers/how-to-talk-to-anyone-240.webp 240w, ../images/covers/how-to-talk-to-anyone.webp 275w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="275" height="475" alt="Cover of How to Talk to Anyone by Leil Lowndes." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">How to Talk to Anyone</h2>
+            <p class="book-author">Leil Lowndes, 1998</p>
+            <p class="book-stars" aria-label="4 out of 5 stars"><span aria-hidden="true">★★★★☆</span></p>
+            <p class="book-review">Lowndes collects ninety-two specific conversational habits, posture cues, and small-talk tactics for navigating crowded rooms and making people feel genuinely noticed. Much of it is observant and surprisingly effective in practice, though the brisk, tactical framing can make ordinary human warmth feel a touch mechanical if followed too literally. Four stars. Good rules for working a dining room, provided one does not look as though one is checking them off on a cuff.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Ebook, 345 pages; logged October 2017.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="30" data-rating="3" data-title="mr. mercedes" data-author="king, stephen" data-year="2014">
+          <div class="book-cover">
+            <img src="../images/covers/mr-mercedes.webp" srcset="../images/covers/mr-mercedes-240.webp 240w, ../images/covers/mr-mercedes.webp 313w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="313" height="475" alt="Cover of Mr. Mercedes by Stephen King." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Mr. Mercedes</h2>
+            <p class="book-author">Stephen King, 2014</p>
+            <p class="book-stars" aria-label="3 out of 5 stars"><span aria-hidden="true">★★★☆☆</span></p>
+            <p class="book-review">King trades the supernatural for a straight hard-boiled detective thriller, pitting retired cop Bill Hodges against a killer who drove a stolen Mercedes into a morning job-fair queue. It moves briskly and Hodges is likable enough company, yet the cat-and-mouse plotting leans on familiar thriller conventions and never quite builds the eerie weight of King’s finest work. Three stars. Serviceable suspense for a long flight, though I remain partial to a well-made haunted town.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Hardcover, 437 pages; logged August 2024.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="31" data-rating="0" data-title="thinking, fast and slow" data-author="kahneman, daniel" data-year="2011">
+          <div class="book-cover">
+            <img src="../images/covers/thinking-fast-and-slow.webp" srcset="../images/covers/thinking-fast-and-slow-240.webp 240w, ../images/covers/thinking-fast-and-slow.webp 318w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="318" height="472" alt="Cover of Thinking, Fast and Slow by Daniel Kahneman." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Thinking, Fast and Slow</h2>
+            <p class="book-author">Daniel Kahneman, 2011</p>
+            <p class="book-stars book-stars-unrated" aria-label="Not yet rated">Not yet rated</p>
+            <p class="book-review">Kahneman maps the tug-of-war between fast, intuitive judgment and slower, deliberate reasoning, showing how anchoring, loss aversion, and overconfidence quietly bend even expert decisions. It is dense, rigorous, and humbling in equal measure—one catches oneself committing half the cognitive errors while still reading the chapter that names them. Not yet rated, largely because System 1 wants to give it five stars and System 2 is still auditing the footnotes.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>August 2024. Hardcover, 499 pages.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read; no rating recorded).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="32" data-rating="0" data-title="deep work" data-author="newport, cal" data-year="2016">
+          <div class="book-cover">
+            <img src="../images/covers/deep-work.webp" srcset="../images/covers/deep-work-240.webp 240w, ../images/covers/deep-work.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="724" alt="Cover of Deep Work by Cal Newport." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">Deep Work</h2>
+            <p class="book-author">Cal Newport, 2016</p>
+            <p class="book-stars book-stars-unrated" aria-label="Not yet rated">Not yet rated</p>
+            <p class="book-review">Newport makes a disciplined case that sustained, distraction-free concentration is growing both rarer and more valuable in an economy overrun by shallow emails and open-plan chatter. His rules for scheduling solitude and quitting performative busyness are crisp and hard to refute. Not yet rated; I mean to assign a proper score just as soon as I stop checking messages long enough to finish the thought.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>August 2024. Hardcover, 296 pages.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read; no rating recorded).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="33" data-rating="0" data-title="catcher in the rye" data-author="salinger, j.d." data-year="1951">
+          <div class="book-cover">
+            <img src="../images/covers/the-catcher-in-the-rye.webp" srcset="../images/covers/the-catcher-in-the-rye-240.webp 240w, ../images/covers/the-catcher-in-the-rye.webp 294w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="294" height="475" alt="Cover of The Catcher in the Rye by J.D. Salinger." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The Catcher in the Rye</h2>
+            <p class="book-author">J.D. Salinger, 1951</p>
+            <p class="book-stars book-stars-unrated" aria-label="Not yet rated">Not yet rated</p>
+            <p class="book-review">Holden Caulfield wanders through three wintry days in Manhattan after leaving Pencey Prep, recording every phony, cab driver, and museum gallery with an exasperating mix of sharpness and vulnerability. Salinger’s ear for restless adolescent speech still carries an unmistakable sting decades on. Not yet rated—one respects the craft immediately, even if forty-eight hours in Holden’s company is quite enough.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 277 pages; logged August 2020.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read; no rating recorded).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="34" data-rating="0" data-title="to kill a mockingbird" data-author="lee, harper" data-year="1960">
+          <div class="book-cover">
+            <img src="../images/covers/to-kill-a-mockingbird.webp" srcset="../images/covers/to-kill-a-mockingbird-240.webp 240w, ../images/covers/to-kill-a-mockingbird.webp 307w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="307" height="473" alt="Cover of To Kill a Mockingbird by Harper Lee." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">To Kill a Mockingbird</h2>
+            <p class="book-author">Harper Lee, 1960</p>
+            <p class="book-stars book-stars-unrated" aria-label="Not yet rated">Not yet rated</p>
+            <p class="book-review">Told through Scout Finch’s childhood eyes in Depression-era Maycomb, Alabama, Lee’s novel balances porch-swing warmth with the moral weight of Atticus Finch’s defense of Tom Robinson. Its endurance rests on how plainly it shows courage and prejudice operating side by side in ordinary neighbours. Not yet rated, though handing out stars to a book of this standing feels slightly presumptuous, like grading a landmark.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 323 pages; logged August 2020.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read; no rating recorded).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="35" data-rating="0" data-title="great gatsby" data-author="fitzgerald, f. scott" data-year="1925">
+          <div class="book-cover">
+            <img src="../images/covers/the-great-gatsby.webp" srcset="../images/covers/the-great-gatsby-240.webp 240w, ../images/covers/the-great-gatsby.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="731" alt="Cover of The Great Gatsby by F. Scott Fitzgerald." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The Great Gatsby</h2>
+            <p class="book-author">F. Scott Fitzgerald, 1925</p>
+            <p class="book-stars book-stars-unrated" aria-label="Not yet rated">Not yet rated</p>
+            <p class="book-review">Fitzgerald packs an extraordinary amount of longing, vanity, and social cruelty into barely two hundred pages of West Egg champagne and careless wealth. Seen through Nick Carraway, Gatsby’s devotion to an idealized past is both absurd and oddly grand. Not yet rated; the prose alone earns its keep, even if everyone in the book would have been unbearable as a dinner guest.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Paperback, 180 pages; logged August 2020.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read; no rating recorded).</dd>
+              </div>
+            </dl>
+          </div>
+        </li>
+        <li class="book-card" data-index="36" data-rating="0" data-title="one thing" data-author="keller, gary" data-year="2012">
+          <div class="book-cover">
+            <img src="../images/covers/the-one-thing.webp" srcset="../images/covers/the-one-thing-240.webp 240w, ../images/covers/the-one-thing.webp 480w" sizes="(max-width: 680px) 8.6rem, 9.75rem" width="480" height="695" alt="Cover of The One Thing by Gary Keller and Jay Papasan." decoding="async" loading="lazy">
+          </div>
+          <div class="book-copy">
+            <h2 class="book-title">The One Thing</h2>
+            <p class="book-author">Gary Keller and Jay Papasan, 2012</p>
+            <p class="book-stars book-stars-unrated" aria-label="Not yet rated">Not yet rated</p>
+            <p class="book-review">Keller and Papasan strip productivity down to a single focusing question: identify the one task that makes everything else easier or unnecessary, and protect the morning hours until it is done. It is deliberately narrow and repeats its domino metaphor often, yet the core discipline of refusing scattered multitasking is sound. Not yet rated, as I am still deciding which single task to leave unbothered first.</p>
+            <dl class="book-meta">
+              <div>
+                <dt>Read</dt>
+                <dd>In full. Hardcover, 240 pages; logged June 2020.</dd>
+              </div>
+              <div>
+                <dt>Recovered from</dt>
+                <dd>The Goodreads ledger (shelf: read; no rating recorded).</dd>
               </div>
             </dl>
           </div>
@@ -293,5 +938,6 @@
   </footer>
 
   <script src="../js/nav.js"></script>
+  <script src="../js/library.js"></script>
 </body>
 </html>
