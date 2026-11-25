@@ -83,7 +83,38 @@
         </nav>
       </div>
       <div class="header-actions">
-        <button type="button" class="btn" id="theme-toggle" aria-pressed="false">Dark</button>
+        <button type="button" class="theme-lamp" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+          <svg class="lamp-svg" viewBox="0 0 44 44" width="38" height="38" aria-hidden="true" focusable="false">
+            <defs>
+              <radialGradient id="lamp-aura-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffe082" stop-opacity="0.62"/>
+                <stop offset="45%" stop-color="#ffca58" stop-opacity="0.24"/>
+                <stop offset="100%" stop-color="#ffca58" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="lamp-cone-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffd977" stop-opacity="0.34"/>
+                <stop offset="100%" stop-color="#ffd977" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="lamp-chain-clip">
+                <rect x="24" y="17.5" width="10" height="26"/>
+              </clipPath>
+            </defs>
+            <circle class="lamp-aura" cx="20" cy="20" r="17" fill="url(#lamp-aura-grad)"/>
+            <polygon class="lamp-cone" points="10.5,18 29.5,18 35,35 5,35" fill="url(#lamp-cone-grad)"/>
+            <g clip-path="url(#lamp-chain-clip)">
+              <g class="lamp-chain">
+                <line class="lamp-cord" x1="28.5" y1="10" x2="28.5" y2="27.2"/>
+                <circle class="lamp-knob" cx="28.5" cy="29.2" r="2.1"/>
+              </g>
+            </g>
+            <ellipse class="lamp-bulb" cx="20" cy="18.8" rx="3.9" ry="4.2"/>
+            <circle class="lamp-bulb-core" cx="20" cy="19.3" r="1.9"/>
+            <line class="lamp-stem" x1="20" y1="22.8" x2="20" y2="35.8"/>
+            <path class="lamp-base" d="M15.2 35.8h9.6M13 38.4h14"/>
+            <path class="lamp-shade" d="M14 7.5h12l5 10.5H9Z"/>
+            <line class="lamp-shade-trim" x1="9.6" y1="16.4" x2="30.4" y2="16.4"/>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
@@ -180,31 +211,5 @@
   </dialog>
   <script src="../js/nav.js"></script>
   <script src="../js/found.js"></script>
-  <script>
-    (function () {
-      var themeBtn = document.getElementById("theme-toggle");
-      function applyTheme(theme) {
-        document.documentElement.setAttribute("data-theme", theme);
-        var dark = theme === "dark";
-        themeBtn.textContent = dark ? "Light" : "Dark";
-        themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
-        var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute("content", dark ? "#111111" : "#ffffff");
-      }
-      applyTheme(document.documentElement.getAttribute("data-theme") || "light");
-      themeBtn.addEventListener("click", function () {
-        var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-        applyTheme(next);
-        try { localStorage.setItem("sw-theme", next); } catch (err) { /* storage may be blocked */ }
-      });
-      var saved = null;
-      try { saved = localStorage.getItem("sw-theme"); } catch (err) { saved = null; }
-      if (saved !== "light" && saved !== "dark" && window.matchMedia) {
-        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (event) {
-          applyTheme(event.matches ? "dark" : "light");
-        });
-      }
-    })();
-  </script>
 </body>
 </html>

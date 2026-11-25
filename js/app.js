@@ -7,7 +7,6 @@
   var home = document.getElementById("view-home");
   var pairing = document.getElementById("view-pairing");
   var pairingRoot = document.getElementById("pairing-root");
-  var themeBtn = document.getElementById("theme-toggle");
   var surpriseBtn = document.getElementById("surprise");
   var about = document.getElementById("about");
 
@@ -318,30 +317,6 @@
     window.scrollTo(0, 0);
   }
 
-  function applyTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-    var dark = theme === "dark";
-    themeBtn.textContent = dark ? "Light" : "Dark";
-    themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", dark ? "#111111" : "#ffffff");
-  }
-
-  function initTheme() {
-    applyTheme(document.documentElement.getAttribute("data-theme") || "light");
-    themeBtn.addEventListener("click", function () {
-      var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      applyTheme(next);
-      try { localStorage.setItem("sw-theme", next); } catch (err) { /* storage may be blocked */ }
-    });
-    var saved = null;
-    try { saved = localStorage.getItem("sw-theme"); } catch (err) { saved = null; }
-    if (saved !== "light" && saved !== "dark" && window.matchMedia) {
-      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (event) {
-        applyTheme(event.matches ? "dark" : "light");
-      });
-    }
-  }
 
   chips.addEventListener("click", function (event) {
     var btn = event.target.closest(".chip");
@@ -365,7 +340,6 @@
   });
 
   renderChips();
-  initTheme();
   render();
   settleScroll();
 })();
