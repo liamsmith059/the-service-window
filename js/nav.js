@@ -134,7 +134,7 @@
 
     var root = siteRoot();
     var homeHref = root;
-    var CACHE_KEY = "sw-chapters-v1";
+    var CACHE_KEY = "sw-chapters-v2";
     var hoverable = window.matchMedia("(hover: hover) and (pointer: fine)");
     var motionReduced = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
 
@@ -183,14 +183,22 @@
       return Array.prototype.slice.call(list.querySelectorAll(".chapters-item"));
     }
 
-    function isHomePage() {
+    function isBiographyPage() {
       return !!document.querySelector("main .tribute-section");
+    }
+
+    function isHomePage() {
+      return document.body.classList.contains("has-hero");
+    }
+
+    function biographyHref(hash) {
+      return new URL("biography/" + (hash ? "#" + hash : ""), root).href;
     }
 
     function renderList(chapters) {
       var html = '<li><a class="chapters-item chapters-home" href="' + escapeHtml(homeHref) + '">Home</a></li>';
       for (var i = 0; i < chapters.length; i++) {
-        var href = new URL("#" + chapters[i].id, root).href;
+        var href = biographyHref(chapters[i].id);
         html += '<li><a class="chapters-item" href="' + escapeHtml(href) + '" data-chapter="' + escapeHtml(chapters[i].id) + '">' + escapeHtml(chapters[i].title) + "</a></li>";
       }
       list.innerHTML = html;
@@ -198,7 +206,7 @@
     }
 
     function currentChapterId() {
-      if (!isHomePage()) return "";
+      if (!isBiographyPage()) return "";
       var hash = (window.location.hash || "").replace(/^#/, "");
       if (hash && document.getElementById(hash)) return hash;
       var sections = document.querySelectorAll("main .tribute-section[id]");
@@ -287,7 +295,7 @@
         }
       } catch (err) { /* ignore */ }
 
-      return fetch(root, { credentials: "same-origin" }).then(function (res) {
+      return fetch(new URL("biography/", root), { credentials: "same-origin" }).then(function (res) {
         if (!res.ok) throw new Error("chapters fetch failed");
         return res.text();
       }).then(function (html) {
@@ -371,6 +379,7 @@
       var link = event.target.closest ? event.target.closest(".chapters-item") : null;
       if (!link || !list.contains(link)) return;
       var onHome = isHomePage();
+      var onBiography = isBiographyPage();
       var hash = (link.getAttribute("href") && link.hash) ? link.hash.slice(1) : "";
       if (onHome && link.classList.contains("chapters-home")) {
         event.preventDefault();
@@ -382,7 +391,7 @@
         syncCurrent();
         return;
       }
-      if (onHome && hash) {
+      if (onBiography && hash) {
         var target = document.getElementById(hash);
         if (target) {
           event.preventDefault();

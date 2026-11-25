@@ -24,7 +24,13 @@
   <script>
     (function () {
       var hash = location.hash || "";
-      if (!hash || hash === "#" || hash === "#content") return;
+      if (!hash || hash === "#" || hash === "#content" || hash === "#hub") return;
+      var id = hash.replace(/^#/, "");
+      var biography = ["des-moines", "the-milton-years", "the-turn", "renown", "personal-life", "recovered-title"];
+      if (biography.indexOf(id) !== -1) {
+        location.replace("biography/" + hash);
+        return;
+      }
       location.replace("menu/" + hash);
     })();
   </script>
@@ -45,7 +51,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="has-hero">
-  <a class="skip" href="#des-moines">Skip to the biography</a>
+  <a class="skip" href="#hub">Skip to the directory</a>
   <header class="site-header">
     <div class="wrap header-inner">
       <div class="header-lead">
@@ -60,6 +66,11 @@
                 <a class="explore-item" href="./" aria-current="page">
                   <span class="mi-kicker">Home</span>
                   <span class="mi-label">Wilhelm Smithers</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="biography/">
+                  <span class="mi-label">Biography</span>
                 </a>
               </li>
               <li>
@@ -80,6 +91,9 @@
               <li>
                 <a class="explore-item" href="podcasts/">
                   <span class="mi-label">Podcasts</span>
+                </a>
+              </li>
+              <li>
                 <a class="explore-item" href="pets/">
                   <span class="mi-label">Pets</span>
                 </a>
@@ -97,6 +111,7 @@
         </a>
         <nav class="desk-nav" aria-label="Pages">
           <a href="./" aria-current="page">Home</a>
+          <a href="biography/">Biography</a>
           <a href="menu/">The Service Window</a>
           <a href="library/">The Library</a>
           <a href="screening-room/">The Screening Room</a>
@@ -188,7 +203,7 @@
               <p class="tribute-role">Chef Sommelier</p>
               <p class="tribute-honours">Des Moines · Milton · The World</p>
             </div>
-            <a class="hero-scroll" href="#des-moines" aria-label="Begin the biography">
+            <a class="hero-scroll" href="#hub" aria-label="Scroll to the directory">
               <span class="hero-scroll-label">Begin</span>
               <svg class="hero-scroll-chevron" viewBox="0 0 18 10" width="18" height="10" aria-hidden="true" focusable="false">
                 <path d="M1.5 1.75 9 8.25l7.5-6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -452,181 +467,180 @@
           </script>
       </header>
 
-      <div class="tribute-body">
-        <section class="tribute-section" id="des-moines">
-          <h2>Des Moines</h2>
-          <figure class="chapter">
-            <div class="portrait-frame">
-              <div class="portrait-mat">
-                <img src="images/chapter-desmoines.webp" srcset="images/chapter-desmoines-480.webp 480w, images/chapter-desmoines-800.webp 800w, images/chapter-desmoines.webp 1152w" sizes="(max-width: 860px) 92vw, 36rem" width="1152" height="864" loading="lazy" decoding="async" alt="Oil painting of a solemn toddler in round glasses, a tweed jacket, and a bow tie, seated in a high chair and holding a glass of red wine. A bottle of milk sits on the tray, and startled parents watch from the kitchen doorway.">
+      <section class="hub" id="hub" aria-labelledby="hub-title">
+        <header class="hub-head">
+          <div>
+            <p class="hub-kicker">The directory</p>
+            <h2 class="hub-title" id="hub-title">Around the house</h2>
+          </div>
+          <p class="hub-lede">Start with the life, or go straight to the cellar, the shelves, the screen, or the stairs.</p>
+        </header>
+
+        <div class="hub-bento">
+          <a class="bento-card bento-card--feature" href="biography/">
+            <div class="bento-media">
+              <img
+                src="images/hub/biography.webp"
+                srcset="images/hub/biography-800.webp 800w, images/hub/biography.webp 1152w"
+                sizes="(max-width: 680px) 100vw, 42rem"
+                width="1152"
+                height="648"
+                loading="eager"
+                decoding="async"
+                alt="Oil painting of a young Wilhelm Smithers in a high chair, inspecting a glass of red wine while his parents look on from the kitchen doorway."
+              >
+            </div>
+            <div class="bento-body">
+              <div class="bento-kicker-row">
+                <span class="bento-kicker">I · The biography</span>
+              </div>
+              <h3 class="bento-title">The Life of Wilhelm Smithers</h3>
+              <p class="bento-desc">Five chapters from an earnest high chair in Des Moines to the cellars of Milton and beyond. Now kept in its own wing so the front hall stays uncluttered.</p>
+              <div class="bento-action">
+                <span>Read the five chapters</span>
+                <span aria-hidden="true">→</span>
               </div>
             </div>
-            <figcaption class="portrait-plate chapter-plate">Des Moines, 1950. The milk was found to be closed.</figcaption>
-          </figure>
-          <div class="chapter-copy">
-            <p class="opening">Wilhelm Smithers was born in Des Moines, Iowa, during a thunderstorm that his mother would later describe, without elaboration, as "well-structured." He was a quiet child. At four he refused a juice box on the grounds that it was "closed," and at seven he was asked to leave a church potluck after ranking the casseroles aloud, in order, with notes. Neighbours remember a boy who sniffed his milk for a long time before drinking it and who once described a Hy-Vee rotisserie chicken as "confident, but hiding something." No one in the family drank wine. No one has been able to explain where he got the vocabulary.</p>
-          </div>
-        </section>
+          </a>
 
-        <section class="tribute-section" id="the-milton-years">
-          <h2>The Milton Years</h2>
-          <figure class="chapter">
-            <div class="portrait-frame">
-              <div class="portrait-mat">
-                <img src="images/chapter-milton.webp" srcset="images/chapter-milton-480.webp 480w, images/chapter-milton-800.webp 800w, images/chapter-milton.webp 1152w" sizes="(max-width: 860px) 92vw, 36rem" width="1152" height="864" loading="lazy" decoding="async" alt="Oil painting of a young Wilhelm Smithers at a clerk's desk in the Milton courthouse, holding a glass of red wine. Toner cartridges labeled by vintage fill the shelves, and a judge watches from the doorway.">
+          <a class="bento-card bento-card--wide" href="menu/">
+            <div class="bento-media">
+              <img
+                src="images/hub/service-window.webp"
+                srcset="images/hub/service-window-800.webp 800w, images/hub/service-window.webp 1152w"
+                sizes="(max-width: 680px) 100vw, 36rem"
+                width="1152"
+                height="720"
+                loading="lazy"
+                decoding="async"
+                alt="Wilhelm Smithers considering a glass of red wine in his study."
+              >
+            </div>
+            <div class="bento-body">
+              <div class="bento-kicker-row">
+                <span class="bento-kicker">II · Cellar &amp; drive-thru</span>
+              </div>
+              <h3 class="bento-title">The Service Window</h3>
+              <p class="bento-desc">Ten fast-food staples paired with real bottles, chosen strictly for fat, salt, sugar, acid, and heat.</p>
+              <div class="bento-action">
+                <span>10 pairings</span>
+                <span aria-hidden="true">Enter →</span>
               </div>
             </div>
-            <figcaption class="portrait-plate chapter-plate">Milton Courthouse, Clerk's Office. The toner, arranged by vintage.</figcaption>
-          </figure>
-          <div class="chapter-copy">
-            <p>At twenty-two, for reasons he has never discussed, Smithers moved to Ontario and took a position at the courthouse in Milton. He stayed for nineteen years. Colleagues recall a meticulous, courteous man who arrived at 7:40 every morning, organized the photocopier toner by vintage, and kept a single Bordeaux glass in his desk drawer that he never once filled. He is still credited with ending a three-day dispute over a fence line by tasting the soil from both properties and identifying, correctly, which side had once been an apple orchard. The judge thanked him and asked him not to do it again. During this period Smithers first encountered the work of Joel Friesen, in the form of a single handwritten pairing tucked inside a returned library book. He did not sleep that night. He handed in his resignation nineteen years later, which friends describe as "very fast, for Wilhelm."</p>
-          </div>
-        </section>
+          </a>
 
-        <section class="tribute-section" id="the-turn">
-          <h2>The Turn</h2>
-          <figure class="chapter">
-            <div class="portrait-frame">
-              <div class="portrait-mat">
-                <img src="images/chapter-turn.webp" srcset="images/chapter-turn-480.webp 480w, images/chapter-turn-800.webp 800w, images/chapter-turn.webp 1152w" sizes="(max-width: 860px) 92vw, 36rem" width="1152" height="864" loading="lazy" decoding="async" alt="Oil painting of Wilhelm Smithers in a cobwebbed Burgundy cellar, holding a glass of red wine and a suitcase beside a silent, white-bearded cellar master among the barrels.">
+          <a class="bento-card bento-card--wide" href="library/">
+            <div class="bento-media">
+              <img
+                src="images/hub/library.webp"
+                srcset="images/hub/library-480.webp 480w, images/hub/library-800.webp 800w, images/hub/library.webp 1600w"
+                sizes="(max-width: 680px) 100vw, 36rem"
+                width="1600"
+                height="1000"
+                loading="lazy"
+                decoding="async"
+                alt="A fan of three dark library volumes: On Writing, Mind Hunter, and The Way of the Superior Man."
+              >
+            </div>
+            <div class="bento-body">
+              <div class="bento-kicker-row">
+                <span class="bento-kicker">III · Reading</span>
+              </div>
+              <h3 class="bento-title">The Library</h3>
+              <p class="bento-desc">Thirty-seven books finished in full, with margin notes transcribed from napkins and receipts.</p>
+              <div class="bento-action">
+                <span>37 volumes</span>
+                <span aria-hidden="true">Enter →</span>
               </div>
             </div>
-            <figcaption class="portrait-plate chapter-plate">Burgundy. Month eleven of the silence.</figcaption>
-          </figure>
-          <div class="chapter-copy">
-            <p>Smithers left Milton with one suitcase, the Bordeaux glass, and a list of every drive-thru between Mississauga and Lyon that he intended to visit, which included several that do not exist. He trained in Burgundy under a cellar master who refused to speak to him for the first fourteen months and on the fifteenth said only, "Fine." He completed the Court of Master Sommeliers examination in an afternoon and has reportedly never collected the pin, explaining that he "already knew." He has since been barred from two Michelin-starred restaurants in Paris for sending back the water.</p>
-          </div>
-        </section>
+          </a>
 
-        <section class="tribute-section" id="renown">
-          <h2>Renown</h2>
-          <figure class="chapter">
-            <div class="portrait-frame">
-              <div class="portrait-mat">
-                <img src="images/chapter-renown.webp" srcset="images/chapter-renown-480.webp 480w, images/chapter-renown-800.webp 800w, images/chapter-renown.webp 1152w" sizes="(max-width: 860px) 92vw, 36rem" width="1152" height="864" loading="lazy" decoding="async" alt="Oil painting of Wilhelm Smithers in a snowstorm, pouring red wine from a crystal decanter into a glass beside a Tim Hortons drive-thru while a driver watches from a snow-covered car.">
+          <a class="bento-card" href="screening-room/">
+            <div class="bento-media">
+              <img
+                src="images/hub/screening-room.webp"
+                srcset="images/hub/screening-room-480.webp 480w, images/hub/screening-room-800.webp 800w, images/hub/screening-room.webp 1600w"
+                sizes="(max-width: 680px) 100vw, 24rem"
+                width="1600"
+                height="1000"
+                loading="lazy"
+                decoding="async"
+                alt="A fan of three Screening Room posters: Aftersun, True Detective, and L.A. Confidential."
+              >
+            </div>
+            <div class="bento-body">
+              <div class="bento-kicker-row">
+                <span class="bento-kicker">IV · Film &amp; TV</span>
+              </div>
+              <h3 class="bento-title">The Screening Room</h3>
+              <p class="bento-desc">Thirty-five films and programmes scored without consulting consensus.</p>
+              <div class="bento-action">
+                <span>35 titles</span>
+                <span aria-hidden="true">Enter →</span>
               </div>
             </div>
-            <figcaption class="portrait-plate chapter-plate">The Tim Hortons drive-thru, during the storm. "The correct amount of time."</figcaption>
-          </figure>
-          <div class="chapter-copy">
-            <p>Today Smithers is regarded, mostly by himself and a small but intense group of admirers, as one of the most important palates of his generation. He has decanted a Pinot Noir for the full duration of a Tim Hortons drive-thru line during a snowstorm and called it "the correct amount of time." He once paired a single chicken nugget with a 1961 Château Latour and wept, briefly, but declined to say which of the two had moved him. He has been offered the position of head sommelier at four of the world's great restaurants and has turned all of them down, citing "the menu." He still visits the Milton courthouse every spring. He sits in the gallery, observes a morning session, and leaves without speaking. Staff say the coffee tastes different for a week afterward.</p>
-          </div>
-        </section>
+          </a>
 
-        <section class="tribute-section" id="personal-life">
-          <h2>Personal Life</h2>
-          <figure class="chapter">
-            <div class="portrait-frame">
-              <div class="portrait-mat">
-                <img src="images/chapter-personal.webp" srcset="images/chapter-personal-480.webp 480w, images/chapter-personal-800.webp 800w, images/chapter-personal.webp 1152w" sizes="(max-width: 860px) 92vw, 36rem" width="1152" height="864" loading="lazy" decoding="async" alt="Oil painting of Wilhelm Smithers at home in a leather chair, holding a french fry up to the light. A tortoise wearing a bow tie sits beside him, and a row of identical tweed jackets hangs in the wardrobe.">
+          <a class="bento-card" href="pets/">
+            <div class="bento-media">
+              <img
+                src="images/hub/pets.webp"
+                srcset="images/hub/pets-480.webp 480w, images/hub/pets-800.webp 800w, images/hub/pets.webp 960w"
+                sizes="(max-width: 680px) 100vw, 24rem"
+                width="960"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                alt="Larry and Freddy (Mr. Fred) on the stairs."
+              >
+            </div>
+            <div class="bento-body">
+              <div class="bento-kicker-row">
+                <span class="bento-kicker">V · Household</span>
+              </div>
+              <h3 class="bento-title">Pets</h3>
+              <p class="bento-desc">Larry, still running the place, and Freddy (Mr. Fred), remembered fondly.</p>
+              <div class="bento-action">
+                <span>2 cats</span>
+                <span aria-hidden="true">Enter →</span>
               </div>
             </div>
-            <figcaption class="portrait-plate chapter-plate">At home, with Cabernet. The fry is being assessed.</figcaption>
-          </figure>
-          <div class="chapter-copy">
-            <p>Smithers lives alone with a tortoise named Cabernet, who is older than he is and whom he describes as "his only honest critic." He does not own a television. He owns eleven identical tweed jackets. He has never eaten a french fry without first holding it to the light. When an interviewer asked what he would want for his final meal, he paused for a long time and said, "A Filet-O-Fish, and a Muscadet, and no questions." The interview ended there.</p>
-          </div>
-        </section>
+          </a>
 
-        <a class="back tribute-return" href="menu/">Back to the menu</a>
-      </div>
-
-      <section class="recovered" aria-labelledby="recovered-title">
-        <h2 id="recovered-title">Recovered Photographs</h2>
-        <p class="recovered-intro">The following photographs have surfaced over the decades in estate sales, classified archives, a Cairo flea market and, on one occasion, the glovebox of a 1987 Buick. The Smithers estate neither confirms nor denies their authenticity. Mr. Smithers, when shown them, said only: "That was a good year," regardless of which one.</p>
-        <div class="found-grid">
-          <button type="button" class="found-card">
-            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/wtc.webp" srcset="images/found/wtc-480.webp 480w, images/found/wtc-800.webp 800w, images/found/wtc.webp 1152w" sizes="(max-width: 900px) 46vw, 22rem" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers seated on a steel beam high above Lower Manhattan in 1971, raising a glass of red wine beside an unsecured decanter, while construction workers eat sandwiches and the Twin Towers rise behind them."></span></span>
-            <span class="found-plate">Lower Manhattan, 1971</span>
-            <span class="found-bio">Recovered from the Port Authority archives. Mr. Smithers was not employed on the project. He was, by his own account, "consulting on the view." Workers recall he declined a ham sandwich on the grounds that it would "flatten the Pinot." The decanter was never secured to the beam. Neither was he.</span>
-          </button>
-          <button type="button" class="found-card">
-            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/pyramids.webp" srcset="images/found/pyramids-480.webp 480w, images/found/pyramids-800.webp 800w, images/found/pyramids.webp 1152w" sizes="(max-width: 900px) 46vw, 22rem" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers kneeling on a stone block being hauled toward the Great Pyramid, holding a glass of red wine and a raised scroll, while workers pull ropes and a pharaoh watches."></span></span>
-            <span class="found-plate">Giza, c. 2560 BC</span>
-            <span class="found-bio">Found in a Cairo flea market, priced at four dollars. Egyptologists have long debated how the Great Pyramid was built. The answer, it appears, is "with direction." The scroll is believed to be the original blueprint. On closer inspection it is a wine list.</span>
-          </button>
-          <button type="button" class="found-card">
-            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/area51.webp" srcset="images/found/area51-480.webp 480w, images/found/area51-800.webp 800w, images/found/area51.webp 1152w" sizes="(max-width: 900px) 46vw, 22rem" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers reclining on a mechanic's creeper in an Area 51 hangar, holding a glass of red wine and a wrench, while a small alien offers a corkscrew beside an opened flying saucer."></span></span>
-            <span class="found-plate">Nevada, Date Classified</span>
-            <span class="found-bio">Declassified in error, then reclassified, then lost in a FOIA request. Mr. Smithers was brought in after eleven months of no progress. He identified the problem within the hour: the craft was running on a "thin, overextracted Merlot." The alien, Gary, still sends a card every Christmas.</span>
-          </button>
-          <button type="button" class="found-card">
-            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/moon.webp" srcset="images/found/moon-480.webp 480w, images/found/moon-800.webp 800w, images/found/moon.webp 1152w" sizes="(max-width: 900px) 46vw, 22rem" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers on the Sea of Tranquility in a tweed suit and a clear bubble helmet, holding a glass of red wine beside a startled astronaut, an American flag, the lunar module, and a decanter on a small table."></span></span>
-            <span class="found-plate">Sea of Tranquility, July 20, 1969</span>
-            <span class="found-bio">NASA has never released this frame. Mission transcripts contain a four-minute gap that officials attribute to "interference." Audio specialists describe the interference as "the sound of a cork." Mr. Smithers maintains he was "just passing through."</span>
-          </button>
-          <button type="button" class="found-card">
-            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/declaration.webp" srcset="images/found/declaration-480.webp 480w, images/found/declaration-800.webp 800w, images/found/declaration.webp 1152w" sizes="(max-width: 900px) 46vw, 22rem" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers pouring red wine from a decanter in a Philadelphia assembly room in 1776, pointing at the Declaration while Benjamin Franklin and the other delegates look on."></span></span>
-            <span class="found-plate">Philadelphia, July 1776</span>
-            <span class="found-bio">Formerly in the private collection of a Delaware dentist. Historians note the Declaration was approved on the 2nd and signed on the 4th. The intervening two days are now understood to have been a tasting. Franklin's edit to "life, liberty and the pursuit of happiness" originally read "and a decent Bordeaux." It was struck at Mr. Smithers' suggestion. He felt it "went without saying."</span>
-          </button>
-          <button type="button" class="found-card">
-            <span class="portrait-frame found-frame"><span class="portrait-mat found-mat"><img src="images/found/kittyhawk.webp" srcset="images/found/kittyhawk-480.webp 480w, images/found/kittyhawk-800.webp 800w, images/found/kittyhawk.webp 1152w" sizes="(max-width: 900px) 46vw, 22rem" width="1152" height="864" loading="lazy" decoding="async" alt="Wilhelm Smithers lying on the wing of the Wright Flyer at Kitty Hawk in 1903, holding a glass of red wine that has not spilled, while Orville and Wilbur Wright run beneath the aircraft."></span></span>
-            <span class="found-plate">Kitty Hawk, December 17, 1903</span>
-            <span class="found-bio">The first powered flight lasted twelve seconds. The glass did not spill. Orville later wrote in his diary: "We are not sure who that was, or how he got on." Wilbur's entry for the same day is a single word: "Show-off."</span>
-          </button>
-        </div>
-        <div class="group-plates">
-          <h3>The Group Plates</h3>
-          <p class="group-intro">Two composite plates, discovered pressed between the pages of the Oxford English Dictionary (Volume XIV, "Pottery" to "Quixotic"). The estate has been unable to determine who assembled them, or why Mr. Smithers appears to age in no particular order.</p>
-          <div class="group-row">
-            <button type="button" class="group-card">
-              <span class="war-frame">
-                <span class="war-well">
-                  <span class="war-mat">
-                    <img src="images/found/group-1.webp" srcset="images/found/group-1-480.webp 480w, images/found/group-1-800.webp 800w, images/found/group-1.webp 1536w" sizes="(max-width: 900px) 92vw, 36rem" width="1536" height="1024" loading="lazy" decoding="async" alt="Oil-painting collage of Wilhelm Smithers in five scenes: a baby with a hammer at the pyramids, a man before the Titanic, a Union officer in the Civil War, Smithers smoking cigars with Winston Churchill, and Columbus holding a brass sextant.">
-                  </span>
-                </span>
-              </span>
-              <span class="brass-plate">Plate I. Assorted Occasions, Date Unknown</span>
-              <span class="found-bio">Plate I. Assorted Occasions, Date Unknown. Provenance: Volume XIV, OED.</span>
-            </button>
-            <button type="button" class="group-card">
-              <span class="war-frame">
-                <span class="war-well">
-                  <span class="war-mat">
-                    <img src="images/found/group-2.webp" srcset="images/found/group-2-480.webp 480w, images/found/group-2-800.webp 800w, images/found/group-2.webp 1536w" sizes="(max-width: 900px) 92vw, 36rem" width="1536" height="1024" loading="lazy" decoding="async" alt="A second oil-painting collage of Wilhelm Smithers: a baby in the sand at Giza, a man in a flat cap beside the Titanic, a smiling Union officer, Smithers and Churchill with cigars, and an older Columbus with a sextant before a ship flying a red cross.">
-                  </span>
-                </span>
-              </span>
-              <span class="brass-plate">Plate II. Further Occasions, Also Unknown.</span>
-              <span class="found-bio">Plate II. Further Occasions, Also Unknown. Provenance: Volume XIV, OED.</span>
-            </button>
-          </div>
+          <a class="bento-card" href="podcasts/">
+            <div class="bento-media">
+              <img
+                src="images/hub/podcasts.webp"
+                srcset="images/hub/podcasts-480.webp 480w, images/hub/podcasts-800.webp 800w, images/hub/podcasts.webp 1152w"
+                sizes="(max-width: 680px) 100vw, 24rem"
+                width="1152"
+                height="864"
+                loading="lazy"
+                decoding="async"
+                alt="Mr. Smithers listening to a podcast on a 1950s train."
+              >
+            </div>
+            <div class="bento-body">
+              <div class="bento-kicker-row">
+                <span class="bento-kicker">VI · Listening</span>
+              </div>
+              <h3 class="bento-title">Podcasts</h3>
+              <p class="bento-desc">Episodes worth a second hearing, grouped by show, beginning with The Joe Rogan Experience.</p>
+              <div class="bento-action">
+                <span>70 episodes</span>
+                <span aria-hidden="true">Enter →</span>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
     </article>
-
-    <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
-      <div class="lightbox-panel">
-        <div class="lightbox-bar">
-          <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photograph">
-            <span aria-hidden="true">←</span>
-          </button>
-          <button type="button" class="lightbox-close">Close</button>
-          <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photograph">
-            <span aria-hidden="true">→</span>
-          </button>
-        </div>
-        <figure class="lightbox-figure">
-          <div class="portrait-frame">
-            <div class="portrait-mat">
-              <img id="lightbox-img" alt="" width="1152" height="864">
-            </div>
-          </div>
-          <figcaption aria-live="polite">
-            <h3 id="lightbox-title"></h3>
-            <p id="lightbox-bio"></p>
-          </figcaption>
-        </figure>
-      </div>
-    </dialog>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-links">
-        <a class="footer-link" href="./">About the sommelier</a>
+        <a class="footer-link" href="biography/">About the sommelier</a>
         <a class="footer-link" href="menu/">The menu</a>
         <a class="footer-link" href="library/">The library</a>
         <a class="footer-link" href="screening-room/">The screening room</a>
@@ -637,6 +651,5 @@
   </footer>
 
   <script src="js/nav.js"></script>
-  <script src="js/found.js"></script>
 </body>
 </html>
