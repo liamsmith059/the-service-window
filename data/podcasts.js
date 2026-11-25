@@ -314,8 +314,8 @@ window.PODCASTS = [
     "monogram": "HL",
     "blurb": "A science podcast hosted by Andrew Huberman.",
     "art": "huberman-lab",
-    "artWidth": 758,
-    "artHeight": 758,
+    "artWidth": 400,
+    "artHeight": 400,
     "artAlt": "Huberman Lab cover art.",
     "artSource": "Supplied by Liam, 25 November 2026.",
     "episodes": []
@@ -326,8 +326,8 @@ window.PODCASTS = [
     "monogram": "DP",
     "blurb": "Interviews hosted by Dwarkesh Patel.",
     "art": "dwarkesh-podcast",
-    "artWidth": 2000,
-    "artHeight": 1050,
+    "artWidth": 400,
+    "artHeight": 400,
     "artAlt": "Dwarkesh Podcast cover art.",
     "artSource": "Supplied by Liam, 25 November 2026.",
     "episodes": []
@@ -338,8 +338,8 @@ window.PODCASTS = [
     "monogram": "CP",
     "blurb": "A conversation podcast hosted by John Collison.",
     "art": "cheeky-pint",
-    "artWidth": 1280,
-    "artHeight": 720,
+    "artWidth": 400,
+    "artHeight": 400,
     "artAlt": "Cheeky Pint cover art.",
     "artSource": "Supplied by Liam, 25 November 2026.",
     "episodes": []

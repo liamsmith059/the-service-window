@@ -1,6 +1,9 @@
 Show art under this folder was supplied by Liam on 25 November 2026.
+Each show uses a 400px square WebP plus a 200px square variant.
 To replace a show's pictures, swap the two WebP files named below and
 update artWidth, artHeight, artAlt, and artSource in data/podcasts.js.
+Wide sources should be fitted into the square without cropping, with
+empty bands filled from a colour sampled at the art's edges.
 
 The Joe Rogan Experience (circular mark with white outlined lettering
 on a transparent field; a dark disc sits behind the lettering so the
@@ -8,16 +11,16 @@ type stays legible on a light page):
   images/podcasts/joe-rogan-experience.webp
   images/podcasts/joe-rogan-experience-200.webp
 
-Huberman Lab (square portrait):
+Huberman Lab (square portrait, resized to 400px):
   images/podcasts/huberman-lab.webp
   images/podcasts/huberman-lab-200.webp
 
-Dwarkesh Podcast (wide, title at the top and bottom; keep the full
-frame, do not crop to a square):
+Dwarkesh Podcast (wide source fitted in a 400px square, not cropped;
+letterbox bands filled with a colour sampled from the edges):
   images/podcasts/dwarkesh-podcast.webp
   images/podcasts/dwarkesh-podcast-200.webp
 
-Cheeky Pint (wide 16:9, logo centred, 'Hosted by John Collison';
-keep the full frame, do not crop to a square):
+Cheeky Pint (16:9 source fitted in a 400px square, not cropped;
+letterbox bands filled with a colour sampled from the edges):
   images/podcasts/cheeky-pint.webp
   images/podcasts/cheeky-pint-200.webp
