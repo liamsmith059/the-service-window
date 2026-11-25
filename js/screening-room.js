@@ -25,28 +25,6 @@
       .replace(/'/g, "&#39;");
   }
 
-  function credit(item) {
-    var kind = item.type === "tv" ? "Television" : "Film";
-    var parts = [item.year ? kind + ", " + item.year : kind];
-    if (item.type === "tv" && item.creator) {
-      parts.push("Created by " + item.creator);
-    }
-    if (item.director) {
-      parts.push(item.type === "tv" ? "Directed by " + item.director : item.director);
-    }
-    if (item.type === "tv") {
-      if (item.season) parts.push("Season " + item.season);
-      if (item.episodes) {
-        parts.push(item.episodes === 1 ? "1 episode" : item.episodes + " episodes");
-      } else if (item.seasons) {
-        parts.push(item.seasons === 1 ? "1 season" : item.seasons + " seasons");
-      }
-    } else if (item.runtime) {
-      parts.push(item.runtime + " minutes");
-    }
-    return parts.join(" · ");
-  }
-
   function formatScore(value) {
     return (Math.round(value * 10) / 10).toFixed(1);
   }
@@ -65,41 +43,24 @@
     return '<p class="book-rating is-pending">Not yet rated</p>';
   }
 
-  function genreMarkup(item) {
-    var tags = item.genres || [];
-    if (!tags.length) return "";
-    return (
-      '<ul class="screening-tags">' +
-      tags.map(function (tag) {
-        return '<li class="screening-tag">' + esc(tag) + "</li>";
-      }).join("") +
-      "</ul>"
-    );
-  }
-
   function cardHtml(item, index) {
     var slug = item.slug || ("title-" + index);
     var title = item.title || "Untitled";
     var type = item.type === "tv" ? "tv" : "film";
     var hasRating = typeof item.rating === "number";
     var year = item.year || 0;
-    var person = (item.director || item.creator || "").toLowerCase();
     var width = item.posterWidth || 480;
     var height = item.posterHeight || 720;
     var src = "../images/posters/" + encodeURIComponent(slug) + ".webp";
     var src240 = "../images/posters/" + encodeURIComponent(slug) + "-240.webp";
     var lazy = index === 0 ? "" : ' loading="lazy"';
-    var body = "";
-    if (item.quote) {
-      body += '<blockquote class="screening-quote"><p>' + esc(item.quote) + "</p></blockquote>";
-    }
-    if (item.review) {
-      body += '<p class="book-review">' + esc(item.review) + "</p>";
-    }
+    var review = item.review
+      ? '<p class="book-review">' + esc(item.review) + "</p>"
+      : "";
     return (
       '<li class="book-card" data-index="' + index + '"' +
       (hasRating ? ' data-rating="' + item.rating + '"' : "") +
-      ' data-title="' + esc(title.toLowerCase()) + '" data-director="' + esc(person) +
+      ' data-title="' + esc(title.toLowerCase()) +
       '" data-year="' + year + '" data-type="' + type + '">' +
       '<div class="book-cover">' +
       '<img src="' + src + '" srcset="' + src240 + " 240w, " + src + " " + width +
@@ -109,10 +70,9 @@
       "</div>" +
       '<div class="book-copy">' +
       '<h2 class="book-title">' + esc(title) + "</h2>" +
-      '<p class="book-author">' + esc(credit(item)) + "</p>" +
-      genreMarkup(item) +
+      (year ? '<p class="screening-year">' + year + "</p>" : "") +
       ratingMarkup(item) +
-      body +
+      review +
       "</div></li>"
     );
   }

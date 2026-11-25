@@ -50,7 +50,7 @@ window.SCREENINGS = [
       "Drama"
     ],
     "rating": 8.2,
-    "review": "Really well done",
+    "review": "Really well done.",
     "posterAlt": "Official theatrical poster for Hell or High Water (2016).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -66,7 +66,7 @@ window.SCREENINGS = [
       "Horror"
     ],
     "rating": 7.5,
-    "review": "Went in with no clue what I was watching, left satisfied",
+    "review": "Went in with no clue what I was watching, left satisfied.",
     "posterAlt": "Official theatrical poster for House of 1000 Corpses (2003).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -82,7 +82,7 @@ window.SCREENINGS = [
       "Horror"
     ],
     "rating": 7.7,
-    "review": "What The Fuck..?",
+    "review": "What on earth did I just watch?",
     "posterAlt": "Official theatrical poster for Hostel (2005).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -100,7 +100,7 @@ window.SCREENINGS = [
       "Drama"
     ],
     "rating": 8.4,
-    "review": "Fantastic Movie",
+    "review": "Fantastic movie.",
     "posterAlt": "Official theatrical poster for The Silence of the Lambs (1991).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -134,7 +134,7 @@ window.SCREENINGS = [
       "Thriller"
     ],
     "rating": 7.8,
-    "review": "Genuinely creeped me out on one occasion",
+    "review": "Genuinely creeped me out on one occasion.",
     "posterAlt": "Official theatrical poster for The Conjuring (2013).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -152,7 +152,7 @@ window.SCREENINGS = [
       "Thriller"
     ],
     "rating": 7.9,
-    "review": "Enjoyable movie",
+    "review": "Enjoyable movie.",
     "posterAlt": "Official theatrical poster for L.A. Confidential (1997).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -169,7 +169,7 @@ window.SCREENINGS = [
       "Adventure"
     ],
     "rating": 8.0,
-    "review": "Exceeded my expectations in all honesty",
+    "review": "Exceeded my expectations in all honesty.",
     "posterAlt": "Official theatrical poster for Mission: Impossible - Fallout (2018).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -187,7 +187,7 @@ window.SCREENINGS = [
     ],
     "rating": 8.1,
     "quote": "\"Say hello to my little friend\"",
-    "review": "Classic",
+    "review": "Classic.",
     "posterAlt": "Official theatrical poster for Scarface (1983).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -204,7 +204,7 @@ window.SCREENINGS = [
       "Thriller"
     ],
     "rating": 5.5,
-    "review": "Typical Stupid. Extremely predictable and a little over the top. Some acting was not the greatest",
+    "review": "Typically stupid. Extremely predictable and a little over the top. Some acting was not the greatest.",
     "posterAlt": "Official theatrical poster for Halloween H20: 20 Years Later (1998).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -240,7 +240,7 @@ window.SCREENINGS = [
       "Action"
     ],
     "rating": 7.3,
-    "review": "Fun enjoyable crime flick",
+    "review": "Fun enjoyable crime flick.",
     "posterAlt": "Official theatrical poster for The Nice Guys (2016).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -259,7 +259,7 @@ window.SCREENINGS = [
     ],
     "rating": 8.0,
     "quote": "\"My house, my rules, my coffee\"",
-    "review": "Took a while to get going but really enjoyed this movie. Not what I first expected it to be",
+    "review": "Took a while to get going but really enjoyed this movie. Not what I first expected it to be.",
     "posterAlt": "Official theatrical poster for Knives Out (2019).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -329,7 +329,7 @@ window.SCREENINGS = [
     ],
     "rating": 7.8,
     "quote": "\"Talk to me. I let you in\"",
-    "review": "Need to rewatch this one. Was honestly very impressive and the head-bashing scene cut to hospital bed is absolutely terrifying. Last third of the movie I wasn't fully invested and need to reconsider - could be higher score",
+    "review": "Need to rewatch this one. Was honestly very impressive and the head-bashing scene cut to hospital bed is absolutely terrifying. Last third of the movie I wasn't fully invested and need to reconsider - could be higher score.",
     "posterAlt": "Official theatrical poster for Talk to Me (2023).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -398,7 +398,7 @@ window.SCREENINGS = [
       "Family"
     ],
     "rating": 7.5,
-    "review": "Honestly a really enjoyable watch that caught me by surprise. So many adult jokes that would have went straight over my head as a kid and I found it very entertaining. Not something I might watch again soon, but a worth while watch if you haven't seen it since being a kid.",
+    "review": "Honestly a really enjoyable watch that caught me by surprise. So many adult jokes that would have gone straight over my head as a kid and I found it very entertaining. Not something I might watch again soon, but a worthwhile watch if you haven't seen it since being a kid.",
     "posterAlt": "Official theatrical poster for Shrek (2001).",
     "posterWidth": 480,
     "posterHeight": 715
@@ -416,7 +416,7 @@ window.SCREENINGS = [
       "Drama"
     ],
     "rating": 7.8,
-    "review": "Good classic detective movie. Fun little twist throughout and the Robin Williams played a great role ive yet to see him in.",
+    "review": "Good classic detective movie. Fun little twist throughout and Robin Williams played a great role I've yet to see him in.",
     "posterAlt": "Official theatrical poster for Insomnia (2002).",
     "posterWidth": 480,
     "posterHeight": 720
@@ -573,7 +573,7 @@ window.SCREENINGS = [
       "Thriller"
     ],
     "rating": 7.8,
-    "review": "Intriguing show. Kind of strange, kind of great, overall unsure. Looking forward to another season to smooth some confusion",
+    "review": "Intriguing show. Kind of strange, kind of great, overall unsure. Looking forward to another season to smooth some confusion.",
     "posterAlt": "Official poster for The Watcher (2022).",
     "posterWidth": 480,
     "posterHeight": 712
@@ -593,7 +593,7 @@ window.SCREENINGS = [
       "Thriller"
     ],
     "rating": 8.4,
-    "review": "Fantastic opener to a new show. Great concept and its a shame they are so slow to add more episodes",
+    "review": "Fantastic opener to a new show. Great concept and it's a shame they are so slow to add more episodes.",
     "posterAlt": "Official poster for Mindhunter, season 1 (2017).",
     "posterWidth": 480,
     "posterHeight": 720
