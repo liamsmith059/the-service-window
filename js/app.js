@@ -116,7 +116,7 @@
     fallback.appendChild(el("span", "shot-rule"));
     fallback.appendChild(el("span", "shot-name", entry.item.name));
     frame.appendChild(fallback);
-    var alt = entry.item.name + ", from " + entry.chain.name + ", photographed as a plated dish";
+    var alt = entry.item.name + " from " + entry.chain.name;
     mountPhoto(frame, entry.image, alt, eager);
     return frame;
   }
