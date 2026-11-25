@@ -35,6 +35,11 @@ jobs:
         with:
           path: .
 
+      # The artifact list API is briefly empty right after upload, and
+      # deploy-pages fails the run when it sees zero artifacts.
+      - name: Wait for artifact metadata
+        run: sleep 20
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
