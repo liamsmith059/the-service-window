@@ -1,5 +1,12 @@
 (function () {
   var shows = Array.isArray(window.PODCASTS) ? window.PODCASTS : [];
+  var ASSET_VERSION = "20261125b";
+
+  function cacheBust(url) {
+    if (!url) return url;
+    return url + (url.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_VERSION;
+  }
+
 
   function esc(value) {
     return String(value == null ? "" : value)
@@ -38,8 +45,8 @@
     var root = assetRoot();
     var width = show.artWidth || 400;
     var height = show.artHeight || width;
-    var src = root + "images/podcasts/" + encodeURIComponent(stem) + ".webp";
-    var src200 = root + "images/podcasts/" + encodeURIComponent(stem) + "-200.webp";
+    var src = cacheBust(root + "images/podcasts/" + encodeURIComponent(stem) + ".webp");
+    var src200 = cacheBust(root + "images/podcasts/" + encodeURIComponent(stem) + "-200.webp");
     var alt = show.artAlt || ("Cover art for " + (show.name || "this show") + ".");
     return (
       '<img src="' + src + '" srcset="' + src200 + " 200w, " + src + " " + width +

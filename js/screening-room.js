@@ -1,4 +1,11 @@
 (function () {
+  var ASSET_VERSION = "20261125b";
+
+  function cacheBust(url) {
+    if (!url) return url;
+    return url + (url.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_VERSION;
+  }
+
   var list = document.getElementById("screening-list");
   var sortWrap = document.getElementById("screening-sort");
   var filterWrap = document.getElementById("screening-filter");
@@ -51,8 +58,8 @@
     var year = item.year || 0;
     var width = item.posterWidth || 480;
     var height = item.posterHeight || 720;
-    var src = "../images/posters/" + encodeURIComponent(slug) + ".webp";
-    var src240 = "../images/posters/" + encodeURIComponent(slug) + "-240.webp";
+    var src = cacheBust("../images/posters/" + encodeURIComponent(slug) + ".webp");
+    var src240 = cacheBust("../images/posters/" + encodeURIComponent(slug) + "-240.webp");
     var lazy = index === 0 ? "" : ' loading="lazy"';
     var review = item.review
       ? '<p class="book-review">' + esc(item.review) + "</p>"

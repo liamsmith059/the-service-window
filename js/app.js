@@ -1,4 +1,11 @@
 (function () {
+  var ASSET_VERSION = "20261125b";
+
+  function cacheBust(url) {
+    if (!url) return url;
+    return url + (url.indexOf("?") === -1 ? "?" : "&") + "v=" + ASSET_VERSION;
+  }
+
   var data = window.CELLAR;
   if (!data || !Array.isArray(data.chains)) return;
 
@@ -90,7 +97,7 @@
   function asset(path) {
     if (!path) return "";
     if (/^(?:[a-z]+:)?\/\//i.test(path) || path.charAt(0) === "/") return path;
-    return assetBase + path;
+    return cacheBust(assetBase + path);
   }
 
   function mountPhoto(frame, src, alt, eager) {
