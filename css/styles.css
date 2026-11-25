@@ -2448,8 +2448,15 @@ body.has-hero .site-header:not(.is-scrolled) .explore-panel {
   padding: clamp(2.25rem, 5vw, 4rem) 0 1rem;
 }
 .pets-intro {
-  max-width: 40rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) min(22.5rem, 100%);
+  gap: 1.75rem 3rem;
+  align-items: center;
   padding-bottom: 0.35rem;
+}
+.pets-intro-copy {
+  min-width: 0;
+  max-width: 36rem;
 }
 .pets-kicker {
   margin: 0 0 0.7rem;
@@ -2474,72 +2481,9 @@ body.has-hero .site-header:not(.is-scrolled) .explore-panel {
   line-height: 1.7;
 }
 
-.pets-summary {
-  margin-top: 2rem;
-  padding: 1.15rem 0 0.2rem;
-  border-top: 1px solid var(--line);
-}
-.pets-summary-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.35rem 1.25rem;
-  margin-bottom: 1rem;
-}
-.pets-summary-title {
-  margin: 0;
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.pets-summary-note {
-  margin: 0;
-  max-width: 28rem;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: var(--muted);
-}
-.pets-stats {
-  list-style: none;
-  margin: 0;
-  padding: 0.9rem 0 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem 1.25rem;
-  border-top: 1px solid var(--line);
-}
-.pets-stats li {
-  min-width: 0;
-}
-.pets-stat-value {
-  display: block;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(1.45rem, 2.4vw, 1.95rem);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  color: var(--ink);
-}
-.pets-stat-label {
-  display: block;
-  margin-top: 0.32rem;
-  font-family: var(--sans);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
 .pets-portrait {
-  margin: 2.15rem auto 0;
-  width: min(28rem, 100%);
+  margin: 0;
+  width: 100%;
   text-align: center;
 }
 .pets-portrait img {
@@ -2759,9 +2703,14 @@ body.has-hero .site-header:not(.is-scrolled) .explore-panel {
 
 @media (max-width: 680px) {
   .pets { width: min(62rem, calc(100% - 1.5rem)); }
+  .pets-intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .pets-intro-copy { max-width: none; }
   .pets-intro p,
   .pet-blurb { font-size: 1.02rem; }
-  .pets-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.95rem 1rem; }
+  .pets-portrait { width: min(22rem, 100%); margin-inline: auto; }
   .pets-timeline { padding-left: 0.85rem; }
   .pets-timeline > li { padding-left: 1.05rem; padding-bottom: 1.55rem; }
   .pet-layout { grid-template-columns: 1fr; gap: 0.95rem; }

@@ -134,47 +134,24 @@
   <main id="content">
     <article class="pets">
       <header class="pets-intro">
-        <p class="pets-kicker">A household record</p>
-        <h1>Pets</h1>
-        <p>A register of the animals who have shared a roof with Mr. Smithers. More entries are coming.</p>
-      </header>
-
-      <section class="pets-summary" aria-labelledby="pets-summary-title">
-        <div class="pets-summary-head">
-          <h2 id="pets-summary-title" class="pets-summary-title">The tally</h2>
+        <div class="pets-intro-copy">
+          <p class="pets-kicker">A household record</p>
+          <h1>Pets</h1>
+          <p>A register of the animals who have shared a roof with Mr. Smithers. More entries are coming.</p>
         </div>
-        <ul class="pets-stats">
-          <li>
-            <span class="pets-stat-value">2</span>
-            <span class="pets-stat-label">Pets in all</span>
-          </li>
-          <li>
-            <span class="pets-stat-value">2014–present</span>
-            <span class="pets-stat-label">Years covered</span>
-          </li>
-          <li>
-            <span class="pets-stat-value">1</span>
-            <span class="pets-stat-label">Species</span>
-          </li>
-          <li>
-            <span class="pets-stat-value">1</span>
-            <span class="pets-stat-label">Still in the house</span>
-          </li>
-        </ul>
-      </section>
-
-      <figure class="pets-portrait">
-        <img
-          src="../images/pets/larry-and-fred.webp"
-          srcset="../images/pets/larry-and-fred-480.webp 480w, ../images/pets/larry-and-fred.webp 960w"
-          sizes="(max-width: 680px) min(28rem, 100vw), 28rem"
-          width="960"
-          height="1280"
-          alt="Larry, a calico cat, in front, and Fred, a ginger tabby, behind her on the stairs."
-          decoding="async"
-        >
-        <figcaption>Larry and Fred.</figcaption>
-      </figure>
+        <figure class="pets-portrait">
+          <img
+            src="../images/pets/larry-and-fred.webp"
+            srcset="../images/pets/larry-and-fred-480.webp 480w, ../images/pets/larry-and-fred.webp 960w"
+            sizes="(max-width: 680px) min(22rem, 100vw), 22.5rem"
+            width="960"
+            height="1280"
+            alt="Larry, a calico cat, in front, and Fred, a ginger tabby, behind her on the stairs."
+            decoding="async"
+          >
+          <figcaption>Larry and Fred.</figcaption>
+        </figure>
+      </header>
 
       <!--
         Adding a pet:
@@ -187,7 +164,6 @@
         4. Fill in the name, species/breed, years, household role, and the short blurb.
         5. If the pet has died, add the class "is-memoriam" to the article and include
            an “In memoriam” label (see the commented example). If not, omit both.
-        6. Update the four figures in .pets-stats to match the finished record.
       -->
 
       <ol class="pets-timeline">
