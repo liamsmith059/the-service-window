@@ -143,8 +143,9 @@
             height="720"
             aria-label="Animated oil portrait of Wilhelm Smithers seated in a leather wingback chair, picking up a glass of red wine, swirling and examining it in the light, smelling the aroma, taking a slow sip, and setting it down before returning his hand to his chin."
           >
-            <source src="images/wilhelm-hero.webm" type="video/webm">
+            <source src="images/wilhelm-hero-mobile.mp4" type="video/mp4" media="(max-width: 860px)">
             <source src="images/wilhelm-hero.mp4" type="video/mp4">
+            <source src="images/wilhelm-hero.webm" type="video/webm">
             <img
               class="hero-img"
               src="images/wilhelm-hero-poster.webp"
@@ -199,9 +200,29 @@
               if (!video) return;
               var media = video.closest(".hero-media") || video.parentElement;
               var hero = video.closest(".tribute-hero");
-              var mq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+              var reduceMq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+              var narrowMq = window.matchMedia ? window.matchMedia("(max-width: 860px)") : null;
               var restarting = false;
               var hasPlayed = false;
+              var autoplayAttempted = false;
+
+              video.muted = true;
+              video.defaultMuted = true;
+              video.playsInline = true;
+              if ("webkitPlaysInline" in video) video.webkitPlaysInline = true;
+
+              function prefersReducedMotion() {
+                return !!(reduceMq && reduceMq.matches);
+              }
+
+              function isNarrowViewport() {
+                return !!(narrowMq && narrowMq.matches);
+              }
+
+              function hasFiniteDuration() {
+                var duration = video.duration;
+                return typeof duration === "number" && isFinite(duration) && duration > 0;
+              }
 
               function setReplayLabel() {
                 if (!replay) return;
@@ -211,17 +232,70 @@
                 if (text) text.textContent = word;
               }
 
+              function showStillWithButton() {
+                if (!media || !hero) return;
+                media.classList.add("is-ended");
+                hero.classList.add("is-ended");
+                hero.classList.remove("is-playing");
+                try { video.pause(); } catch (err) {}
+                setReplayLabel();
+              }
+
               function restOnStill() {
                 if (restarting) return;
+                if (!hasFiniteDuration()) return;
                 if (!media || media.classList.contains("is-ended")) return;
-                media.classList.add("is-ended");
-                if (hero) {
-                  hero.classList.add("is-ended");
-                  hero.classList.remove("is-playing");
-                }
-                video.pause();
                 hasPlayed = true;
-                setReplayLabel();
+                showStillWithButton();
+              }
+
+              function fallbackToPlayButton() {
+                if (restarting) return;
+                if (hero && hero.classList.contains("is-playing") && !video.paused && video.currentTime > 0.2) {
+                  return;
+                }
+                hasPlayed = false;
+                showStillWithButton();
+              }
+
+              function applyPreferredSource() {
+                var current = video.currentSrc || video.getAttribute("src") || "";
+                if (isNarrowViewport()) {
+                  var chosen = "images/wilhelm-hero-mobile.mp4";
+                  if (current.indexOf("wilhelm-hero-mobile.mp4") !== -1) return false;
+                  if ((video.getAttribute("src") || "") === chosen) return false;
+                  video.setAttribute("src", chosen);
+                  video.load();
+                  return true;
+                }
+                var mobileSource = video.querySelector('source[src*="wilhelm-hero-mobile.mp4"]');
+                if (mobileSource && mobileSource.parentNode) {
+                  mobileSource.parentNode.removeChild(mobileSource);
+                }
+                if (current.indexOf("wilhelm-hero-mobile.mp4") !== -1) {
+                  video.removeAttribute("src");
+                  video.load();
+                  return true;
+                }
+                return false;
+              }
+
+              function tryAutoplay() {
+                if (prefersReducedMotion()) return;
+                if (hero && hero.classList.contains("is-ended") && !hero.classList.contains("is-playing")) return;
+                video.muted = true;
+                var playPromise = video.play();
+                if (playPromise && playPromise.then) {
+                  playPromise.then(function () {
+                    if (hero) {
+                      hero.classList.add("is-playing");
+                      hero.classList.remove("is-ended");
+                    }
+                    if (media) media.classList.remove("is-ended");
+                  }).catch(function () {
+                    fallbackToPlayButton();
+                  });
+                }
               }
 
               function playFromStart() {
@@ -232,31 +306,94 @@
                 if (video.getAttribute("preload") === "none") {
                   video.setAttribute("preload", "auto");
                 }
+                video.muted = true;
+                function fail() {
+                  restarting = false;
+                  hasPlayed = false;
+                  fallbackToPlayButton();
+                }
                 function start() {
                   media.classList.remove("is-ended");
                   hero.classList.remove("is-ended");
                   var playPromise = video.play();
-                  if (playPromise && playPromise.catch) playPromise.catch(function () {});
-                  restarting = false;
+                  if (playPromise && playPromise.then) {
+                    playPromise.then(function () {
+                      restarting = false;
+                    }).catch(fail);
+                  } else {
+                    restarting = false;
+                  }
                 }
                 function afterReady() {
                   if (video.readyState >= 2) start();
-                  else video.addEventListener("canplay", start, { once: true });
+                  else {
+                    video.addEventListener("canplay", start, { once: true });
+                    video.addEventListener("error", fail, { once: true });
+                  }
                 }
                 if (video.currentTime > 0.05 || video.ended) {
                   video.addEventListener("seeked", afterReady, { once: true });
-                  video.currentTime = 0;
+                  try {
+                    video.currentTime = 0;
+                  } catch (err) {
+                    afterReady();
+                  }
                 } else {
                   afterReady();
                 }
               }
 
-              video.addEventListener("ended", restOnStill);
+              applyPreferredSource();
+
+              var stallTimer = 0;
+              function clearStallTimer() {
+                if (stallTimer) {
+                  window.clearTimeout(stallTimer);
+                  stallTimer = 0;
+                }
+              }
+              function onStalled() {
+                if (prefersReducedMotion()) return;
+                if (media && media.classList.contains("is-ended")) return;
+                clearStallTimer();
+                stallTimer = window.setTimeout(function () {
+                  stallTimer = 0;
+                  if (!video.paused && video.currentTime > 0.2) return;
+                  fallbackToPlayButton();
+                }, 2000);
+              }
+
+              video.addEventListener("playing", clearStallTimer);
+              video.addEventListener("progress", clearStallTimer);
+              video.addEventListener("stalled", onStalled);
+              video.addEventListener("error", function () {
+                clearStallTimer();
+                fallbackToPlayButton();
+              });
+
+              video.addEventListener("ended", function () {
+                if (!hasFiniteDuration()) return;
+                restOnStill();
+              });
               video.addEventListener("timeupdate", function () {
-                if (video.duration && isFinite(video.duration) && video.currentTime >= video.duration - 0.12) {
+                if (!hasFiniteDuration()) return;
+                if (video.readyState < 2) return;
+                if (video.currentTime >= video.duration - 0.12) {
                   restOnStill();
                 }
               });
+
+              video.addEventListener("loadeddata", function () {
+                if (autoplayAttempted) return;
+                autoplayAttempted = true;
+                tryAutoplay();
+              });
+              video.addEventListener("canplay", function () {
+                if (autoplayAttempted) return;
+                autoplayAttempted = true;
+                tryAutoplay();
+              });
+
               if (replay) {
                 setReplayLabel();
                 replay.addEventListener("click", function (event) {
@@ -264,36 +401,39 @@
                   playFromStart();
                 });
               }
-              if (!mq) return;
-              function syncMotion() {
-                if (mq.matches) {
-                  video.removeAttribute("autoplay");
-                  if (hero && hero.classList.contains("is-playing")) return;
-                  video.pause();
-                  if (media && !media.classList.contains("is-ended")) {
-                    media.classList.add("is-ended");
-                    if (hero) {
-                      hero.classList.add("is-ended");
-                      hero.classList.remove("is-playing");
-                    }
-                  }
-                } else if (video.paused && media && !media.classList.contains("is-ended")) {
-                  video.play().catch(function () {});
-                }
-              }
-              if (mq.matches) {
+
+              function armReducedMotion() {
                 video.removeAttribute("autoplay");
                 video.setAttribute("preload", "none");
                 video.pause();
-                media.classList.add("is-ended");
-                if (hero) {
-                  hero.classList.add("is-ended");
-                  hero.classList.remove("is-playing");
-                }
                 hasPlayed = false;
-                setReplayLabel();
+                showStillWithButton();
               }
-              if (mq.addEventListener) mq.addEventListener("change", syncMotion);
+
+              if (reduceMq) {
+                function syncMotion() {
+                  if (reduceMq.matches) {
+                    video.removeAttribute("autoplay");
+                    if (hero && hero.classList.contains("is-playing")) return;
+                    video.pause();
+                    if (media && !media.classList.contains("is-ended")) {
+                      showStillWithButton();
+                    }
+                  } else if (video.paused && media && !media.classList.contains("is-ended")) {
+                    tryAutoplay();
+                  }
+                }
+                if (reduceMq.matches) {
+                  armReducedMotion();
+                } else if (video.readyState >= 2) {
+                  autoplayAttempted = true;
+                  tryAutoplay();
+                }
+                if (reduceMq.addEventListener) reduceMq.addEventListener("change", syncMotion);
+              } else if (video.readyState >= 2) {
+                autoplayAttempted = true;
+                tryAutoplay();
+              }
             })();
           </script>
       </header>
