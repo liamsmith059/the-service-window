@@ -2,17 +2,22 @@
  *
  * To add a show:
  *   1. Append an object to window.PODCASTS with slug, name, and episodes
- *      (each episode is { title, note? }). Optional art is a filename stem
- *      under images/podcasts/ (art.webp plus art-200.webp). If art is
- *      omitted, the hub tile uses monogram, or initials derived from the name.
+ *      (each episode is { title, note? }). An optional blurb is a one-line
+ *      description shown on the hub tile. Optional art is a filename stem
+ *      under images/podcasts/ -- replace these two files when new art arrives:
+ *        images/podcasts/<stem>.webp
+ *        images/podcasts/<stem>-200.webp
+ *      and update artWidth, artHeight, artAlt, and artSource (and
+ *      images/podcasts/SOURCES.txt). If art is omitted, the hub tile uses
+ *      monogram, or initials derived from the name.
  *   2. Copy podcasts/joe-rogan-experience/index.html to
  *      podcasts/<slug>/index.html and update the title, canonical/og URL,
- *      data-show attribute, and heading.
+ *      data-show attribute, heading, and intro line.
  *   3. Add the show URL to sitemap.xml.
- * The hub lists every show in this array automatically.
+ * The hub lists every show in this array automatically, in this order.
  *
- * The Joe Rogan Experience mark was supplied by Liam (25 November 2026):
- * a circular logo with white outlined lettering on a transparent field.
+ * Show art was supplied by Liam (25 November 2026). See
+ * images/podcasts/SOURCES.txt for the files to replace.
  */
 window.PODCASTS = [
   {
@@ -302,5 +307,42 @@ window.PODCASTS = [
         "note": "The podcast that will turn you into an anti-vaxer. As much as I question all the things that were said, the segment on HIV/AIDS was very very interesting to say the LEAST. And for me, that alone is worth the listen."
       }
     ]
+  },
+  {
+    "slug": "huberman-lab",
+    "name": "Huberman Lab",
+    "monogram": "HL",
+    "blurb": "A science podcast hosted by Andrew Huberman.",
+    "art": "huberman-lab",
+    "artWidth": 758,
+    "artHeight": 758,
+    "artAlt": "Huberman Lab cover art.",
+    "artSource": "Supplied by Liam, 25 November 2026.",
+    "episodes": []
+  },
+  {
+    "slug": "dwarkesh-podcast",
+    "name": "Dwarkesh Podcast",
+    "monogram": "DP",
+    "blurb": "Interviews hosted by Dwarkesh Patel.",
+    "art": "dwarkesh-podcast",
+    "artWidth": 2000,
+    "artHeight": 1050,
+    "artAlt": "Dwarkesh Podcast cover art.",
+    "artSource": "Supplied by Liam, 25 November 2026.",
+    "episodes": []
+  },
+  {
+    "slug": "cheeky-pint",
+    "name": "Cheeky Pint",
+    "monogram": "CP",
+    "blurb": "A conversation podcast hosted by John Collison.",
+    "art": "cheeky-pint",
+    "artWidth": 1280,
+    "artHeight": 720,
+    "artAlt": "Cheeky Pint cover art.",
+    "artSource": "Supplied by Liam, 25 November 2026.",
+    "episodes": []
   }
+
 ];

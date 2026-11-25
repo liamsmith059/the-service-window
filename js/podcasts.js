@@ -32,6 +32,10 @@
     return "../";
   }
 
+  function isLandscape(show) {
+    return !!(show && show.art && (show.artWidth || 0) > (show.artHeight || 0));
+  }
+
   function artImg(show, sizes) {
     var stem = show && show.art;
     if (!stem) return "";
@@ -40,7 +44,7 @@
     var height = show.artHeight || width;
     var src = root + "images/podcasts/" + encodeURIComponent(stem) + ".webp";
     var src200 = root + "images/podcasts/" + encodeURIComponent(stem) + "-200.webp";
-    var alt = show.artAlt || ("Official cover art for " + (show.name || "this show") + ".");
+    var alt = show.artAlt || ("Cover art for " + (show.name || "this show") + ".");
     return (
       '<img src="' + src + '" srcset="' + src200 + " 200w, " + src + " " + width +
       'w" sizes="' + sizes + '" width="' + width + '" height="' + height +
@@ -49,8 +53,13 @@
   }
 
   function hubArt(show) {
-    var img = artImg(show, "(max-width: 680px) 5.25rem, 6.5rem");
-    if (img) return '<div class="show-card-art">' + img + "</div>";
+    var landscape = isLandscape(show);
+    var sizes = landscape
+      ? "(max-width: 680px) 24rem, 16.5rem"
+      : "(max-width: 680px) 5.25rem, 6.5rem";
+    var img = artImg(show, sizes);
+    var cls = "show-card-art" + (landscape ? " is-landscape" : "");
+    if (img) return '<div class="' + cls + '">' + img + "</div>";
     return '<div class="show-card-art" aria-hidden="true"><span>' + esc(monogram(show)) + "</span></div>";
   }
 
@@ -61,13 +70,21 @@
     list.innerHTML = shows.map(function (show) {
       var n = (show.episodes || []).length;
       var href = "./" + encodeURIComponent(show.slug) + "/";
+      var landscape = isLandscape(show);
+      var blurb = show.blurb
+        ? '<p class="show-card-blurb">' + esc(show.blurb) + "</p>"
+        : "";
+      var count = n
+        ? '<p class="show-card-count">' + n + " " + noun(n) + "</p>"
+        : "";
       return (
         "<li>" +
-        '<a class="show-card" href="' + href + '">' +
+        '<a class="show-card' + (landscape ? " is-landscape" : "") + '" href="' + href + '">' +
         hubArt(show) +
         '<div class="show-card-copy">' +
         '<h2 class="show-card-name">' + esc(show.name) + "</h2>" +
-        '<p class="show-card-count">' + n + " " + noun(n) + "</p>" +
+        blurb +
+        count +
         "</div></a></li>"
       );
     }).join("");
@@ -85,9 +102,13 @@
     if (!intro || !show || !show.art) return;
     if (intro.querySelector(".show-header-art")) return;
     intro.classList.add("show-intro");
+    if (isLandscape(show)) intro.classList.add("is-landscape");
     var wrap = document.createElement("div");
-    wrap.className = "show-header-art";
-    wrap.innerHTML = artImg(show, "(max-width: 680px) 5.5rem, 8.25rem");
+    wrap.className = "show-header-art" + (isLandscape(show) ? " is-landscape" : "");
+    var sizes = isLandscape(show)
+      ? "(max-width: 680px) 24rem, 22rem"
+      : "(max-width: 680px) 5.5rem, 8.25rem";
+    wrap.innerHTML = artImg(show, sizes);
     intro.insertBefore(wrap, intro.firstChild);
   }
 
@@ -100,6 +121,10 @@
     if (show) renderShowHeader(show);
 
     var countEl = document.getElementById("podcast-count");
+    var emptyEl = document.getElementById("podcast-empty");
+    var toolbar = countEl && countEl.closest
+      ? countEl.closest(".library-toolbar")
+      : document.querySelector(".library-toolbar");
     var episodes = show && Array.isArray(show.episodes) ? show.episodes : [];
 
     list.innerHTML = episodes.map(function (episode) {
@@ -116,6 +141,14 @@
 
     if (countEl) {
       countEl.textContent = episodes.length + " " + noun(episodes.length);
+    }
+    if (toolbar) {
+      if (episodes.length) toolbar.removeAttribute("hidden");
+      else toolbar.setAttribute("hidden", "");
+    }
+    if (emptyEl) {
+      if (episodes.length) emptyEl.setAttribute("hidden", "");
+      else emptyEl.removeAttribute("hidden");
     }
   }
 

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Huberman Lab · Podcasts</title>
+  <meta name="description" content="A science podcast hosted by Andrew Huberman.">
+  <link rel="canonical" href="https://wilhelmsmithers.ca/podcasts/huberman-lab/">
+  <meta property="og:title" content="Huberman Lab · Podcasts">
+  <meta property="og:description" content="A science podcast hosted by Andrew Huberman.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wilhelmsmithers.ca/podcasts/huberman-lab/">
+  <meta property="og:image" content="https://wilhelmsmithers.ca/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Huberman Lab · Podcasts">
+  <meta name="twitter:description" content="A science podcast hosted by Andrew Huberman.">
+  <meta name="twitter:image" content="https://wilhelmsmithers.ca/images/og.jpg">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("sw-theme");
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the episodes</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="header-lead">
+        <div class="explore" id="explore">
+          <button class="explore-btn" id="explore-btn" type="button" aria-expanded="false" aria-controls="explore-panel" aria-haspopup="true">
+            <svg class="explore-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h8"/></svg>
+            <span class="explore-label">Explore</span>
+          </button>
+          <nav class="explore-panel" id="explore-panel" aria-label="Explore" hidden>
+            <ul class="explore-list">
+              <li>
+                <a class="explore-item" href="../../">
+                  <span class="mi-kicker">Home</span>
+                  <span class="mi-label">Wilhelm Smithers</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../../biography/">
+                  <span class="mi-label">Biography</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../../menu/">
+                  <span class="mi-label">The Service Window</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../../library/">
+                  <span class="mi-label">The Library</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../../screening-room/">
+                  <span class="mi-label">The Screening Room</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../../podcasts/" aria-current="page">
+                  <span class="mi-label">Podcasts</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../../pets/">
+                  <span class="mi-label">Pets</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="https://liamsmith059.github.io/study-lab/" rel="noopener">
+                  <span class="mi-label">Study Lab <span class="ext" aria-hidden="true">↗</span></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <a class="mark" href="../../">
+          <span class="mark-name">Wilhelm Smithers</span>
+        </a>
+        <nav class="desk-nav" aria-label="Pages">
+          <a href="../../">Home</a>
+          <a href="../../biography/">Biography</a>
+          <a href="../../menu/">The Service Window</a>
+          <a href="../../library/">The Library</a>
+          <a href="../../screening-room/">The Screening Room</a>
+          <a href="../../podcasts/" aria-current="page">Podcasts</a>
+          <a href="../../pets/">Pets</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="theme-lamp" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+          <svg class="lamp-svg" viewBox="0 0 44 44" width="38" height="38" aria-hidden="true" focusable="false">
+            <defs>
+              <radialGradient id="lamp-aura-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffe082" stop-opacity="0.62"/>
+                <stop offset="45%" stop-color="#ffca58" stop-opacity="0.24"/>
+                <stop offset="100%" stop-color="#ffca58" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="lamp-cone-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffd977" stop-opacity="0.34"/>
+                <stop offset="100%" stop-color="#ffd977" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="lamp-chain-clip">
+                <rect x="24" y="17.5" width="10" height="26"/>
+              </clipPath>
+            </defs>
+            <circle class="lamp-aura" cx="20" cy="20" r="17" fill="url(#lamp-aura-grad)"/>
+            <polygon class="lamp-cone" points="10.5,18 29.5,18 35,35 5,35" fill="url(#lamp-cone-grad)"/>
+            <g clip-path="url(#lamp-chain-clip)">
+              <g class="lamp-chain">
+                <line class="lamp-cord" x1="28.5" y1="10" x2="28.5" y2="27.2"/>
+                <circle class="lamp-knob" cx="28.5" cy="29.2" r="2.1"/>
+              </g>
+            </g>
+            <ellipse class="lamp-bulb" cx="20" cy="18.8" rx="3.9" ry="4.2"/>
+            <circle class="lamp-bulb-core" cx="20" cy="19.3" r="1.9"/>
+            <line class="lamp-stem" x1="20" y1="22.8" x2="20" y2="35.8"/>
+            <path class="lamp-base" d="M15.2 35.8h9.6M13 38.4h14"/>
+            <path class="lamp-shade" d="M14 7.5h12l5 10.5H9Z"/>
+            <line class="lamp-shade-trim" x1="9.6" y1="16.4" x2="30.4" y2="16.4"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <article class="library" data-asset-root="../../">
+      <header class="library-intro" id="podcast-show-intro">
+        <div class="show-intro-copy">
+          <p class="library-kicker"><a href="../">Podcasts</a></p>
+          <h1>Huberman Lab</h1>
+          <p>A science podcast hosted by Andrew Huberman.</p>
+        </div>
+      </header>
+
+      <div class="library-toolbar" hidden>
+        <p class="library-count" id="podcast-count"></p>
+      </div>
+
+      <noscript>
+        <p class="library-note">This catalogue is arranged by script. Please enable JavaScript, or write to the estate.</p>
+      </noscript>
+
+      <ul class="episode-list" id="podcast-episodes" data-show="huberman-lab"></ul>
+      <p class="podcast-empty" id="podcast-empty" hidden>Episodes are being shelved.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a class="footer-link" href="../../biography/">About the sommelier</a>
+        <a class="footer-link" href="../../menu/">The menu</a>
+        <a class="footer-link" href="../../library/">The library</a>
+        <a class="footer-link" href="../../screening-room/">The screening room</a>
+        <a class="footer-link" href="../">Podcasts</a>
+        <a class="footer-link" href="../../pets/">Pets</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/nav.js"></script>
+  <script src="../../data/podcasts.js"></script>
+  <script src="../../js/podcasts.js"></script>
+</body>
+</html>

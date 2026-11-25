@@ -1,6 +1,23 @@
-The Joe Rogan Experience logo on the Podcasts hub and show page
-was supplied by Liam on 25 November 2026 (circular mark with white
-outlined lettering on a transparent field). It replaces the earlier
-official Apple Podcasts cover art. Converted to square WebP at 400px
-and 200px, keeping transparency, with a dark disc behind the lettering
-so the type stays legible on a light page.
+Show art under this folder was supplied by Liam on 25 November 2026.
+To replace a show's pictures, swap the two WebP files named below and
+update artWidth, artHeight, artAlt, and artSource in data/podcasts.js.
+
+The Joe Rogan Experience (circular mark with white outlined lettering
+on a transparent field; a dark disc sits behind the lettering so the
+type stays legible on a light page):
+  images/podcasts/joe-rogan-experience.webp
+  images/podcasts/joe-rogan-experience-200.webp
+
+Huberman Lab (square portrait):
+  images/podcasts/huberman-lab.webp
+  images/podcasts/huberman-lab-200.webp
+
+Dwarkesh Podcast (wide, title at the top and bottom; keep the full
+frame, do not crop to a square):
+  images/podcasts/dwarkesh-podcast.webp
+  images/podcasts/dwarkesh-podcast-200.webp
+
+Cheeky Pint (wide 16:9, logo centred, 'Hosted by John Collison';
+keep the full frame, do not crop to a square):
+  images/podcasts/cheeky-pint.webp
+  images/podcasts/cheeky-pint-200.webp
