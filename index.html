@@ -164,40 +164,6 @@
             fetchpriority="high"
             alt="Oil portrait of Wilhelm Smithers seated in a tufted leather armchair inside a dimly lit study, wearing a brown tweed jacket, cream shirt, and burgundy striped tie, resting his chin on his hand beside a crimson velvet drape, a brass globe, and antique mahogany bookshelves."
           >
-          <script>
-            (function () {
-              var video = document.getElementById("hero-video");
-              if (!video) return;
-              var media = video.closest(".hero-media") || video.parentElement;
-              function restOnStill() {
-                if (!media || media.classList.contains("is-ended")) return;
-                media.classList.add("is-ended");
-                video.pause();
-              }
-              video.addEventListener("ended", restOnStill);
-              video.addEventListener("timeupdate", function () {
-                if (video.duration && isFinite(video.duration) && video.currentTime >= video.duration - 0.12) {
-                  restOnStill();
-                }
-              });
-              if (!window.matchMedia) return;
-              var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-              function syncMotion() {
-                if (mq.matches) {
-                  video.removeAttribute("autoplay");
-                  video.pause();
-                } else if (video.paused && media && !media.classList.contains("is-ended")) {
-                  video.play().catch(function () {});
-                }
-              }
-              if (mq.matches) {
-                video.removeAttribute("autoplay");
-                video.setAttribute("preload", "none");
-                video.pause();
-              }
-              if (mq.addEventListener) mq.addEventListener("change", syncMotion);
-            })();
-          </script>
         </div>
         <div class="hero-scrim" aria-hidden="true"></div>
         <div class="hero-overlay">
@@ -215,6 +181,121 @@
             </a>
           </div>
         </div>
+        <button
+          type="button"
+          class="hero-replay"
+          id="hero-replay"
+          aria-label="Replay the portrait animation"
+        >
+          <svg class="hero-replay-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            <path d="M9.15 6.55a.85.85 0 0 1 1.31-.71l7.4 4.85a.85.85 0 0 1 0 1.42l-7.4 4.85a.85.85 0 0 1-1.31-.71V6.55Z" fill="currentColor"/>
+          </svg>
+          <span class="hero-replay-label">Replay</span>
+        </button>
+          <script>
+            (function () {
+              var video = document.getElementById("hero-video");
+              var replay = document.getElementById("hero-replay");
+              if (!video) return;
+              var media = video.closest(".hero-media") || video.parentElement;
+              var hero = video.closest(".tribute-hero");
+              var mq = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+              var restarting = false;
+              var hasPlayed = false;
+
+              function setReplayLabel() {
+                if (!replay) return;
+                var word = hasPlayed ? "Replay" : "Play";
+                replay.setAttribute("aria-label", word + " the portrait animation");
+                var text = replay.querySelector(".hero-replay-label");
+                if (text) text.textContent = word;
+              }
+
+              function restOnStill() {
+                if (restarting) return;
+                if (!media || media.classList.contains("is-ended")) return;
+                media.classList.add("is-ended");
+                if (hero) {
+                  hero.classList.add("is-ended");
+                  hero.classList.remove("is-playing");
+                }
+                video.pause();
+                hasPlayed = true;
+                setReplayLabel();
+              }
+
+              function playFromStart() {
+                if (!hero || !media) return;
+                restarting = true;
+                hasPlayed = true;
+                hero.classList.add("is-playing");
+                if (video.getAttribute("preload") === "none") {
+                  video.setAttribute("preload", "auto");
+                }
+                function start() {
+                  media.classList.remove("is-ended");
+                  hero.classList.remove("is-ended");
+                  var playPromise = video.play();
+                  if (playPromise && playPromise.catch) playPromise.catch(function () {});
+                  restarting = false;
+                }
+                function afterReady() {
+                  if (video.readyState >= 2) start();
+                  else video.addEventListener("canplay", start, { once: true });
+                }
+                if (video.currentTime > 0.05 || video.ended) {
+                  video.addEventListener("seeked", afterReady, { once: true });
+                  video.currentTime = 0;
+                } else {
+                  afterReady();
+                }
+              }
+
+              video.addEventListener("ended", restOnStill);
+              video.addEventListener("timeupdate", function () {
+                if (video.duration && isFinite(video.duration) && video.currentTime >= video.duration - 0.12) {
+                  restOnStill();
+                }
+              });
+              if (replay) {
+                setReplayLabel();
+                replay.addEventListener("click", function (event) {
+                  event.preventDefault();
+                  playFromStart();
+                });
+              }
+              if (!mq) return;
+              function syncMotion() {
+                if (mq.matches) {
+                  video.removeAttribute("autoplay");
+                  if (hero && hero.classList.contains("is-playing")) return;
+                  video.pause();
+                  if (media && !media.classList.contains("is-ended")) {
+                    media.classList.add("is-ended");
+                    if (hero) {
+                      hero.classList.add("is-ended");
+                      hero.classList.remove("is-playing");
+                    }
+                  }
+                } else if (video.paused && media && !media.classList.contains("is-ended")) {
+                  video.play().catch(function () {});
+                }
+              }
+              if (mq.matches) {
+                video.removeAttribute("autoplay");
+                video.setAttribute("preload", "none");
+                video.pause();
+                media.classList.add("is-ended");
+                if (hero) {
+                  hero.classList.add("is-ended");
+                  hero.classList.remove("is-playing");
+                }
+                hasPlayed = false;
+                setReplayLabel();
+              }
+              if (mq.addEventListener) mq.addEventListener("change", syncMotion);
+            })();
+          </script>
       </header>
 
       <div class="tribute-body">
