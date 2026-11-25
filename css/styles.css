@@ -177,6 +177,7 @@ a { color: inherit; }
 }
 
 .mark {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -197,6 +198,48 @@ a { color: inherit; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
+}
+.mark-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  margin: 0;
+  padding: 0.28rem 0.1rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  min-width: 0;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+.mark-btn:hover .mark-name,
+.chapters.is-open .mark-name {
+  color: var(--accent-text);
+}
+.mark-caret {
+  flex: none;
+  color: var(--gold);
+  opacity: 0.8;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+.mark-btn:hover .mark-caret,
+.chapters.is-open .mark-caret {
+  opacity: 1;
+}
+.chapters.is-open .mark-caret {
+  transform: rotate(180deg);
+}
+.chapters.is-open::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px;
 }
 
 .header-actions {
@@ -988,6 +1031,110 @@ a { color: inherit; }
   .explore-item:focus-visible .mi-label,
   .explore-item.is-hl .mi-label { transform: none; }
   .explore-item::after { transform: none; }
+}
+
+.chapters-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 40;
+  min-width: 16.75rem;
+  width: max(16.75rem, 100%);
+  max-width: min(21rem, calc(100vw - 1.5rem));
+  max-height: min(28rem, calc(100vh - var(--site-header-height, 4.25rem) - 1.25rem));
+  max-height: min(28rem, calc(100dvh - var(--site-header-height, 4.25rem) - 1.25rem));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.4rem;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  border: 1px solid color-mix(in srgb, var(--gold) 42%, var(--line));
+  box-shadow: var(--shadow);
+}
+.chapters-panel:not([hidden]) {
+  animation: chapters-in 0.16s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes chapters-in {
+  from { opacity: 0; transform: translateY(-5px); }
+}
+.chapters-list { list-style: none; margin: 0; padding: 0; }
+.chapters-list > li:first-child {
+  margin-bottom: 0.28rem;
+  padding-bottom: 0.32rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 50%, var(--line));
+}
+.chapters-item {
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  padding: 0.52rem 0.75rem;
+  border-radius: 9px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  transition: color 0.2s var(--ease-out);
+}
+.chapters-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--tint);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease-out);
+}
+.chapters-home {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.chapters-item:hover,
+.chapters-item:focus-visible,
+.chapters-item.is-hl {
+  color: var(--accent-text);
+}
+.chapters-item:hover::after,
+.chapters-item:focus-visible::after,
+.chapters-item.is-hl::after {
+  opacity: 1;
+}
+.chapters-item:focus-visible { outline-offset: -2px; }
+.chapters-item[aria-current] { color: var(--accent-text); }
+.chapters-item[aria-current]::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--gold);
+}
+
+@media (max-width: 899px) {
+  .chapters-panel {
+    left: 0;
+    right: auto;
+    min-width: 15.5rem;
+    width: max(15.5rem, 100%);
+    max-width: min(20rem, calc(100vw - 1.25rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chapters-panel:not([hidden]) { animation: none; }
 }
 
 .recovered {
