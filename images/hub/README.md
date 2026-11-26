@@ -5,7 +5,7 @@ These files are used only on the home-page directory (the bento under the portra
 ## Current files
 
 - `biography.webp` / `biography-800.webp` — 16:9 crop of `images/chapter-desmoines.webp` (the high-chair painting) for the Biography feature.
-- `service-window.webp` / `service-window-800.webp` — 16:10 crop of `images/sommelier.webp`. Replace these two files if a new Service Window photograph arrives; a landscape crop at about 16:10 works best (around 1600px and 800px wide).
+- `service-window.webp` / `service-window-800.webp` — 16:10 crop of `images/chapter-renown.webp` (Wilhelm at the Tim Hortons drive-thru), kept high so he and the window stay in frame. Replace these two files if a new Service Window photograph arrives; a landscape crop at about 16:10 works best (around 1600px and 800px wide).
 - `library.webp` / `library-800.webp` / `library-480.webp` — full-bleed composite of three Library covers: *On Writing* (Stephen King), *Mind Hunter* (John E. Douglas), and *The Way of the Superior Man* (David Deida).
 - `screening-room.webp` / `screening-room-800.webp` / `screening-room-480.webp` — full-bleed composite of three Screening Room posters: *Aftersun*, *True Detective* (season 1), and *L.A. Confidential*.
 - `pets.webp` / `pets-800.webp` / `pets-480.webp` — 16:10 crop of `images/pets/larry-and-fred.webp`, framed so both cats stay in view.
