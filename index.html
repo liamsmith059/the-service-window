@@ -48,7 +48,7 @@
     })();
   </script>
   <link rel="preload" as="image" href="images/wilhelm-hero-poster.webp" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.css?v=20261126b">
+  <link rel="stylesheet" href="css/styles.css?v=20261126d">
 </head>
 <body class="has-hero">
   <a class="skip" href="#hub">Skip to the directory</a>
@@ -81,19 +81,26 @@
                 </a>
               </li>
               <li>
-                <a class="explore-item" href="library/">
-                  <span class="mi-label">The Library</span>
+                <a class="explore-item" href="archives/">
+                  <span class="mi-label">The Archives</span>
                 </a>
-              </li>
-              <li>
-                <a class="explore-item" href="screening-room/">
-                  <span class="mi-label">The Screening Room</span>
-                </a>
-              </li>
-              <li>
-                <a class="explore-item" href="podcasts/">
-                  <span class="mi-label">Podcasts</span>
-                </a>
+                <ul class="explore-sub">
+                  <li>
+                    <a class="explore-item" href="library/">
+                      <span class="mi-label">The Library</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="explore-item" href="screening-room/">
+                      <span class="mi-label">The Screening Room</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="explore-item" href="podcasts/">
+                      <span class="mi-label">Podcasts</span>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li>
                 <a class="explore-item" href="pets/">
@@ -116,9 +123,14 @@
         <nav class="desk-nav" aria-label="Pages">
           <a href="./" aria-current="page">Home</a>
           <a href="biography/">Biography</a>
-          <a href="library/">The Library</a>
-          <a href="screening-room/">The Screening Room</a>
-          <a href="podcasts/">Podcasts</a>
+          <div class="desk-nav-group">
+            <a href="archives/">The Archives</a>
+            <div class="desk-sub">
+              <a href="library/">The Library</a>
+              <a href="screening-room/">The Screening Room</a>
+              <a href="podcasts/">Podcasts</a>
+            </div>
+          </div>
           <a href="pets/">Pets</a>
         </nav>
       </div>
@@ -476,15 +488,15 @@
             <p class="hub-kicker">The directory</p>
             <h2 class="hub-title" id="hub-title">Around the house</h2>
           </div>
-          <p class="hub-lede">Start with the life, or go straight to the cellar, the shelves, the screen, the stairs, or the albums.</p>
+          <p class="hub-lede">Start with the life, or go straight to the cellar, the archives, the stairs, or the albums.</p>
         </header>
 
         <div class="hub-bento">
           <a class="bento-card bento-card--feature" href="biography/">
             <div class="bento-media">
               <img
-                src="images/hub/biography.webp?v=20261126b"
-                srcset="images/hub/biography-800.webp?v=20261126b 800w, images/hub/biography.webp?v=20261126b 1152w"
+                src="images/hub/biography.webp?v=20261126d"
+                srcset="images/hub/biography-800.webp?v=20261126d 800w, images/hub/biography.webp?v=20261126d 1152w"
                 sizes="(max-width: 680px) 100vw, 42rem"
                 width="1152"
                 height="648"
@@ -506,11 +518,11 @@
             </div>
           </a>
 
-          <a class="bento-card bento-card--wide" href="menu/">
+          <a class="bento-card bento-card--board" href="menu/">
             <div class="bento-media">
               <img
-                src="images/hub/service-window.webp?v=20261126b"
-                srcset="images/hub/service-window-800.webp?v=20261126b 800w, images/hub/service-window.webp?v=20261126b 1152w"
+                src="images/hub/service-window.webp?v=20261126d"
+                srcset="images/hub/service-window-800.webp?v=20261126d 800w, images/hub/service-window.webp?v=20261126d 1152w"
                 sizes="(max-width: 680px) 100vw, 36rem"
                 width="1152"
                 height="720"
@@ -532,53 +544,28 @@
             </div>
           </a>
 
-          <a class="bento-card bento-card--wide" href="library/">
+          <div class="hub-trio">
+            <a class="bento-card" href="archives/">
             <div class="bento-media">
               <img
-                src="images/hub/library.webp?v=20261126b"
-                srcset="images/hub/library-480.webp?v=20261126b 480w, images/hub/library-800.webp?v=20261126b 800w, images/hub/library.webp?v=20261126b 1600w"
-                sizes="(max-width: 680px) 100vw, 36rem"
-                width="1600"
-                height="1000"
-                loading="lazy"
-                decoding="async"
-                alt="A fan of three dark library volumes: On Writing, Mind Hunter, and The Way of the Superior Man."
-              >
-            </div>
-            <div class="bento-body">
-              <div class="bento-kicker-row">
-                <span class="bento-kicker">III · Reading</span>
-              </div>
-              <h3 class="bento-title">The Library</h3>
-              <p class="bento-desc">Thirty-seven books finished in full, with margin notes transcribed from napkins and receipts.</p>
-              <div class="bento-action">
-                <span>37 volumes</span>
-                <span aria-hidden="true">Enter →</span>
-              </div>
-            </div>
-          </a>
-
-          <a class="bento-card" href="screening-room/">
-            <div class="bento-media">
-              <img
-                src="images/hub/screening-room.webp?v=20261126b"
-                srcset="images/hub/screening-room-480.webp?v=20261126b 480w, images/hub/screening-room-800.webp?v=20261126b 800w, images/hub/screening-room.webp?v=20261126b 1600w"
+                src="images/hub/archives.webp?v=20261126d"
+                srcset="images/hub/archives-480.webp?v=20261126d 480w, images/hub/archives-800.webp?v=20261126d 800w, images/hub/archives.webp?v=20261126d 1600w"
                 sizes="(max-width: 680px) 100vw, 24rem"
                 width="1600"
                 height="1000"
                 loading="lazy"
                 decoding="async"
-                alt="A fan of three Screening Room posters: Aftersun, True Detective, and L.A. Confidential."
+                alt="A copy of The Stand standing beside a theatrical poster for The Silence of the Lambs."
               >
             </div>
             <div class="bento-body">
               <div class="bento-kicker-row">
-                <span class="bento-kicker">IV · Film &amp; TV</span>
+                <span class="bento-kicker">III · The collection</span>
               </div>
-              <h3 class="bento-title">The Screening Room</h3>
-              <p class="bento-desc">Thirty-five films and programmes scored without consulting consensus.</p>
-              <div class="bento-action">
-                <span>35 titles</span>
+              <h3 class="bento-title">The Archives</h3>
+              <p class="bento-desc">Books, pictures, and talk, kept in one wing so they stop wandering the halls.</p>
+              <div class="bento-action bento-action--packed">
+                <span>37 volumes · 48 titles · 70 episodes</span>
                 <span aria-hidden="true">Enter →</span>
               </div>
             </div>
@@ -587,8 +574,8 @@
           <a class="bento-card" href="pets/">
             <div class="bento-media">
               <img
-                src="images/hub/pets.webp?v=20261126b"
-                srcset="images/hub/pets-480.webp?v=20261126b 480w, images/hub/pets-800.webp?v=20261126b 800w, images/hub/pets.webp?v=20261126b 960w"
+                src="images/hub/pets.webp?v=20261126d"
+                srcset="images/hub/pets-480.webp?v=20261126d 480w, images/hub/pets-800.webp?v=20261126d 800w, images/hub/pets.webp?v=20261126d 960w"
                 sizes="(max-width: 680px) 100vw, 24rem"
                 width="960"
                 height="600"
@@ -599,7 +586,7 @@
             </div>
             <div class="bento-body">
               <div class="bento-kicker-row">
-                <span class="bento-kicker">V · Household</span>
+                <span class="bento-kicker">IV · Household</span>
               </div>
               <h3 class="bento-title">Pets</h3>
               <p class="bento-desc">Larry, still running the place, and Freddy (Mr. Fred), remembered fondly.</p>
@@ -610,31 +597,6 @@
             </div>
           </a>
 
-          <a class="bento-card" href="podcasts/">
-            <div class="bento-media">
-              <img
-                src="images/hub/podcasts.webp?v=20261126b"
-                srcset="images/hub/podcasts-480.webp?v=20261126b 480w, images/hub/podcasts-800.webp?v=20261126b 800w, images/hub/podcasts.webp?v=20261126b 1152w"
-                sizes="(max-width: 680px) 100vw, 24rem"
-                width="1152"
-                height="864"
-                loading="lazy"
-                decoding="async"
-                alt="Mr. Smithers listening to a podcast on a 1950s train."
-              >
-            </div>
-            <div class="bento-body">
-              <div class="bento-kicker-row">
-                <span class="bento-kicker">VI · Listening</span>
-              </div>
-              <h3 class="bento-title">Podcasts</h3>
-              <p class="bento-desc">Episodes worth a second hearing, grouped by show.</p>
-              <div class="bento-action">
-                <span>70 episodes</span>
-                <span aria-hidden="true">Enter →</span>
-              </div>
-            </div>
-          </a>
           <a class="bento-card" href="memories/">
             <div class="bento-media bento-media--type" aria-hidden="true">
               <div class="bento-type">
@@ -645,7 +607,7 @@
             </div>
             <div class="bento-body">
               <div class="bento-kicker-row">
-                <span class="bento-kicker">VII · The albums</span>
+                <span class="bento-kicker">V · The albums</span>
               </div>
               <h3 class="bento-title">Memories</h3>
               <p class="bento-desc">Photographs of the years, to be arranged in the order they were taken.</p>
@@ -655,6 +617,7 @@
               </div>
             </div>
           </a>
+          </div>
         </div>
       </section>
     </article>
@@ -665,15 +628,20 @@
       <div class="footer-links">
         <a class="footer-link" href="biography/">About the sommelier</a>
         <a class="footer-link" href="menu/">The menu</a>
-        <a class="footer-link" href="library/">The library</a>
-        <a class="footer-link" href="screening-room/">The screening room</a>
-        <a class="footer-link" href="podcasts/">Podcasts</a>
+        <div class="footer-group">
+          <a class="footer-link" href="archives/">The Archives</a>
+          <div class="footer-sub">
+            <a class="footer-link" href="library/">The Library</a>
+            <a class="footer-link" href="screening-room/">The Screening Room</a>
+            <a class="footer-link" href="podcasts/">Podcasts</a>
+          </div>
+        </div>
         <a class="footer-link" href="pets/">Pets</a>
         <a class="footer-link" href="memories/">Memories</a>
       </div>
     </div>
   </footer>
 
-  <script src="js/nav.js?v=20261126b"></script>
+  <script src="js/nav.js?v=20261126d"></script>
 </body>
 </html>

@@ -10,3 +10,4 @@ These files are used only on the home-page directory (the bento under the portra
 - `screening-room.webp` / `screening-room-800.webp` / `screening-room-480.webp` — full-bleed composite of three Screening Room posters: *Aftersun*, *True Detective* (season 1), and *L.A. Confidential*.
 - `pets.webp` / `pets-800.webp` / `pets-480.webp` — 16:10 crop of `images/pets/larry-and-fred.webp`, framed so both cats stay in view.
 - `podcasts.webp` / `podcasts-800.webp` / `podcasts-480.webp` — 1950s painting of Mr. Smithers listening on a train. Replace these three files if the artwork changes; the tile will cover-crop to 16:10.
+- `archives.webp` / `archives-800.webp` / `archives-480.webp` — full-bleed composite of one Library cover and one Screening Room poster: *The Stand* (Stephen King) and *The Silence of the Lambs*.

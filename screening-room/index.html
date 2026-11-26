@@ -34,7 +34,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../css/styles.css?v=20261126b">
+  <link rel="stylesheet" href="../css/styles.css?v=20261126d">
 </head>
 <body>
   <a class="skip" href="#content">Skip to the screening room</a>
@@ -67,19 +67,26 @@
                 </a>
               </li>
               <li>
-                <a class="explore-item" href="../library/">
-                  <span class="mi-label">The Library</span>
+                <a class="explore-item" href="../archives/">
+                  <span class="mi-label">The Archives</span>
                 </a>
-              </li>
-              <li>
-                <a class="explore-item" href="../screening-room/" aria-current="page">
-                  <span class="mi-label">The Screening Room</span>
-                </a>
-              </li>
-              <li>
-                <a class="explore-item" href="../podcasts/">
-                  <span class="mi-label">Podcasts</span>
-                </a>
+                <ul class="explore-sub">
+                  <li>
+                    <a class="explore-item" href="../library/">
+                      <span class="mi-label">The Library</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="explore-item" href="../screening-room/" aria-current="page">
+                      <span class="mi-label">The Screening Room</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="explore-item" href="../podcasts/">
+                      <span class="mi-label">Podcasts</span>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li>
                 <a class="explore-item" href="../pets/">
@@ -102,9 +109,14 @@
         <nav class="desk-nav" aria-label="Pages">
           <a href="../">Home</a>
           <a href="../biography/">Biography</a>
-          <a href="../library/">The Library</a>
-          <a href="../screening-room/" aria-current="page">The Screening Room</a>
-          <a href="../podcasts/">Podcasts</a>
+          <div class="desk-nav-group">
+            <a href="../archives/" aria-current="page">The Archives</a>
+            <div class="desk-sub">
+              <a href="../library/">The Library</a>
+              <a href="../screening-room/" aria-current="page">The Screening Room</a>
+              <a href="../podcasts/">Podcasts</a>
+            </div>
+          </div>
           <a href="../pets/">Pets</a>
         </nav>
       </div>
@@ -148,6 +160,7 @@
   <main id="content">
     <article class="library">
       <header class="library-intro">
+        <p class="section-crumb"><a href="../archives/">The Archives</a></p>
         <p class="library-kicker">A programme</p>
         <h1>The Screening Room</h1>
         <p>A partial record of the films and programmes Mr. Smithers has watched. The scores and remarks are his. The collection is unfinished.</p>
@@ -187,17 +200,22 @@
       <div class="footer-links">
         <a class="footer-link" href="../biography/">About the sommelier</a>
         <a class="footer-link" href="../menu/">The menu</a>
-        <a class="footer-link" href="../library/">The library</a>
-        <a class="footer-link" href="./">The screening room</a>
-        <a class="footer-link" href="../podcasts/">Podcasts</a>
+        <div class="footer-group">
+          <a class="footer-link" href="../archives/">The Archives</a>
+          <div class="footer-sub">
+            <a class="footer-link" href="../library/">The Library</a>
+            <a class="footer-link" href="./">The Screening Room</a>
+            <a class="footer-link" href="../podcasts/">Podcasts</a>
+          </div>
+        </div>
         <a class="footer-link" href="../pets/">Pets</a>
         <a class="footer-link" href="../memories/">Memories</a>
       </div>
     </div>
   </footer>
 
-  <script src="../js/nav.js?v=20261126b"></script>
-  <script src="../data/screenings.js?v=20261126b"></script>
-  <script src="../js/screening-room.js?v=20261126b"></script>
+  <script src="../js/nav.js?v=20261126d"></script>
+  <script src="../data/screenings.js?v=20261126d"></script>
+  <script src="../js/screening-room.js?v=20261126d"></script>
 </body>
 </html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Archives</title>
+  <meta name="description" content="The Library, The Screening Room, and Podcasts, filed under one roof.">
+  <link rel="canonical" href="https://wilhelmsmithers.ca/archives/">
+  <meta property="og:title" content="The Archives">
+  <meta property="og:description" content="The Library, The Screening Room, and Podcasts, filed under one roof.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wilhelmsmithers.ca/archives/">
+  <meta property="og:image" content="https://wilhelmsmithers.ca/images/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Archives">
+  <meta name="twitter:description" content="The Library, The Screening Room, and Podcasts, filed under one roof.">
+  <meta name="twitter:image" content="https://wilhelmsmithers.ca/images/og.jpg">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("sw-theme");
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/styles.css?v=20261126d">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to the archives</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="header-lead">
+        <div class="explore mark" id="explore">
+          <a class="mark-home" href="../">
+            <span class="mark-name">Wilhelm Smithers</span>
+          </a>
+          <button class="mark-caret-btn" id="explore-btn" type="button" aria-expanded="false" aria-controls="explore-panel" aria-haspopup="true" aria-label="Open menu">
+            <svg class="mark-caret" viewBox="0 0 12 8" width="10" height="7" aria-hidden="true" focusable="false"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <nav class="explore-panel" id="explore-panel" aria-label="Explore" hidden>
+            <ul class="explore-list">
+              <li>
+                <a class="explore-item" href="../">
+                  <span class="mi-kicker">Home</span>
+                  <span class="mi-label">Wilhelm Smithers</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../biography/">
+                  <span class="mi-label">Biography</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../menu/">
+                  <span class="mi-label">The Service Window</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../archives/" aria-current="page">
+                  <span class="mi-label">The Archives</span>
+                </a>
+                <ul class="explore-sub">
+                  <li>
+                    <a class="explore-item" href="../library/">
+                      <span class="mi-label">The Library</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="explore-item" href="../screening-room/">
+                      <span class="mi-label">The Screening Room</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="explore-item" href="../podcasts/">
+                      <span class="mi-label">Podcasts</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a class="explore-item" href="../pets/">
+                  <span class="mi-label">Pets</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="../memories/">
+                  <span class="mi-label">Memories</span>
+                </a>
+              </li>
+              <li>
+                <a class="explore-item" href="https://liamsmith059.github.io/study-lab/" rel="noopener">
+                  <span class="mi-label">Study Lab <span class="ext" aria-hidden="true">↗</span></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <nav class="desk-nav" aria-label="Pages">
+          <a href="../">Home</a>
+          <a href="../biography/">Biography</a>
+          <div class="desk-nav-group">
+            <a href="./" aria-current="page">The Archives</a>
+            <div class="desk-sub">
+              <a href="../library/">The Library</a>
+              <a href="../screening-room/">The Screening Room</a>
+              <a href="../podcasts/">Podcasts</a>
+            </div>
+          </div>
+          <a href="../pets/">Pets</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="theme-lamp" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+          <svg class="lamp-svg" viewBox="0 0 44 44" width="38" height="38" aria-hidden="true" focusable="false">
+            <defs>
+              <radialGradient id="lamp-aura-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffe082" stop-opacity="0.62"/>
+                <stop offset="45%" stop-color="#ffca58" stop-opacity="0.24"/>
+                <stop offset="100%" stop-color="#ffca58" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="lamp-cone-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffd977" stop-opacity="0.34"/>
+                <stop offset="100%" stop-color="#ffd977" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="lamp-chain-clip">
+                <rect x="24" y="17.5" width="10" height="26"/>
+              </clipPath>
+            </defs>
+            <circle class="lamp-aura" cx="20" cy="20" r="17" fill="url(#lamp-aura-grad)"/>
+            <polygon class="lamp-cone" points="10.5,18 29.5,18 35,35 5,35" fill="url(#lamp-cone-grad)"/>
+            <g clip-path="url(#lamp-chain-clip)">
+              <g class="lamp-chain">
+                <line class="lamp-cord" x1="28.5" y1="10" x2="28.5" y2="27.2"/>
+                <circle class="lamp-knob" cx="28.5" cy="29.2" r="2.1"/>
+              </g>
+            </g>
+            <ellipse class="lamp-bulb" cx="20" cy="18.8" rx="3.9" ry="4.2"/>
+            <circle class="lamp-bulb-core" cx="20" cy="19.3" r="1.9"/>
+            <line class="lamp-stem" x1="20" y1="22.8" x2="20" y2="35.8"/>
+            <path class="lamp-base" d="M15.2 35.8h9.6M13 38.4h14"/>
+            <path class="lamp-shade" d="M14 7.5h12l5 10.5H9Z"/>
+            <line class="lamp-shade-trim" x1="9.6" y1="16.4" x2="30.4" y2="16.4"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <article class="archives">
+      <header class="library-intro archives-intro">
+        <p class="library-kicker">The stacks</p>
+        <h1>The Archives</h1>
+        <p>Books, pictures, and talk, kept in one wing so they stop wandering the halls.</p>
+      </header>
+
+      <div class="archives-bento">
+        <a class="bento-card" href="../library/">
+          <div class="bento-media">
+            <img
+              src="../images/hub/library.webp?v=20261126d"
+              srcset="../images/hub/library-480.webp?v=20261126d 480w, ../images/hub/library-800.webp?v=20261126d 800w, ../images/hub/library.webp?v=20261126d 1600w"
+              sizes="(max-width: 680px) 100vw, 22rem"
+              width="1600"
+              height="1000"
+              loading="eager"
+              decoding="async"
+              alt="A fan of three dark library volumes: On Writing, Mind Hunter, and The Way of the Superior Man."
+            >
+          </div>
+          <div class="bento-body">
+            <div class="bento-kicker-row">
+              <span class="bento-kicker">Reading</span>
+            </div>
+            <h2 class="bento-title">The Library</h2>
+            <p class="bento-desc">Thirty-seven books finished in full, with the margin notes still attached.</p>
+            <div class="bento-action">
+              <span>37 volumes</span>
+              <span aria-hidden="true">Enter →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="bento-card" href="../screening-room/">
+          <div class="bento-media">
+            <img
+              src="../images/hub/screening-room.webp?v=20261126d"
+              srcset="../images/hub/screening-room-480.webp?v=20261126d 480w, ../images/hub/screening-room-800.webp?v=20261126d 800w, ../images/hub/screening-room.webp?v=20261126d 1600w"
+              sizes="(max-width: 680px) 100vw, 22rem"
+              width="1600"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+              alt="A fan of three Screening Room posters: Aftersun, True Detective, and L.A. Confidential."
+            >
+          </div>
+          <div class="bento-body">
+            <div class="bento-kicker-row">
+              <span class="bento-kicker">Film &amp; TV</span>
+            </div>
+            <h2 class="bento-title">The Screening Room</h2>
+            <p class="bento-desc">Forty-eight films and programmes, scored without consulting consensus.</p>
+            <div class="bento-action">
+              <span>48 titles</span>
+              <span aria-hidden="true">Enter →</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="bento-card" href="../podcasts/">
+          <div class="bento-media">
+            <img
+              src="../images/hub/podcasts.webp?v=20261126d"
+              srcset="../images/hub/podcasts-480.webp?v=20261126d 480w, ../images/hub/podcasts-800.webp?v=20261126d 800w, ../images/hub/podcasts.webp?v=20261126d 1152w"
+              sizes="(max-width: 680px) 100vw, 22rem"
+              width="1152"
+              height="864"
+              loading="lazy"
+              decoding="async"
+              alt="Mr. Smithers listening to a podcast on a 1950s train."
+            >
+          </div>
+          <div class="bento-body">
+            <div class="bento-kicker-row">
+              <span class="bento-kicker">Listening</span>
+            </div>
+            <h2 class="bento-title">Podcasts</h2>
+            <p class="bento-desc">Episodes worth a second hearing, grouped by show.</p>
+            <div class="bento-action">
+              <span>70 episodes</span>
+              <span aria-hidden="true">Enter →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a class="footer-link" href="../biography/">About the sommelier</a>
+        <a class="footer-link" href="../menu/">The menu</a>
+        <div class="footer-group">
+          <a class="footer-link" href="./">The Archives</a>
+          <div class="footer-sub">
+            <a class="footer-link" href="../library/">The Library</a>
+            <a class="footer-link" href="../screening-room/">The Screening Room</a>
+            <a class="footer-link" href="../podcasts/">Podcasts</a>
+          </div>
+        </div>
+        <a class="footer-link" href="../pets/">Pets</a>
+        <a class="footer-link" href="../memories/">Memories</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js?v=20261126d"></script>
+</body>
+</html>
