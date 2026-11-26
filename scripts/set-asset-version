@@ -13,8 +13,9 @@ Updates:
   - local stylesheet and script tags in every HTML page
   - home-page hub tile src/srcset URLs
   - the ASSET_VERSION constant in js/app.js, js/podcasts.js,
-    js/screening-room.js and js/memories.js (used for pairing photos,
-    show art, posters and memory photographs built at runtime)
+    js/screening-room.js, js/memories.js and js/crate.js (used for pairing
+    photos, show art, posters, memory photographs and crate sleeves
+    built at runtime)
 """
 from __future__ import annotations
 
@@ -29,6 +30,7 @@ JS_FILES = [
     ROOT / "js/podcasts.js",
     ROOT / "js/screening-room.js",
     ROOT / "js/memories.js",
+    ROOT / "js/crate.js",
 ]
 VERSION_RE = re.compile(r"^[A-Za-z0-9._-]+$")
 

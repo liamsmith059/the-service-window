@@ -3267,7 +3267,7 @@ a.bento-card:hover .bento-type { transform: scale(1.03); }
 .archives-bento {
   margin-top: 2.25rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.35rem;
 }
 .archives-bento .bento-card { grid-column: auto; }
@@ -3282,10 +3282,19 @@ a.bento-card:hover .bento-type { transform: scale(1.03); }
 .hub-trio .bento-card { grid-column: auto; }
 
 @media (max-width: 980px) {
-  .archives-bento,
   .hub-trio { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .archives-bento { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 680px) {
   .archives { width: min(72rem, calc(100% - 1.5rem)); }
 }
+
+.sleeve-cover {
+  aspect-ratio: 1 / 1;
+  border-radius: 3px;
+}
+

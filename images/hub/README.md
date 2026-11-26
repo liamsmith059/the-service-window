@@ -11,3 +11,4 @@ These files are used only on the home-page directory (the bento under the portra
 - `pets.webp` / `pets-800.webp` / `pets-480.webp` — 16:10 crop of `images/pets/larry-and-fred.webp`, framed so both cats stay in view.
 - `podcasts.webp` / `podcasts-800.webp` / `podcasts-480.webp` — 1950s painting of Mr. Smithers listening on a train. Replace these three files if the artwork changes; the tile will cover-crop to 16:10.
 - `archives.webp` / `archives-800.webp` / `archives-480.webp` — full-bleed composite of one Library cover and one Screening Room poster: *The Stand* (Stephen King) and *The Silence of the Lambs*.
+- `crate.webp` / `crate-800.webp` / `crate-480.webp` — full-bleed composite of three vinyl sleeves: *Faces* (Mac Miller), *Harry's House* (Harry Styles), and *Live in '25* (Peach Pit). Used on the Archives directory. Each source photograph was cropped to just its square sleeve, then all three were scaled to identical pixel dimensions before composing.
