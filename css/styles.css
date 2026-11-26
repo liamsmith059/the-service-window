@@ -2247,12 +2247,14 @@ body.has-hero .site-header:not(.is-scrolled) .explore.is-open .mark-name {
   color: #e2c58a;
 }
 
-body.has-hero .site-header:not(.is-scrolled) .desk-nav a {
+body.has-hero .site-header:not(.is-scrolled) .desk-nav > a,
+body.has-hero .site-header:not(.is-scrolled) .desk-nav-group > a {
   color: rgba(246, 242, 234, 0.88);
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.34);
 }
 
-body.has-hero .site-header:not(.is-scrolled) .desk-nav a[aria-current="page"] {
+body.has-hero .site-header:not(.is-scrolled) .desk-nav > a[aria-current="page"],
+body.has-hero .site-header:not(.is-scrolled) .desk-nav-group > a[aria-current="page"] {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.14);
 }
@@ -2260,6 +2262,27 @@ body.has-hero .site-header:not(.is-scrolled) .desk-nav a[aria-current="page"] {
 body.has-hero .site-header:not(.is-scrolled) .explore-panel,
 body.has-hero .site-header:not(.is-scrolled) .desk-sub {
   color: var(--ink);
+  background: var(--panel);
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+  text-shadow: none;
+}
+
+body.has-hero .site-header:not(.is-scrolled) .desk-sub a {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+body.has-hero .site-header:not(.is-scrolled) .desk-sub a[aria-current="page"] {
+  color: var(--accent-text);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+body.has-hero .site-header:not(.is-scrolled) .desk-sub a:hover,
+body.has-hero .site-header:not(.is-scrolled) .desk-sub a:focus-visible {
+  background: var(--tint);
+  color: var(--accent-text);
+  text-shadow: none;
 }
 
 :root:not([data-theme="dark"]) body.has-hero .site-header:not(.is-scrolled) .lamp-stem,
@@ -2288,11 +2311,13 @@ body.has-hero .site-header:not(.is-scrolled) .desk-sub {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  body.has-hero .site-header:not(.is-scrolled) .desk-nav a:hover {
+  body.has-hero .site-header:not(.is-scrolled) .desk-nav > a:hover,
+  body.has-hero .site-header:not(.is-scrolled) .desk-nav-group > a:hover {
     background: rgba(255, 255, 255, 0.12);
     color: #ffffff;
   }
-  body.has-hero .site-header:not(.is-scrolled) .desk-nav a[aria-current="page"]:hover {
+  body.has-hero .site-header:not(.is-scrolled) .desk-nav > a[aria-current="page"]:hover,
+  body.has-hero .site-header:not(.is-scrolled) .desk-nav-group > a[aria-current="page"]:hover {
     background: rgba(255, 255, 255, 0.2);
     color: #ffffff;
   }
@@ -3172,6 +3197,8 @@ a.bento-card:hover .bento-type { transform: scale(1.03); }
   background: var(--panel);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
+  color: var(--ink);
+  text-shadow: none;
 }
 .desk-nav-group::after {
   content: "";
@@ -3194,6 +3221,7 @@ a.bento-card:hover .bento-type { transform: scale(1.03); }
   letter-spacing: -0.01em;
   color: var(--ink);
   background: transparent;
+  text-shadow: none;
   white-space: nowrap;
 }
 @media (hover: hover) and (pointer: fine) {
@@ -3201,6 +3229,12 @@ a.bento-card:hover .bento-type { transform: scale(1.03); }
     background: var(--tint);
     color: var(--accent-text);
   }
+}
+.desk-sub a:focus-visible {
+  background: var(--tint);
+  color: var(--accent-text);
+  outline: 2px solid var(--accent-text);
+  outline-offset: -2px;
 }
 .desk-sub a[aria-current="page"] {
   color: var(--accent-text);

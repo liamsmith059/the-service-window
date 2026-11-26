@@ -1,5 +1,5 @@
 (function () {
-  var ASSET_VERSION = "20261126f";
+  var ASSET_VERSION = "20261126g";
 
   function cacheBust(url) {
     if (!url) return url;
