@@ -5,6 +5,8 @@
  *
  * Catalogue order is Liam's list order (films first, then television),
  * with Red Dragon placed immediately after The Silence of the Lambs.
+ * Films later imported from his public Letterboxd diary are added
+ * after the original film list and before television.
  *
  * To add an entry later (including a Letterboxd or IMDb import):
  *   1. Add an object to SCREENINGS, in catalogue order.
@@ -516,6 +518,160 @@ window.SCREENINGS = [
     ],
     "review": "Really great feel good 80s movie. Brings back memories of high school, university, and life as a young adult navigating the world.",
     "posterAlt": "Official theatrical poster for Fast Times at Ridgemont High (1982).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "shutter-island",
+    "type": "film",
+    "title": "Shutter Island",
+    "year": 2010,
+    "director": "Martin Scorsese",
+    "runtime": 138,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Mystery"
+    ],
+    "rating": 10.0,
+    "posterAlt": "Official theatrical poster for Shutter Island (2010).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "bring-her-back",
+    "type": "film",
+    "title": "Bring Her Back",
+    "year": 2025,
+    "director": "Danny Philippou and Michael Philippou",
+    "runtime": 104,
+    "genres": [
+      "Horror"
+    ],
+    "rating": 10.0,
+    "review": "Extremely interesting and well done. Realistically 4.75/5.",
+    "posterAlt": "Official theatrical poster for Bring Her Back (2025).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "mads",
+    "type": "film",
+    "title": "MadS",
+    "year": 2024,
+    "director": "David Moreau",
+    "runtime": 89,
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "rating": 9.0,
+    "review": "One of the most intriguing starts to a movie I've ever seen. The suspense is killer.",
+    "posterAlt": "Official theatrical poster for MadS (2024).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "frozen-2010",
+    "type": "film",
+    "title": "Frozen",
+    "year": 2010,
+    "director": "Adam Green",
+    "runtime": 94,
+    "genres": [
+      "Thriller"
+    ],
+    "rating": 5.0,
+    "review": "Interesting, I'll give it that. But overall extremely predictable and typical dumber than dumb protagonists.",
+    "posterAlt": "Official theatrical poster for Frozen (2010), the Adam Green survival thriller.",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "obsession",
+    "type": "film",
+    "title": "Obsession",
+    "year": 2026,
+    "director": "Curry Barker",
+    "runtime": 109,
+    "genres": [
+      "Horror",
+      "Thriller"
+    ],
+    "rating": 8.0,
+    "review": "Pretty good movie, I thought they really brought it home in the second half. 3.75/5.",
+    "posterAlt": "Official theatrical poster for Obsession (2026).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "weapons",
+    "type": "film",
+    "title": "Weapons",
+    "year": 2025,
+    "director": "Zach Cregger",
+    "runtime": 128,
+    "genres": [
+      "Horror",
+      "Mystery"
+    ],
+    "rating": 6.0,
+    "review": "Pretty good movie in all honesty, but something about it just didn't do it for me. Not something I have any real interest in watching again.",
+    "posterAlt": "Official theatrical poster for Weapons (2025).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "barbarian",
+    "type": "film",
+    "title": "Barbarian",
+    "year": 2022,
+    "director": "Zach Cregger",
+    "runtime": 103,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Thriller"
+    ],
+    "rating": 8.0,
+    "review": "Extremely underrated. Very slow start but that middle half was fantastic.",
+    "posterAlt": "Official theatrical poster for Barbarian (2022).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "longlegs",
+    "type": "film",
+    "title": "Longlegs",
+    "year": 2024,
+    "director": "Osgood Perkins",
+    "runtime": 101,
+    "genres": [
+      "Crime",
+      "Horror",
+      "Mystery"
+    ],
+    "rating": 8.0,
+    "review": "Really good movie. Slightly strange at times but genuinely creepy.",
+    "posterAlt": "Official theatrical poster for Longlegs (2024).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "the-girl-who-got-away",
+    "type": "film",
+    "title": "The Girl Who Got Away",
+    "year": 2021,
+    "director": "Michael Morrissey",
+    "runtime": 117,
+    "genres": [
+      "Horror",
+      "Thriller",
+      "Mystery"
+    ],
+    "rating": 7.0,
+    "review": "Thoroughly entertaining. Quite surprised by the negative reviews.",
+    "posterAlt": "Official theatrical poster for The Girl Who Got Away (2021).",
     "posterWidth": 480,
     "posterHeight": 720
   },
