@@ -676,6 +676,74 @@ window.SCREENINGS = [
     "posterHeight": 720
   },
   {
+    "slug": "the-prestige",
+    "type": "film",
+    "title": "The Prestige",
+    "year": 2006,
+    "director": "Christopher Nolan",
+    "runtime": 131,
+    "genres": [
+      "Drama",
+      "Mystery",
+      "Science Fiction"
+    ],
+    "rating": 9.0,
+    "posterAlt": "Official theatrical poster for The Prestige (2006).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "the-girl-with-the-dragon-tattoo",
+    "type": "film",
+    "title": "The Girl with the Dragon Tattoo",
+    "year": 2011,
+    "director": "David Fincher",
+    "runtime": 158,
+    "genres": [
+      "Thriller",
+      "Crime",
+      "Mystery"
+    ],
+    "rating": 8.0,
+    "posterAlt": "Official theatrical poster for The Girl with the Dragon Tattoo (2011).",
+    "posterWidth": 480,
+    "posterHeight": 712
+  },
+  {
+    "slug": "eyes-wide-shut",
+    "type": "film",
+    "title": "Eyes Wide Shut",
+    "year": 1999,
+    "director": "Stanley Kubrick",
+    "runtime": 159,
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Mystery"
+    ],
+    "rating": 8.0,
+    "posterAlt": "Official theatrical poster for Eyes Wide Shut (1999).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
+    "slug": "backrooms",
+    "type": "film",
+    "title": "Backrooms",
+    "year": 2026,
+    "director": "Kane Parsons",
+    "runtime": 111,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Science Fiction"
+    ],
+    "rating": 8.0,
+    "posterAlt": "Official theatrical poster for Backrooms (2026).",
+    "posterWidth": 480,
+    "posterHeight": 720
+  },
+  {
     "slug": "true-detective-s1",
     "type": "tv",
     "title": "True Detective (Season 1)",
