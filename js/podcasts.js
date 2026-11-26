@@ -1,6 +1,6 @@
 (function () {
   var shows = Array.isArray(window.PODCASTS) ? window.PODCASTS : [];
-  var ASSET_VERSION = "20261126g";
+  var ASSET_VERSION = "20261126h";
 
   function cacheBust(url) {
     if (!url) return url;
