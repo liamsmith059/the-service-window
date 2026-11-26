@@ -1,6 +1,6 @@
 (function () {
   var items = Array.isArray(window.MEMORIES) ? window.MEMORIES : [];
-  var ASSET_VERSION = "20261126h";
+  var ASSET_VERSION = "20261126i";
   var MONTHS = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
